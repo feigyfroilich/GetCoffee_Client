@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Shop } from 'src/classes/shop';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -8,9 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowShopsComponent implements OnInit {
   panelOpenState = false;
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.getAllShops().subscribe(res => {
+      console.log('res', res);
+    });
   }
-
+  getAllShops() {
+    return this.http.get(`http://localhost:8090/api/shops`);
+}
 }

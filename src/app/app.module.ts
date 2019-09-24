@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { ShowShopsComponent } from 'src/components/show-shops/show-shops.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
+import { HttpClientModule } from '@angular/common/http';
+
 import {
   MatButtonModule,
   MatFormFieldModule,
@@ -31,7 +33,8 @@ import {
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatRippleModule
+    MatRippleModule,
+    HttpClientModule
 
   ],
   exports: [
