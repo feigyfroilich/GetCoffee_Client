@@ -8,5 +8,10 @@ export class Shop {
   public ran: number = null ;
   public numOfCustomer: number = null;
   public accountNumber: number = null ;
+
+
+  constructor(obj?: any) {
+    Object.assign(this, obj);
+  }
 }
 
