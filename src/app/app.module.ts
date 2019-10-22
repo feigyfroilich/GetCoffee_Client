@@ -7,7 +7,7 @@ import { ShowShopsComponent } from 'src/components/show-shops/show-shops.compone
 import {MatExpansionModule} from '@angular/material/expansion';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { HttpClientModule } from '@angular/common/http';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 import {
   MatButtonModule,
   MatFormFieldModule,
@@ -19,10 +19,18 @@ import {
   MatCardModule
 } from '@angular/material';
 
+
+import { CustomMaterialModule } from './core/material.module';
+import {FormsModule} from '@angular/forms';
+import { UserComponent } from '../components/user/user.component';
+import { LoginComponent } from '../components/login/login.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    ShowShopsComponent
+    ShowShopsComponent,
+    LoginComponent,
+    UserComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -34,7 +42,11 @@ import {
     MatFormFieldModule,
     MatInputModule,
     MatRippleModule,
-    HttpClientModule
+    HttpClientModule,
+    FlexLayoutModule,
+    MatCardModule,
+    CustomMaterialModule,
+    FormsModule
 
   ],
   exports: [
