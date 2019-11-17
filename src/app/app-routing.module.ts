@@ -5,12 +5,10 @@ import { ShowShopsComponent } from 'src/components/show-shops/show-shops.compone
 import { UserComponent } from 'src/components/user/user.component';
 
 
-const routes: Routes = [{
-  path: '',
-  component: ShowShopsComponent
-},
+const routes: Routes = [
+{path: '', component: LoginComponent},
 { path: 'user', component: UserComponent },
-{ path: 'login', component: LoginComponent }];
+{ path: 'shops', component: ShowShopsComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

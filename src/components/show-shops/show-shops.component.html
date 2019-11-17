@@ -7,7 +7,9 @@
         {{shop.name}}
       </mat-panel-title>
       <mat-panel-description>
-        click for details
+        <button (click)="share(shop.code)">
+          Share
+        </button>
       </mat-panel-description>
     </mat-expansion-panel-header>
     <p>location: {{shop.location}} , num of customers: {{shop.numOfCustomer}} , account number: {{shop.accountNumber}}</p>
