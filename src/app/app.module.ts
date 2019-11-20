@@ -8,6 +8,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {} from 'googlemaps';
 import {
   MatButtonModule,
   MatFormFieldModule,
@@ -24,13 +25,16 @@ import { CustomMaterialModule } from './core/material.module';
 import {FormsModule} from '@angular/forms';
 import { UserComponent } from '../components/user/user.component';
 import { LoginComponent } from '../components/login/login.component';
+import { AgmCoreModule } from '@agm/core';
+import { MapsAgmComponent } from 'src/components/maps-agm/maps-agm.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ShowShopsComponent,
     LoginComponent,
-    UserComponent
+    UserComponent,
+    MapsAgmComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -46,7 +50,12 @@ import { LoginComponent } from '../components/login/login.component';
     FlexLayoutModule,
     MatCardModule,
     CustomMaterialModule,
-    FormsModule
+    FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyC6BFc9DWG808BYUh95Z0EcUzIVAjw7-ro',
+      libraries: ['places']
+
+    })
 
   ],
   exports: [
