@@ -1,15 +1,18 @@
+<!-- npm install angular2-google-map-auto-complete
 <p>maps-agm works!</p>
 <agm-map [latitude]="lat" [longitude]="lng">
   <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
 </agm-map>
-<!-- <input #search autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control">
+ <input #search autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control">
 <agm-map [latitude]="lat" [longitude]="lng">
   <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
 </agm-map> -->
-<input #search autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control">
+<!-- <input #search autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control"> -->
+
 
 <!-- The content below is only a placeholder and can be replaced. -->
-<h1>Google Maps Address Finder</h1>
+<!-- <h1>Google Maps Address Finder</h1>
+
 <agm-map [latitude]="latitude" [longitude]="longitude"  [scrollwheel]="true" [zoom]="zoom" [fullscreenControl]="true">
   <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
 </agm-map>
@@ -76,3 +79,66 @@
 
   </div>
 </div>
+<mat-form-field>
+  <mat-label>Address << using the directive >></mat-label>
+  <input matInput
+       matGoogleMapsAutocomplete
+       [country]="de"
+       (onAutocompleteSelected)="onAutocompleteSelected($event)"
+       (onLocationSelected)="onLocationSelected($event)">
+</mat-form-field>
+<mat-google-maps-autocomplete [appearance]="appearance.OUTLINE"
+                              (onAutocompleteSelected)="onAutocompleteSelected($event)"
+                              (onLocationSelected)="onLocationSelected($event)">
+      </mat-google-maps-autocomplete>
+
+      <div class="container" fxLayout="column" fxLayoutAlign="center">
+
+        <div fxFlex>
+          <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+            <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+          </agm-map>
+        </div>
+
+        <div fxFlex fxFlexAlign="center"
+             class="autocomplete-container"
+             [ngStyle.xs]="{'min-width.%': 100}"
+             [ngStyle.sm]="{'width.%': 70}">
+          <mat-google-maps-autocomplete (onAutocompleteSelected)="onAutocompleteSelected($event)"
+                                        (onLocationSelected)="onLocationSelected($event)">
+          </mat-google-maps-autocomplete>
+        </div>
+
+      </div> -->
+
+
+<!-- <mat-google-maps-autocomplete  country="us"
+      type="address"
+      (onAutocompleteSelected)="onAutocompleteSelected($event)"
+      (onLocationSelected)="onLocationSelected($event)">
+</mat-google-maps-autocomplete>
+<mat-google-maps-autocomplete [appearance]="appearance.OUTLINE"
+                              (onAutocompleteSelected)="onAutocompleteSelected($event)"
+                              (onLocationSelected)="onLocationSelected($event)">
+      </mat-google-maps-autocomplete> -->
+<!-- combine the result of the mat-google-maps-autocomplete with a google map instance via @agm -->
+
+<div class="container" fxLayout="column" fxLayoutAlign="center">
+
+<div fxFlex>
+<agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+<agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+</agm-map>
+</div>
+
+<div fxFlex fxFlexAlign="center"
+class="autocomplete-container"
+[ngStyle.xs]="{'min-width.%': 100}"
+[ngStyle.sm]="{'width.%': 70}">
+
+<mat-google-maps-autocomplete (onAutocompleteSelected)="onAutocompleteSelected($event)"
+           (onLocationSelected)="onLocationSelected($event)">
+</mat-google-maps-autocomplete>
+</div></div>
+
+

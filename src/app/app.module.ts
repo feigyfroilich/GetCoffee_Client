@@ -8,6 +8,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
+
 import {} from 'googlemaps';
 import {
   MatButtonModule,
@@ -55,7 +57,9 @@ import { MapsAgmComponent } from 'src/components/maps-agm/maps-agm.component';
       apiKey: 'AIzaSyC6BFc9DWG808BYUh95Z0EcUzIVAjw7-ro',
       libraries: ['places']
 
-    })
+    }),
+    MatGoogleMapsAutocompleteModule,
+    AgmCoreModule.forRoot()
 
   ],
   exports: [

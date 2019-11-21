@@ -1,48 +1,37 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { MapsAPILoader } from '@agm/core';
-import { google } from '@agm/core/services/google-maps-types';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Title} from '@angular/platform-browser';
+import {Location, Appearance} from '@angular-material-extensions/google-maps-autocomplete';
 import {} from 'googlemaps';
-import { FormControl } from '@angular/forms';
+import PlaceResult = google.maps.places.PlaceResult;
 
-import { NgZone, } from '@angular/core';
-
-import {} from 'googlemaps';
 @Component({
   selector: 'app-maps-agm',
   templateUrl: './maps-agm.component.html',
-  styleUrls: ['./maps-agm.component.scss']
+  styleUrls: ['./maps-agm.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
-export class MapsAgmComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('search', {static: true}) searchElementRef: ElementRef;
+export class MapsAgmComponent implements OnInit {
 
-  title = 'My first AGM project';
-  lat = 51.678418;
-  lng = 7.809007;
+  public appearance = Appearance;
+  public zoom: number;
+  public latitude: number;
+  public longitude: number;
+  public selectedAddress: PlaceResult;
 
-  public latitude: number = 51.678418;
-  public longitude: number = 7.809007;
-  public fillInAddress: '';
-  public searchControl: FormControl;
-  public zoom: number = 12;
-  public f_addr: string;
-  public city: string;
-  public country: string;
-  public scountry: string;
-  public postCode: string;
-  public estab: string;
-  public state: string;
-
-
-  ngAfterViewInit(): void {
-    // this.findAdress()
+  constructor(private titleService: Title) {
   }
 
+  ngOnInit() {
+    this.titleService.setTitle('Home | @angular-material-extensions/google-maps-autocomplete');
 
-    constructor(private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) {  }
-    ngOnInit() {
-      this.setCurrentPosition();
-    }
+    this.zoom = 10;
+    this.latitude = 52.520008;
+    this.longitude = 13.404954;
+
+    this.setCurrentPosition();
+
+  }
 
   private setCurrentPosition() {
     if ('geolocation' in navigator) {
@@ -54,4 +43,14 @@ export class MapsAgmComponent implements OnInit, AfterViewInit {
     }
   }
 
+  onAutocompleteSelected(result: PlaceResult) {
+    console.log('onAutocompleteSelected: ', result);
+  }
+
+  onLocationSelected(location: Location) {
+    console.log('onLocationSelected: ', location);
+    this.latitude = location.latitude;
+    this.longitude = location.longitude;
+  }
 }
+
