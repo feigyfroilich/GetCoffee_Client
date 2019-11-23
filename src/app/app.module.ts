@@ -54,7 +54,7 @@ import { MapsAgmComponent } from 'src/components/maps-agm/maps-agm.component';
     CustomMaterialModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyC6BFc9DWG808BYUh95Z0EcUzIVAjw7-ro',
+      apiKey: 'key',
       libraries: ['places']
 
     }),
