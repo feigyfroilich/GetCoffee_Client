@@ -21,7 +21,7 @@ export class ShowShopsComponent implements OnInit {
 
   ngOnInit() {
     this.getAllShops().subscribe(res => {
-      console.log('res {}', res);
+      console.log('shops', res);
       this.shopsList = res;
 
     });
