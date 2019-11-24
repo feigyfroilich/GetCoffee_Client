@@ -18,18 +18,23 @@ export class LoginComponent implements OnInit {
   password: string;
   password1: string;
   newUser: boolean;
+  equals: boolean;
   users = [];
   ngOnInit() {
     this.newUser = false;
+    this.equals = false;
+    this.password1=""
+    this.password=""
   }
   getAllUsers(): Observable<User[]> {
     return this.http.get<User[]>(`http://localhost:8090/api/users`).pipe(
       map(res => res.map(u => new User(u))));
   }
-
+  check_equals():boolean{
+    return this.password!==this.password1;
+  }
   login(): void {
-    if (this.newUser === true)
-    {
+    if (this.newUser === true) {
       this.addNewUser();
       return;
     }
@@ -56,8 +61,14 @@ export class LoginComponent implements OnInit {
       alert('Invalid credentials , are you sure you eve sign to GetCoffee+ ??');
     }
   }
- addNewUser(): void {
-   console.log('im in add new user');
- }
+  addNewUser(): void {
+    if (this.password !== this.password1){
+      this.equals = true;
+      return;
+    }
+    let u: User;
+    u = new User({id: 0, name: this.username, password: this.password});
+    console.log('im in add new user', u);
+  }
 }
 
