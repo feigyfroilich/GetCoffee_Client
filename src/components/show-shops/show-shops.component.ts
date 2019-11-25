@@ -28,20 +28,27 @@ export class ShowShopsComponent implements OnInit {
   }
 
   share(code: number): any {
-    this.getShopById(code).subscribe(res => {console.log('res {}', res);
-                                             this.chosenShop.push(res);
-                                             console.log('list', this.chosenShop);
+    this.getShopById(code).subscribe(res => {
+      console.log('res ', res);
+      if (!this.chosenShop.some((item) => item.code === res.code)) {
+        this.chosenShop.push(res);
+        console.log('list', this.chosenShop.toString());
+        this.chosenShop.forEach((item, index) => {
+          console.log('item', item); // 9, 2, 5
+          console.log('index', index); // 0, 1, 2
+      });
+      }
     });
   }
 
   getAllShops(): Observable<Shop[]> {
     return this.http.get<Shop[]>(`http://localhost:8090/api/shops`).pipe(
-      map(res => res.map(d  => new Shop(d))));
+      map(res => res.map(d => new Shop(d))));
   }
 
   getShopById(sh: number): Observable<Shop> {
     return this.http.get<Shop[]>(`http://localhost:8090/api/shops/${sh}`).pipe(
-      map(d  => new Shop(d)));
+      map(d => new Shop(d)));
   }
 
 
