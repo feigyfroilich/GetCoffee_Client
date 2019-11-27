@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ShowShopsComponent } from 'src/components/show-shops/show-shops.component';
+import { ShowShopsComponent } from 'src/app/component/show-shops/show-shops.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { HttpClientModule } from '@angular/common/http';
@@ -25,10 +25,10 @@ import {
 
 import { CustomMaterialModule } from './core/material.module';
 import {FormsModule} from '@angular/forms';
-import { UserComponent } from '../components/user/user.component';
-import { LoginComponent } from '../components/login/login.component';
+import { UserComponent } from './component/user/user.component';
+import { LoginComponent } from './component/login/login.component';
 import { AgmCoreModule } from '@agm/core';
-import { MapsAgmComponent } from 'src/components/maps-agm/maps-agm.component';
+import { MapsAgmComponent } from 'src/app/component/maps-agm/maps-agm.component';
 
 @NgModule({
   declarations: [
@@ -54,12 +54,12 @@ import { MapsAgmComponent } from 'src/components/maps-agm/maps-agm.component';
     CustomMaterialModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'key',
+      apiKey: 'AIzaSyC6BFc9DWG808BYUh95Z0EcUzIVAjw7-ro',
       libraries: ['places']
 
     }),
-    MatGoogleMapsAutocompleteModule,
-    AgmCoreModule.forRoot()
+    MatGoogleMapsAutocompleteModule.forRoot(),
+    // AgmCoreModule.forRoot()
 
   ],
   exports: [

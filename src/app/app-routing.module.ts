@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from 'src/components/login/login.component';
-import { ShowShopsComponent } from 'src/components/show-shops/show-shops.component';
-import { UserComponent } from 'src/components/user/user.component';
-import { MapsAgmComponent } from 'src/components/maps-agm/maps-agm.component';
+import { LoginComponent } from 'src/app/component/login/login.component';
+import { ShowShopsComponent } from 'src/app/component/show-shops/show-shops.component';
+import { UserComponent } from 'src/app/component/user/user.component';
+import { MapsAgmComponent } from 'src/app/component/maps-agm/maps-agm.component';
 
 
 const routes: Routes = [
