@@ -7,12 +7,12 @@
         {{shop.name}}
       </mat-panel-title>
       <mat-panel-description>
-        <button (click)="share(shop.code)">
-          Share
-        </button>
+          <mat-chip-list aria-label="Fish selection">
+              <mat-chip (click)="share(shop.code)" [color]="buttonColor" (click)="buttonColor = 'warn'">Add to my shops</mat-chip>
+          </mat-chip-list>
       </mat-panel-description>
     </mat-expansion-panel-header>
     <p>location: {{shop.location}} , num of customers: {{shop.numOfCustomer}} , account number: {{shop.accountNumber}}</p>
   </mat-expansion-panel>
 </mat-accordion>
-
+ <a routerLink="/items"><mat-chip class="btn btn-success pull-right" >make to order :)</mat-chip></a>

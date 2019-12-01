@@ -5,7 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { map } from 'rxjs/operators';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
-
+import {MatChipsModule} from '@angular/material/chips';
+import { ThemePalette } from '@angular/material';
 
 
 @Component({
@@ -13,10 +14,12 @@ import { analyzeAndValidateNgModules } from '@angular/compiler';
   templateUrl: './show-shops.component.html',
   styleUrls: ['./show-shops.component.scss']
 })
+
 export class ShowShopsComponent implements OnInit {
   panelOpenState = false;
   shopsList = null;
   chosenShop: Array<Shop> = [];
+  buttonColor: ThemePalette = 'primary';
   constructor(private http: HttpClient) { }
 
   ngOnInit() {

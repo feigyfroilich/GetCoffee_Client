@@ -29,14 +29,16 @@ import { UserComponent } from './component/user/user.component';
 import { LoginComponent } from './component/login/login.component';
 import { AgmCoreModule } from '@agm/core';
 import { MapsAgmComponent } from 'src/app/component/maps-agm/maps-agm.component';
-
+import { ItemsComponent } from './component/items/items.component';
+import {MatChipsModule} from '@angular/material/chips';
 @NgModule({
   declarations: [
     AppComponent,
     ShowShopsComponent,
     LoginComponent,
     UserComponent,
-    MapsAgmComponent
+    MapsAgmComponent,
+    ItemsComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -48,6 +50,7 @@ import { MapsAgmComponent } from 'src/app/component/maps-agm/maps-agm.component'
     MatFormFieldModule,
     MatInputModule,
     MatRippleModule,
+    MatChipsModule,
     HttpClientModule,
     FlexLayoutModule,
     MatCardModule,
@@ -67,6 +70,7 @@ import { MapsAgmComponent } from 'src/app/component/maps-agm/maps-agm.component'
     MatFormFieldModule,
     MatInputModule,
     MatRippleModule,
+    MatChipsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
