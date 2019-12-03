@@ -8,11 +8,12 @@ import { ItemsComponent } from './component/items/items.component';
 
 
 const routes: Routes = [
-{path: '', component: LoginComponent},
+  {path: '', component: LoginComponent},
+{path: 'login', component: LoginComponent},
 { path: 'user', component: UserComponent },
 { path: 'maps', component: MapsAgmComponent },
 { path: 'shops', component: ShowShopsComponent},
-{ path: 'items', component: ItemsComponent}];
+{ path: 'items:/chosenShop', component: ItemsComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

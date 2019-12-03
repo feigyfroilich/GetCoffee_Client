@@ -76,6 +76,8 @@ export class LoginComponent implements OnInit {
     console.log('im in add new user', u);
     this.addNewUserDB(u);
     console.log('im after add new user', u);
+    this.equals = false;
+    this.router.navigate(['/login']);
   }
 }
 
