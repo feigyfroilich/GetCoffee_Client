@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Shop } from 'src/classes/shop';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-items',
@@ -7,14 +9,16 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./items.component.scss']
 })
 export class ItemsComponent implements OnInit {
-  shopListP: any;
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  shopListP: string;
+  constructor(private route: ActivatedRoute, private router: Router) {
+   }
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.shopListP = params['shopsList'];
-    });
+    this.shopListP = this.route.snapshot.paramMap.get('chosenShop');
+    console.log('shops: ', this.shopListP);
+    }
+
   }
-}
+
 
 
 // constructor(

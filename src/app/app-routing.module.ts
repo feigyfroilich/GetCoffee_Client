@@ -13,10 +13,11 @@ const routes: Routes = [
 { path: 'user', component: UserComponent },
 { path: 'maps', component: MapsAgmComponent },
 { path: 'shops', component: ShowShopsComponent},
-{ path: 'items:/chosenShop', component: ItemsComponent}];
+{ path: 'items', component: ItemsComponent},
+{ path: 'items/:chosenShop', component: ItemsComponent}];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), RouterModule.forChild(routes)],
   exports: [RouterModule],
   declarations: []
 })
