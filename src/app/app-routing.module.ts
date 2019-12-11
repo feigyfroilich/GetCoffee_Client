@@ -5,6 +5,7 @@ import { ShowShopsComponent } from 'src/app/component/show-shops/show-shops.comp
 import { UserComponent } from 'src/app/component/user/user.component';
 import { MapsAgmComponent } from 'src/app/component/maps-agm/maps-agm.component';
 import { ItemsComponent } from './component/items/items.component';
+import {  ManipulateshopComponent } from './component/manipulate-shop/manipulate-shop.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
 { path: 'user', component: UserComponent },
 { path: 'maps', component: MapsAgmComponent },
 { path: 'shops', component: ShowShopsComponent},
+{ path: 'addShop', component:  ManipulateshopComponent},
 { path: 'items', component: ItemsComponent},
 { path: 'items/:chosenShop', component: ItemsComponent}];
 

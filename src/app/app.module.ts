@@ -9,7 +9,7 @@ import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
-
+import {MatSidenavModule} from '@angular/material/sidenav';
 import {} from 'googlemaps';
 import {
   MatButtonModule,
@@ -31,6 +31,7 @@ import { AgmCoreModule } from '@agm/core';
 import { MapsAgmComponent } from 'src/app/component/maps-agm/maps-agm.component';
 import { ItemsComponent } from './component/items/items.component';
 import {MatChipsModule} from '@angular/material/chips';
+import { ManipulateshopComponent } from './component/manipulate-shop/manipulate-shop.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,8 @@ import {MatChipsModule} from '@angular/material/chips';
     LoginComponent,
     UserComponent,
     MapsAgmComponent,
-    ItemsComponent
+    ItemsComponent,
+    ManipulateshopComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -54,6 +56,7 @@ import {MatChipsModule} from '@angular/material/chips';
     HttpClientModule,
     FlexLayoutModule,
     MatCardModule,
+    MatSidenavModule,
     CustomMaterialModule,
     FormsModule,
     AgmCoreModule.forRoot({

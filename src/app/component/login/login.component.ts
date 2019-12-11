@@ -33,6 +33,11 @@ export class LoginComponent implements OnInit {
   check_equals(): boolean {
     return this.password !== this.password1 && this.newUser;
   }
+  na(){
+    console.log('in shopkeeper');
+    // tslint:disable-next-line: no-unused-expression
+    this.router.navigate(['/addShop']);
+  }
   login(): void {
     if (this.newUser === true) {
       this.addNewUser();

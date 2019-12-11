@@ -1,0 +1,28 @@
+<p>add-shop works!</p>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <p>action : </p>
+    <button (click)="[print(),drawer.toggle()]" mat-raised-button>
+      1חסום הזמנת מוצר
+    </button>
+    <button (click)="[print(),drawer.toggle()]" mat-raised-button>
+      חסום הזמנת מוצר
+    </button>
+    <button (click)="[print(),drawer.toggle()]" mat-raised-button>
+      חסום הזמנת מוצר
+    </button>
+    <button (click)="[print(),drawer.toggle()]" mat-raised-button>
+      חסום הזמנת מוצר
+    </button>
+    <button (click)="[print(),drawer.toggle()]"  mat-raised-button>
+      חסום הזמנת מוצר
+    </button>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">
+      Manipulate your shop
+    </button>
+  </div>
+
+</mat-drawer-container>

@@ -25,7 +25,8 @@
     <span class="example-spacer"></span>
     <button mat-button>About</button>
     <button mat-button>Contact</button>
-    <button mat-button (click)="newUser = true" >join GetCoffee+</button>
+    <button mat-button (click)="newUser = true" >Join GetCoffee+</button>
+    <button class="mat-button"  [routerLink]="['/addShop']" >I Have a shop</button>
     <button mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon>more_vert</mat-icon>
     </button>
