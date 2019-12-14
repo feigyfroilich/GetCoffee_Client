@@ -14,3 +14,16 @@
 .example-sidenav {
   padding: 20px;
 }
+.mat-raised-button{
+  width: -webkit-fill-available;
+  margin: 0.51%;
+  // width: inherit;
+}
+.mat-raised-button:hover{
+  border: 2px solid #4CAF50;
+  // width: inherit;
+}
+// button{
+//   align-self: center;
+//   display: inline-block;
+// }
