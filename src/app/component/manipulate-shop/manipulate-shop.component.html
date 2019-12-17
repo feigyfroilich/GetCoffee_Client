@@ -14,15 +14,12 @@
     <button (click)="[print(),drawer.toggle()]" mat-raised-button>
       מחק מוצר מחנות </button>
   <button (click)="[print(),drawer.toggle()]" mat-raised-button>
-    מחק מוצר מחנות </button>
-  <button (click)="[print(),drawer.toggle()]" mat-raised-button>
     צפה בסטטיסטיקת הזמנות </button>
   </mat-drawer>
-
   <div class="example-sidenav-content">
     <button type="button" mat-button (click)="drawer.toggle()">
       Manipulate your shop
     </button>
   </div>
-
 </mat-drawer-container>
+<router-outlet></router-outlet>
