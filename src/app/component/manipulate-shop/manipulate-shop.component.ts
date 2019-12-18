@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
 // import {Component} from '@angular/core';
 
 // /**
@@ -19,7 +20,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 })
 export class ManipulateshopComponent implements OnInit {
   showFiller = false;
-  constructor() { }
+  constructor(private route: Router) { }
   ngOnInit() {
   }
   print() {
@@ -29,5 +30,9 @@ export class ManipulateshopComponent implements OnInit {
   }
   print1() {
     console.log('clicked2');
+  }
+  navi(pageName: string) {
+    this.route.navigate(['./' + pageName]);
+
   }
 }

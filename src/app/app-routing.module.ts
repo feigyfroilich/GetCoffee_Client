@@ -18,13 +18,13 @@ const routes: Routes = [
     path: 'addShop',
     component: ManipulateshopComponent,
     children: [
-      { path: '', component: ShopProductViewComponent },
-      { path: './products', component: ShopProductViewComponent }
+      { path: '', component: LoginComponent },
+      { path: 'products', component: ShopProductViewComponent }
 
     ]
   },
   { path: 'items', component: ItemsComponent },
-  { path: 'products', component: ShopProductViewComponent },
+  // { path: 'products', component: ShopProductViewComponent },
   {
     path: 'items/:chosenShop',
     component: ItemsComponent

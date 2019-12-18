@@ -2,10 +2,10 @@
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side">
     <p>action : </p>
-    <button (click)="[print(),drawer.toggle()]" mat-raised-button>
+    <button (click)="[navi('products'), drawer.toggle()]" mat-raised-button>
       השהה/הפעל הזמנת מוצרים
     </button>
-    <button (click)="[print(),drawer.toggle()]" mat-raised-button>
+    <button (click)="[navi(''),drawer.toggle()]" mat-raised-button>
       הוסף מוצר לחנות </button>
     <button (click)="[print(),drawer.toggle()]" mat-raised-button>
       עדכן מוצר </button>
