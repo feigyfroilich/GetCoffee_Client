@@ -14,6 +14,8 @@ const routes: Routes = [
   { path: 'user', component: UserComponent },
   { path: 'maps', component: MapsAgmComponent },
   { path: 'shops', component: ShowShopsComponent },
+  { path: 'items', component: ShopProductViewComponent },
+  { path: 'items/:chosenShop', component: ItemsComponent},
   {
     path: 'addShop',
     component: ManipulateshopComponent,
@@ -22,13 +24,8 @@ const routes: Routes = [
       { path: 'products', component: ShopProductViewComponent }
 
     ]
-  },
-  { path: 'items', component: ItemsComponent },
-  // { path: 'products', component: ShopProductViewComponent },
-  {
-    path: 'items/:chosenShop',
-    component: ItemsComponent
   }
+
 ];
 
 @NgModule({

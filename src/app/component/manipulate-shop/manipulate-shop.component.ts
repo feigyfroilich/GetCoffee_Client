@@ -32,7 +32,7 @@ export class ManipulateshopComponent implements OnInit {
     console.log('clicked2');
   }
   navi(pageName: string) {
-    this.route.navigate(['./' + pageName]);
+    this.route.navigate([pageName]);
 
   }
 }

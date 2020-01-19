@@ -4,6 +4,8 @@ import { Shop } from 'src/classes/shop';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Product } from 'src/classes/product';
+import { ShopsProductService } from 'src/app/services/shops-product.service';
+import { ShopProduct } from 'src/classes/shopProduct';
 
 @Component({
   selector: 'app-shop-product-view',
@@ -11,19 +13,19 @@ import { Product } from 'src/classes/product';
   styleUrls: ['./shop-product-view.component.scss']
 })
 export class ShopProductViewComponent implements OnInit {
-  products: Array<Product> = [];
-  constructor(private http: HttpClient) { }
+  products: Array<ShopProduct> = [];
+  constructor(private shopsProductService: ShopsProductService) { }
 
   ngOnInit() {
-    this.getAllShops().subscribe(res => {
+    this.shopsProductService.getAllShopProducts().subscribe(res => {
       console.log('shops', res);
       this.products = res;
 
     });
   }
-  getAllShops(): Observable<Product[]> {
-    return this.http.get<Product[]>(`http://localhost:8090/api/products`).pipe(
-      map(res => res.map(d => new Product(d))));
+
+  saveProducts() {
+    this.shopsProductService.updateShopProducts(this.products).subscribe(res => {});
   }
 
 }
