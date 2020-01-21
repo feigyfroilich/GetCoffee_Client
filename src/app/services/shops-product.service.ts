@@ -18,14 +18,18 @@ export class ShopsProductService {
   }
 
   updateShopProducts(products: ShopProduct[]): Observable<any> {
-   let newproducts = []
-   products.forEach(item => {
- let prod = new Product()
- prod.code = item.productCode,
- prod.name = item.name,
- prod.parentCode = item.shopCode
- newproducts.push(prod)
-   })
-return this.http.put(`http://localhost:8090/api/test`,  products);
+    let newproducts = [];
+    products.forEach(item => {
+      let prod = new ShopProduct();
+      prod.productCode = item.productCode;
+      prod.shopCode = item.shopCode;
+      prod.price = item.price;
+      prod.duration = item.duration;
+      prod.status = item.status;
+      prod.name = item.name;
+      prod.categoryName = item.categoryName;
+      newproducts.push(prod);
+    });
+    return this.http.put(`http://localhost:8090/api/test`, newproducts);
   }
 }
