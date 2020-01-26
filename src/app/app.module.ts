@@ -36,6 +36,7 @@ import { ItemsComponent } from './component/items/items.component';
 import {MatChipsModule} from '@angular/material/chips';
 import { ManipulateshopComponent } from './component/manipulate-shop/manipulate-shop.component';
 import { ShopProductViewComponent } from './component/shop-product-view/shop-product-view.component';
+import { GetCoffeeInfoComponent } from './component/get-coffee-info/get-coffee-info.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,8 @@ import { ShopProductViewComponent } from './component/shop-product-view/shop-pro
     MapsAgmComponent,
     ItemsComponent,
     ManipulateshopComponent,
-    ShopProductViewComponent
+    ShopProductViewComponent,
+    GetCoffeeInfoComponent
   ],
   imports: [
     MatListModule,

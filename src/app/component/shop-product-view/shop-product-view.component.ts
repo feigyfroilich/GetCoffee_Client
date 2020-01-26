@@ -17,7 +17,7 @@ export class ShopProductViewComponent implements OnInit {
   constructor(private shopsProductService: ShopsProductService) { }
 
   ngOnInit() {
-    this.shopsProductService.getAllShopProducts().subscribe(res => {
+    this.shopsProductService.getAllShopProducts(2).subscribe(res => {
       console.log('products ', res);
       this.products = res;
 

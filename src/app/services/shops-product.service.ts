@@ -12,8 +12,8 @@ export class ShopsProductService {
 
   constructor(private http: HttpClient) { }
 
-  getAllShopProducts(): Observable<ShopProduct[]> {
-    return this.http.get<ShopProduct[]>(`http://localhost:8090/api/Shop_sProduct/2`).pipe(
+  getAllShopProducts(shopCode: number): Observable<ShopProduct[]> {
+    return this.http.get<ShopProduct[]>(`http://localhost:8090/api/Shop_sProduct/${shopCode}`).pipe(
       map(res => res.map(d => new ShopProduct(d))));
   }
 

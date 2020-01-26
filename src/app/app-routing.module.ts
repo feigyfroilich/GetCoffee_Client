@@ -7,10 +7,12 @@ import { MapsAgmComponent } from 'src/app/component/maps-agm/maps-agm.component'
 import { ItemsComponent } from './component/items/items.component';
 import { ManipulateshopComponent } from './component/manipulate-shop/manipulate-shop.component';
 import { ShopProductViewComponent } from './component/shop-product-view/shop-product-view.component';
+import { GetCoffeeInfoComponent } from './component/get-coffee-info/get-coffee-info.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'about', component: GetCoffeeInfoComponent },
   { path: 'user', component: UserComponent },
   { path: 'maps', component: MapsAgmComponent },
   { path: 'shops', component: ShowShopsComponent },

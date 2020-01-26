@@ -8,7 +8,7 @@
       </mat-panel-title>
       <mat-panel-description>
           <mat-chip-list aria-label="Fish selection">
-              <mat-chip (click)="share(shop.code)" [color]="buttonColor" (click)="buttonColor = 'warn'">Add to my shops</mat-chip>
+              <mat-chip (click)="share_and_order(shop.code)" [color]="buttonColor" (click)="buttonColor = 'warn'">Add to my shops</mat-chip>
           </mat-chip-list>
       </mat-panel-description>
     </mat-expansion-panel-header>
@@ -16,5 +16,4 @@
   </mat-expansion-panel>
 </mat-accordion>
 <!-- chnage 2 to chosen shop -->
- <a [routerLink]="['/items/','2']"><mat-chip class="btn btn-success pull-right" >make to order :)</mat-chip></a>
 

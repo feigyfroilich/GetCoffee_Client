@@ -1,29 +1,12 @@
 <p>login works!</p>
-<!-- <div fxLayout="row" fxLayoutAlign="center center" class="login-main">
-  <mat-card >
-  <mat-card-header>
-    <mat-card-title>Login Page</mat-card-title>
-  </mat-card-header>
-  <mat-card-content fxLayout="column">
-    <mat-form-field>
-      <input matInput placeholder="Email">
-    </mat-form-field>
-    <mat-form-field>
-      <input type="password" matInput placeholder="password">
-    </mat-form-field>
-  </mat-card-content>
-  <mat-card-actions align="end">
-    <button mat-raised-button color="primary">Login</button>
-  </mat-card-actions>
-  </mat-card>
-  </div> -->
+
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <span>Get Coffee +</span>
     <span class="example-fill-remaining-space"></span>
     <span class="align-center"></span>
     <span class="example-spacer"></span>
-    <button mat-button>About</button>
+    <button mat-button [routerLink]="['/about']">About</button>
     <button mat-button>Contact</button>
     <button mat-button (click)="newUser = true" >Join GetCoffee+</button>
     <button class="mat-button"  [routerLink]="['/addShop']" >I Have a shop</button>
