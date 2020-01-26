@@ -13,18 +13,40 @@ import { ShopProduct } from 'src/classes/shopProduct';
 })
 export class ItemsComponent implements OnInit {
   shopCode: number;
-  products: ShopProduct[];
+  products: ShopProduct[] ;
+  user_product: Array< ShopProduct> = [];
+  product: ShopProduct;
   constructor(private route: ActivatedRoute, private router: Router, private ShopsProducttService: ShopsProductService) {
-   }
+  }
   ngOnInit() {
     this.shopCode = +this.route.snapshot.paramMap.get('chosenShop');
     console.log('shops_number: ', this.shopCode);
     this.ShopsProducttService.getAllShopProducts(this.shopCode).subscribe(res => {
-        this.products = res;
+      this.products = res;
     });
-    }
-
   }
+  // tslint:disable-next-line: variable-name
+  add_to_item(item_id: number) {
+    this.products.forEach(element => {
+      if (element.productCode === item_id) {
+        this.product = element;
+      }
+    });
+    console.log('user_product',this.user_product)
+    console.log('product',this.product)
+    const index: number = this.user_product.indexOf(this.product);
+    console.log('index',index)
+    if (index !== -1) {
+      this.user_product.splice(index, 1);
+    } else {
+      this.user_product.push(this.product);
+    }
+    console.log('item', this.user_product);
+  }
+}
+
+
+// tslint:disable-next-line: variable-name
 
 
 

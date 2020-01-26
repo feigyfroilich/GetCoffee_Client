@@ -8,6 +8,7 @@ import { ItemsComponent } from './component/items/items.component';
 import { ManipulateshopComponent } from './component/manipulate-shop/manipulate-shop.component';
 import { ShopProductViewComponent } from './component/shop-product-view/shop-product-view.component';
 import { GetCoffeeInfoComponent } from './component/get-coffee-info/get-coffee-info.component';
+import { OrderComponent } from './component/order/order.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'maps', component: MapsAgmComponent },
   { path: 'shops', component: ShowShopsComponent },
   { path: 'items', component: ShopProductViewComponent },
+  { path: 'order', component: OrderComponent },
   { path: 'items/:chosenShop', component: ItemsComponent},
   {
     path: 'addShop',

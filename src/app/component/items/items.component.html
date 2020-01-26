@@ -1,4 +1,4 @@
 <p>items works!</p>
-<mat-checkbox class="example-section" *ngFor="let product of products"  >{{product.name}}</mat-checkbox>
+<mat-checkbox class="example-section" *ngFor="let product of products"  (click)="add_to_item(product.productCode)">{{product.name}}</mat-checkbox>
 
-<button [routerLink]="['/items/']"><mat-chip class="btn btn-success pull-right">Order</mat-chip></button>
+<button [routerLink]="['/order',this.user_product]">Order</button>
