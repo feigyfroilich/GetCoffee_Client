@@ -1,1 +1,19 @@
 <p>order works!</p>
+<mat-accordion>
+  <p>זמן הכנה משוער : {{now  |  date:'h:mm a'}} </p>
+  <mat-expansion-panel *ngFor="let product of userProduct"  (opened)="panelOpenState = true"
+  (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{product.name}}
+      </mat-panel-title>
+      <mat-panel-description>
+          <mat-chip-list aria-label="Fish selection">
+              <mat-chip (click)="remove(product.code)"  [color]="buttonColor" (click)="buttonColor = 'warn'">הסר פריט מהזמנה</mat-chip>
+          </mat-chip-list>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+  </mat-expansion-panel>
+</mat-accordion>
+<button mat-raised-button (click)="sendToShop()" color="primary">מאשר פירוט, אנא הזמן</button>
+

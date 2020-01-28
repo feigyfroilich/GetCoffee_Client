@@ -25,6 +25,10 @@ export class LoginComponent implements OnInit {
     this.equals = false;
     this.password1 = '';
     this.password = '';
+    this.getAllUsersDB().subscribe(res => {
+      console.log('users ', res);
+      this.users = res;
+    });
   }
   getAllUsersDB(): Observable<User[]> {
     return this.http.get<User[]>(`http://localhost:8090/api/users`).pipe(
@@ -44,10 +48,7 @@ export class LoginComponent implements OnInit {
       return;
     }
     console.log('user', this.users);
-    this.getAllUsersDB().subscribe(res => {
-      console.log('users ', res);
-      this.users = res;
-    });
+
     console.log('user', this.users);
     // arr.find(e => e.foo === 'bar')
     //   function filterByValue(array, string) {

@@ -8,12 +8,11 @@
       </mat-panel-title>
       <mat-panel-description>
           <mat-chip-list aria-label="Fish selection">
-              <mat-chip (click)="share_and_order(shop.code)" [color]="buttonColor" (click)="buttonColor = 'warn'">Add to my shops</mat-chip>
+              <mat-chip (click)="share_and_order(shop.code)" [color]="buttonColor" (click)="buttonColor = 'warn'">הזמן מחנות זו</mat-chip>
           </mat-chip-list>
       </mat-panel-description>
     </mat-expansion-panel-header>
     <p>location: {{shop.location}} , num of customers: {{shop.numOfCustomer}} , account number: {{shop.accountNumber}}</p>
   </mat-expansion-panel>
 </mat-accordion>
-<!-- chnage 2 to chosen shop -->
 

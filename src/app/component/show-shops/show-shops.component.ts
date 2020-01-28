@@ -5,10 +5,11 @@ import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { map } from 'rxjs/operators';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
-import {MatChipsModule} from '@angular/material/chips';
+import { MatChipsModule } from '@angular/material/chips';
 import { ThemePalette } from '@angular/material';
 import { ShopService } from 'src/app/services/shop.service';
 import { Router } from '@angular/router';
+import { ShopsProductService } from 'src/app/services/shops-product.service';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class ShowShopsComponent implements OnInit {
   shopsList = null;
   chosenShop: Array<Shop> = [];
   buttonColor: ThemePalette = 'primary';
-  constructor(private shopService: ShopService, private router: Router) { }
+  constructor(private shopService: ShopService, private router: Router, private shops_product_service: ShopsProductService) { }
 
   ngOnInit() {
     this.shopService.getAllShops().subscribe(res => {
@@ -47,9 +48,11 @@ export class ShowShopsComponent implements OnInit {
   // }
 
   share_and_order(code: number): any {
-      this.shopService.getShopById(code).subscribe(res => {
-          this.router.navigate(['/items', res.code]);
-      });
+    this.shopService.getShopById(code).subscribe(res => {
+      this.router.navigate(['/items', res.code]);
+    });
+    this.shops_product_service.setShopCode(code);
+
   }
 
 

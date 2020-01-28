@@ -13,8 +13,9 @@ import { ShopProduct } from 'src/classes/shopProduct';
 })
 export class ItemsComponent implements OnInit {
   shopCode: number;
-  products: ShopProduct[] ;
-  user_product: Array< ShopProduct> = [];
+  products: ShopProduct[];
+  // tslint:disable-next-line: variable-name
+  user_product: Array<ShopProduct> = [];
   product: ShopProduct;
   constructor(private route: ActivatedRoute, private router: Router, private ShopsProducttService: ShopsProductService) {
   }
@@ -27,21 +28,22 @@ export class ItemsComponent implements OnInit {
   }
   // tslint:disable-next-line: variable-name
   add_to_item(item_id: number) {
+
     this.products.forEach(element => {
       if (element.productCode === item_id) {
         this.product = element;
       }
     });
-    console.log('user_product',this.user_product)
-    console.log('product',this.product)
-    const index: number = this.user_product.indexOf(this.product);
-    console.log('index',index)
-    if (index !== -1) {
-      this.user_product.splice(index, 1);
-    } else {
-      this.user_product.push(this.product);
-    }
-    console.log('item', this.user_product);
+    this.ShopsProducttService.addRemoveProductToUser(this.product);
+  }
+  order(): any {
+    this.router.navigate(['/order']);
+    // const params = {
+    //   'products': JSON.stringify(this.user_product)
+    // };
+
+    // this.router.navigate(['/order', { queryParams: {'pro': JSON.stringify(this.user_product)}}]);
+    // [routerLink]="['/order','user_product']"
   }
 }
 
