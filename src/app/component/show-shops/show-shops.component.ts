@@ -23,7 +23,7 @@ export class ShowShopsComponent implements OnInit {
   shopsList = null;
   chosenShop: Array<Shop> = [];
   buttonColor: ThemePalette = 'primary';
-  constructor(private shopService: ShopService, private router: Router, private shops_product_service: ShopsProductService) { }
+  constructor(private shopService: ShopService, private router: Router, private shopsProductService: ShopsProductService) { }
 
   ngOnInit() {
     this.shopService.getAllShops().subscribe(res => {
@@ -51,7 +51,9 @@ export class ShowShopsComponent implements OnInit {
     this.shopService.getShopById(code).subscribe(res => {
       this.router.navigate(['/items', res.code]);
     });
-    this.shops_product_service.setShopCode(code);
+    this.shopsProductService.setShopCode(code);
+
+    this.shopsProductService.resetShopProductList();
 
   }
 

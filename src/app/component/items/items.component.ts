@@ -5,6 +5,10 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { ShopsProductService } from 'src/app/services/shops-product.service';
 import { Product } from 'src/classes/product';
 import { ShopProduct } from 'src/classes/shopProduct';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-items',
@@ -14,6 +18,7 @@ import { ShopProduct } from 'src/classes/shopProduct';
 export class ItemsComponent implements OnInit {
   shopCode: number;
   products: ShopProduct[];
+  time: any;
   // tslint:disable-next-line: variable-name
   user_product: Array<ShopProduct> = [];
   product: ShopProduct;

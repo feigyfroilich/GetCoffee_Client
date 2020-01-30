@@ -12,7 +12,10 @@ import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/go
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-
+// import { NgModule } from '@angular/core';
+// import { FormsModule } from '@angular/forms';
+// import { BrowserModule } from '@angular/platform-browser';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {} from 'googlemaps';
 import {
   MatButtonModule,
@@ -22,9 +25,7 @@ import {
   MatMenuModule,
   MatToolbarModule,
   MatIconModule,
-  MatCardModule
-} from '@angular/material';
-
+  MatCardModule} from '@angular/material';
 
 import { CustomMaterialModule } from './core/material.module';
 import {FormsModule} from '@angular/forms';
@@ -38,6 +39,7 @@ import { ManipulateshopComponent } from './component/manipulate-shop/manipulate-
 import { ShopProductViewComponent } from './component/shop-product-view/shop-product-view.component';
 import { GetCoffeeInfoComponent } from './component/get-coffee-info/get-coffee-info.component';
 import { OrderComponent } from './component/order/order.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +54,7 @@ import { OrderComponent } from './component/order/order.component';
     OrderComponent
   ],
   imports: [
+    NgbModule,
     MatListModule,
     MatCheckboxModule,
     BrowserAnimationsModule,
@@ -89,4 +92,19 @@ import { OrderComponent } from './component/order/order.component';
   providers: [],
   bootstrap: [AppComponent]
 })
+// import { NgModule } from '@angular/core';
+// import { FormsModule } from '@angular/forms';
+// import { BrowserModule } from '@angular/platform-browser';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+// import { NgbdTimepickerBasic } from './timepicker-basic';
+
+// @NgModule({
+//   imports: [BrowserModule, FormsModule, NgbModule],
+//   declarations: [NgbdTimepickerBasic],
+//   exports: [NgbdTimepickerBasic],
+//   bootstrap: [NgbdTimepickerBasic]
+// })
+// export class NgbdTimepickerBasicModule {}
+
 export class AppModule { }

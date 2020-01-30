@@ -52,7 +52,11 @@ export class ShopsProductService {
     this.shop_code = code;
   }
 
-  sendOrtderToShop(){
+  resetShopProductList(): any {
+    this.user_products = [];
+  }
+
+  sendOrtderToShop() {
     console.log("i'm need to be implemented");
   }
 

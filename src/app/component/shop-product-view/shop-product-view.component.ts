@@ -20,7 +20,7 @@ export class ShopProductViewComponent implements OnInit {
     this.shopsProductService.getAllShopProducts(2).subscribe(res => {
       console.log('products ', res);
       this.products = res;
-
+      this.shopsProductService.resetShopProductList();
     });
   }
 
