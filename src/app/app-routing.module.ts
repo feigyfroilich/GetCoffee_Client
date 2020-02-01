@@ -9,6 +9,8 @@ import { ManipulateshopComponent } from './component/manipulate-shop/manipulate-
 import { ShopProductViewComponent } from './component/shop-product-view/shop-product-view.component';
 import { GetCoffeeInfoComponent } from './component/get-coffee-info/get-coffee-info.component';
 import { OrderComponent } from './component/order/order.component';
+import { RegisterComponent } from './component/register/register.component';
+import { NewShopComponent } from './component/new-shop/new-shop.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -20,6 +22,9 @@ const routes: Routes = [
   { path: 'items', component: ShopProductViewComponent },
   { path: 'order', component: OrderComponent },
   { path: 'items/:chosenShop', component: ItemsComponent},
+  { path: 'newOrder', component: ItemsComponent},
+  { path: 'register', component: RegisterComponent},
+  { path: 'NewShop', component: NewShopComponent},
   {
     path: 'addShop',
     component: ManipulateshopComponent,

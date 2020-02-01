@@ -1,9 +1,11 @@
 
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {Title} from '@angular/platform-browser';
-import {Location, Appearance} from '@angular-material-extensions/google-maps-autocomplete';
-import {} from 'googlemaps';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { Location, Appearance } from '@angular-material-extensions/google-maps-autocomplete';
+import { } from 'googlemaps';
 import PlaceResult = google.maps.places.PlaceResult;
+import { ActivatedRoute, Router } from '@angular/router';
+import { ShopService } from 'src/app/services/shop.service';
 
 @Component({
   selector: 'app-maps-agm',
@@ -20,7 +22,7 @@ export class MapsAgmComponent implements OnInit {
   public longitude: number;
   public selectedAddress: PlaceResult;
 
-  constructor() {
+  constructor(public route: ActivatedRoute, private router: Router, private shopService: ShopService) {
   }
 
   ngOnInit() {
@@ -52,5 +54,10 @@ export class MapsAgmComponent implements OnInit {
     console.log('onLocationSelected: ', location);
     this.latitude = location.latitude;
     this.longitude = location.longitude;
+  }
+  selectItems(): any {
+    this.shopService.saveLatLong(this.latitude, this.longitude);
+    // navigate to ItemsComponent
+    this.router.navigate(['/newOrder']);
   }
 }

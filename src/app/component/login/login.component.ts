@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     });
   }
   getAllUsersDB(): Observable<User[]> {
-    return this.http.get<User[]>(`http://localhost:8090/api/users`).pipe(
+    return this.http.get<User[]>(`http://localhost:8090/api/Users`).pipe(
       map(res => res.map(u => new User(u))));
   }
   check_equals(): boolean {
@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
     x = this.users.find(user => user.name === this.username);
     if (x) {
       if (x.password === this.password) {
-        this.router.navigate(['/shops']);
+        this.router.navigate(['/maps']);
       } else {
         alert('Invalid password');
       }
@@ -78,7 +78,7 @@ export class LoginComponent implements OnInit {
       return;
     }
     let u: User;
-    u = new User({ id: 0, name: this.username, password: this.password });
+    u = new User({ id: 0, name: this.username, password: this.password , shopId: null});
     console.log('im in add new user', u);
     this.addNewUserDB(u);
     console.log('im after add new user', u);

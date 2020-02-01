@@ -12,11 +12,6 @@ import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/go
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-// import { NgModule } from '@angular/core';
-// import { FormsModule } from '@angular/forms';
-// import { BrowserModule } from '@angular/platform-browser';
-// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {} from 'googlemaps';
 import {
   MatButtonModule,
   MatFormFieldModule,
@@ -40,6 +35,8 @@ import { ShopProductViewComponent } from './component/shop-product-view/shop-pro
 import { GetCoffeeInfoComponent } from './component/get-coffee-info/get-coffee-info.component';
 import { OrderComponent } from './component/order/order.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { RegisterComponent } from './component/register/register.component';
+import { NewShopComponent } from './component/new-shop/new-shop.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +48,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     ManipulateshopComponent,
     ShopProductViewComponent,
     GetCoffeeInfoComponent,
-    OrderComponent
+    OrderComponent,
+    RegisterComponent,
+    NewShopComponent
   ],
   imports: [
     NgbModule,
@@ -92,19 +91,5 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   providers: [],
   bootstrap: [AppComponent]
 })
-// import { NgModule } from '@angular/core';
-// import { FormsModule } from '@angular/forms';
-// import { BrowserModule } from '@angular/platform-browser';
-// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-// import { NgbdTimepickerBasic } from './timepicker-basic';
-
-// @NgModule({
-//   imports: [BrowserModule, FormsModule, NgbModule],
-//   declarations: [NgbdTimepickerBasic],
-//   exports: [NgbdTimepickerBasic],
-//   bootstrap: [NgbdTimepickerBasic]
-// })
-// export class NgbdTimepickerBasicModule {}
 
 export class AppModule { }

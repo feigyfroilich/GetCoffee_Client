@@ -19,7 +19,10 @@ export class ShopsProductService {
     return this.http.get<ShopProduct[]>(`http://localhost:8090/api/Shop_sProduct/${shopCode}`).pipe(
       map(res => res.map(d => new ShopProduct(d))));
   }
-
+  getAllProducts(): Observable<ShopProduct[]> {
+    return this.http.get<ShopProduct[]>(`http://localhost:8090/api/Shop_sProduct`).pipe(
+      map(res => res.map(d => new ShopProduct(d))));
+  }
   updateShopProducts(products: ShopProduct[]): Observable<any> {
     let newproducts = [];
     products.forEach(item => {

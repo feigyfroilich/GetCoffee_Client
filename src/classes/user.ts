@@ -3,7 +3,7 @@ export class User {
   public id: number;
   public name: string;
   public password: string;
-  public shop_code:number;
+  public shopId = null;
   constructor(params: User = {} as User) {
     this.name = name;
     Object.assign(this, params);

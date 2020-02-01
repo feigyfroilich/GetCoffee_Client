@@ -1,0 +1,42 @@
+
+<!-- public long code { get; set; }
+        public string name { get; set; }
+        public string location { get; set; }
+        public string loginCode { get; set; }
+        public bool shipment { get; set; }
+        public long lat { get; set; }
+        public long longi { get; set; }
+        public Nullable<bool> status { get; set; }
+        public Nullable<int> rank { get; set; }
+        public Nullable<long> numOfCustomer { get; set; }
+        public Nullable<long> accountNumber { get; set; } -->
+
+<p dir="rtl">
+  <mat-form-field appearance="fill" style="text-align: right; align-items: center;" >
+    <mat-label style="text-align: right"  name="shopName" required>שם החנות</mat-label>
+    <input matInput placeholder="הכנס שם חנות" [(ngModel)]="shopName" style="text-align: right">
+    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <mat-hint>Hint</mat-hint> -->
+  </mat-form-field>
+</p>
+<p dir="rtl">
+  <mat-form-field appearance="fill" style="text-align: right; align-items: center;" >
+    <mat-label style="text-align: right"  name="shopName" required>מספר חשבון</mat-label>
+    <input matInput placeholder="הכנס מס' חשבון בעל חנות" [(ngModel)]="accountNumber" style="text-align: right">
+    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <mat-hint>Hint</mat-hint> -->
+  </mat-form-field>
+</p>
+<p dir="rtl">
+  <mat-form-field appearance="fill" style="text-align: right; align-items: center;" >
+    <mat-label style="text-align: right" >כתובת</mat-label>
+    <input matInput placeholder="הכנס כתובת" style="text-align: right" [(ngModel)]="location">
+    <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <mat-hint>Hint</mat-hint> -->
+  </mat-form-field>
+</p>
+<p  dir="rtl">
+  <mat-checkbox class="example-section" [(ngModel)]="shipment">שירות משלוחים</mat-checkbox>
+</p>
+<button dir="rtl" mat-button color="primary" (click)="addShop()">שמור חנות</button>
+

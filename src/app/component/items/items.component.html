@@ -1,8 +1,11 @@
-<p>items works!</p>
-<mat-checkbox class="example-section" *ngFor="let product of products"  (click)="add_to_item(product.productCode)">
-  {{product.name}}
-</mat-checkbox>
+<p *ngFor="let product of products" dir="rtl">
+  <mat-checkbox class="example-section"   (click)="add_to_item(product.productCode)" dir="rtl">
+    {{product.name}}
+  </mat-checkbox>
+</p>
+
+
 <!-- <ngb-timepicker [(ngModel)]="time"></ngb-timepicker>
 <hr>
 <pre>Selected time: {{time | json}}</pre> -->
-<button (click)="order()">הזמן</button>
+<button (click)="order()" dir="rtl">הזמן</button>
