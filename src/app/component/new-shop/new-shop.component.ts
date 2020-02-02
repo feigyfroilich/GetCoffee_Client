@@ -22,7 +22,7 @@ export class NewShopComponent implements OnInit {
   addShop(): any {
     let shop: Shop;
     // tslint:disable-next-line: max-line-length
-    shop = new Shop({ name: this.shopName, code: this.userService.getShopId(), location: this.location, shipment: this.shipment, accountNumber: this.accountNumber, status: true });
+    shop = new Shop({ name: this.shopName, code: this.userService.getShopId(), location: this.location, shipment: this.shipment, accountNumber: this.accountNumber, status: true, lat: '12', long: '12', categoryCode: 4, loginCode: this.userService.getShopId() });
     console.log('shop name', this.shopName);
     this.shopService.addShopToDB(shop);
   }

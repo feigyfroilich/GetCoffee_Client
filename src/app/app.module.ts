@@ -37,6 +37,7 @@ import { OrderComponent } from './component/order/order.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { RegisterComponent } from './component/register/register.component';
 import { NewShopComponent } from './component/new-shop/new-shop.component';
+import { AddShopProductComponent } from './component/add-shop-product/add-shop-product.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +51,8 @@ import { NewShopComponent } from './component/new-shop/new-shop.component';
     GetCoffeeInfoComponent,
     OrderComponent,
     RegisterComponent,
-    NewShopComponent
+    NewShopComponent,
+    AddShopProductComponent
   ],
   imports: [
     NgbModule,

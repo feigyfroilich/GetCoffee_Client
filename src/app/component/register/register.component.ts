@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
   equals: boolean;
   users = [];
   shopId: boolean;
-  shopOwner;
+  shopOwner = false;
   constructor(private router: Router, private http: HttpClient, private userService: UserService) { }
 
   ngOnInit() {
@@ -38,32 +38,21 @@ export class RegisterComponent implements OnInit {
   }
   login(): void {
     this.addNewUser();
-    // console.log('user', this.users);
-    // let x: any;
-    // x = this.users.find(user => user.name === this.username);
-    // if (x) {
-    //   if (x.password === this.password) {
-    //     this.router.navigate(['/maps']);
-    //   } else {
-    //     alert('Invalid password');
-    //   }
-    // } else {
-    //   alert('Invalid credentials , are you sure you eve sign to GetCoffee+ ??');
-    // }
   }
 
   addNewUser(): void {
     if (this.password !== this.password1) {
       this.equals = true;
+      alert('הסיסמאות לא תואמות, אנא הכנס נתונים בשנית.');
       return;
     }
     let u: User;
     u = new User({ id: 0, name: this.username, password: this.password, shopId: this.shopId });
     this.userService.saveCurrentUser(u);
-    if (!this.userService.isShopOwner()) {
-      this.router.navigate(['/newOrder']);
+    if (!this.shopOwner) {
       this.userService.addNewUserDB(u);
       this.equals = false;
+      this.router.navigate(['/newOrder']);
     } else {
       this.router.navigate(['/NewShop']);
     }

@@ -1,9 +1,9 @@
-export class Product  {
+export class Category {
   public code: number;
   public name: string;
-  public parentCode: any;
-
+  public parentCode: number;
   constructor(obj?: any) {
     Object.assign(this, obj);
   }
 }
+
