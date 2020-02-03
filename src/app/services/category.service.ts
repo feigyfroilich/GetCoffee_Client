@@ -25,7 +25,7 @@ export class CategoryService {
     this.getCategoriesDB().subscribe(category => {
       console.log('category', category);
       this.categoryList = category;
-      this.categoryList.forEach(cat => cat.parentCode !== null ? this.categoryPartentList.push(cat) : this.categoryChildrenList.push(cat));
+      this.categoryList.forEach(cat => cat.parentCode === null ? this.categoryPartentList.push(cat) : this.categoryChildrenList.push(cat));
       console.log('all', this.categoryList);
       console.log('parent', this.categoryPartentList);
       console.log('child', this.getAllChildeCategory);

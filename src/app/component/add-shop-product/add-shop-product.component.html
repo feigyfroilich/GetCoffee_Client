@@ -1,17 +1,26 @@
-<p>add-shop-product works!</p>
-<mat-accordion>
-  <mat-expansion-panel *ngFor="let category of parentCategories" (opened)="panelOpenState = true"
-  (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        {{category.name}}
-      </mat-panel-title>
-      <!-- <mat-panel-description>
-          <mat-chip-list aria-label="Fish selection">
-              <mat-chip (click)="share_and_order(shop.code)" [color]="buttonColor" (click)="buttonColor = 'warn'">הזמן מחנות זו</mat-chip>
-          </mat-chip-list>
-      </mat-panel-description> -->
-    </mat-expansion-panel-header>
-    <!-- <p>location: {{shop.location}} , num of customers: {{shop.numOfCustomer}} , account number: {{shop.accountNumber}}</p> -->
-  </mat-expansion-panel>
-</mat-accordion>
+
+<mat-form-field dir="rtl" style="text-align: center">
+  <mat-label dir="rtl">בחר קטגורית מוצר</mat-label>
+  <mat-select dir="rtl" [(ngModel)]="selectedNav">
+    <mat-option *ngFor="let category of parentCategories" [value]="category.code" dir="rtl" >
+      {{category.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field dir="rtl" style="text-align: center">
+  <mat-label dir="rtl">בחר תת קטגורית מוצר</mat-label>
+  <mat-select dir="rtl">
+    <mat-option *ngFor="let category1 of childCategories"  [value]="category1.code" dir="rtl">
+      {{category1.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field dir="rtl" style="text-align: center">
+  <mat-label dir="rtl">בחר מוצר</mat-label>
+  <mat-select dir="rtl">
+    <mat-option *ngFor="let product of productList"  [value]="product.code" dir="rtl">
+      {{product.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
