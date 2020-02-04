@@ -1,0 +1,26 @@
+
+<!-- <mat-form-field dir="rtl" style="text-align: center">
+  <mat-label dir="rtl">בחר קטגורית מוצר</mat-label>
+  <mat-select dir="rtl" [(ngModel)]="selectedNav">
+    <mat-option *ngFor="let category of parentCategories" [value]="category.code" dir="rtl" >
+      {{category.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field dir="rtl" style="text-align: center">
+  <mat-label dir="rtl">בחר תת קטגורית מוצר</mat-label>
+  <mat-select dir="rtl">
+    <mat-option *ngFor="let category1 of childCategories"  [value]="category1.code" dir="rtl">
+      {{category1.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field> -->
+<mat-form-field dir="rtl" style="text-align: center">
+  <mat-label dir="rtl">בחר מוצר</mat-label>
+  <mat-select dir="rtl">
+    <mat-option *ngFor="let product of productList"  [value]="product.code" dir="rtl">
+      {{product.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

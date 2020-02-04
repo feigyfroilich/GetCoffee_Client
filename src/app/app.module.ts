@@ -20,7 +20,8 @@ import {
   MatMenuModule,
   MatToolbarModule,
   MatIconModule,
-  MatCardModule} from '@angular/material';
+  MatCardModule,
+  MatSelectModule} from '@angular/material';
 
 import { CustomMaterialModule } from './core/material.module';
 import {FormsModule} from '@angular/forms';
@@ -40,6 +41,7 @@ import { NewShopComponent } from './component/new-shop/new-shop.component';
 import { AgmDirectionModule } from 'agm-direction'; 
 
 
+import { AddShopProductComponent } from './component/add-shop-product/add-shop-product.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,11 +55,13 @@ import { AgmDirectionModule } from 'agm-direction';
     GetCoffeeInfoComponent,
     OrderComponent,
     RegisterComponent,
-    NewShopComponent
+    NewShopComponent,
+    AddShopProductComponent
   ],
   imports: [
     NgbModule,
     MatListModule,
+    MatSelectModule,
     MatCheckboxModule,
     BrowserAnimationsModule,
     BrowserModule,

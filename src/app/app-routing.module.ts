@@ -11,6 +11,7 @@ import { GetCoffeeInfoComponent } from './component/get-coffee-info/get-coffee-i
 import { OrderComponent } from './component/order/order.component';
 import { RegisterComponent } from './component/register/register.component';
 import { NewShopComponent } from './component/new-shop/new-shop.component';
+import { AddShopProductComponent } from './component/add-shop-product/add-shop-product.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -30,7 +31,8 @@ const routes: Routes = [
     component: ManipulateshopComponent,
     children: [
       { path: '', component: LoginComponent },
-      { path: 'products', component: ShopProductViewComponent }
+      { path: 'products', component: ShopProductViewComponent },
+      { path: 'addProducts', component: AddShopProductComponent }
 
     ]
   }

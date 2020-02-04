@@ -3,13 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Shop } from 'src/classes/shop';
 import { map } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShopService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
   lat: number;
   long: number;
   latlong: Array<number> = [];
@@ -28,6 +29,7 @@ export class ShopService {
       console.log('inside postmehtod of sub.function', res.toString());
     });
     console.log('shop', shop);
+    this.router.navigate(['/addShop']);
   }
   saveLatLong(lat: number, long: number) {
     this.latlong[0] = lat;
