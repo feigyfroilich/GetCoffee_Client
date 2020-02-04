@@ -39,7 +39,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { RegisterComponent } from './component/register/register.component';
 import { NewShopComponent } from './component/new-shop/new-shop.component';
 import { AgmDirectionModule } from 'agm-direction'; 
-
+import { MatRadioModule } from '@angular/material';
 
 import { AddShopProductComponent } from './component/add-shop-product/add-shop-product.component';
 @NgModule({
@@ -60,6 +60,7 @@ import { AddShopProductComponent } from './component/add-shop-product/add-shop-p
   ],
   imports: [
     NgbModule,
+    MatRadioModule,
     MatListModule,
     MatSelectModule,
     MatCheckboxModule,

@@ -1,26 +1,37 @@
+<mat-radio-group aria-label="Select an option">
+  <mat-radio-button value="new" [(ngModel)] = "new_pro" name="new" ngDefaultControl>הוסף מוצר שלא קיים במערכת</mat-radio-button>
+  <mat-radio-button value="old" [(ngModel)] = "new_pro" name="old" ngDefaultControl>בחר מוצר קיים</mat-radio-button>
+</mat-radio-group>
 
-<!-- <mat-form-field dir="rtl" style="text-align: center">
+<mat-form-field dir="rtl" style="text-align: center" *ngIf="new_pro === 'new'">
   <mat-label dir="rtl">בחר קטגורית מוצר</mat-label>
-  <mat-select dir="rtl" [(ngModel)]="selectedNav">
-    <mat-option *ngFor="let category of parentCategories" [value]="category.code" dir="rtl" >
+  <mat-select dir="rtl" [(ngModel)]="child_code">
+    <mat-option *ngFor="let category of parentCategories" [value]="category.code" dir="rtl">
       {{category.name}}
     </mat-option>
   </mat-select>
 </mat-form-field>
 
-<mat-form-field dir="rtl" style="text-align: center">
-  <mat-label dir="rtl">בחר תת קטגורית מוצר</mat-label>
-  <mat-select dir="rtl">
+<!-- <mat-form-field dir="rtl" style="text-align: center" *ngIf="new_pro === 'new'">
+  <mat-label dir="rtl">בחר  קטגורית מוצר</mat-label>
+  <mat-select dir="rtl" [(ngModel)]="child_code">
     <mat-option *ngFor="let category1 of childCategories"  [value]="category1.code" dir="rtl">
       {{category1.name}}
     </mat-option>
   </mat-select>
 </mat-form-field> -->
-<mat-form-field dir="rtl" style="text-align: center">
+
+<input matInput *ngIf="new_pro === 'new'"   placeholder="שם המוצר כפי שיופיע בתצוגה" value="try" [(ngModel)]="product_new_name">
+
+<mat-form-field dir="rtl" style="text-align: center" *ngIf="new_pro === 'old'">
   <mat-label dir="rtl">בחר מוצר</mat-label>
-  <mat-select dir="rtl">
+  <mat-select dir="rtl" [(ngModel)]="product_code">
     <mat-option *ngFor="let product of productList"  [value]="product.code" dir="rtl">
       {{product.name}}
     </mat-option>
   </mat-select>
 </mat-form-field>
+<button type="button" mat-button (click)="addProduct(new_pro === 'new')">
+הוסף
+</button>
+
