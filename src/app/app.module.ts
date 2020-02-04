@@ -71,13 +71,14 @@ import { NewShopComponent } from './component/new-shop/new-shop.component';
     MatCardModule,
     MatSidenavModule,
     CustomMaterialModule,
-    FormsModule,
+    FormsModule, 
+    MatGoogleMapsAutocompleteModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyC6BFc9DWG808BYUh95Z0EcUzIVAjw7-ro',
-      libraries: ['places']
+      apiKey: 'AIzaSyBmKgf_V56xzc6UgWQWintoSLJjI7Zz27s',
+      libraries: ['places'],
+      language: 'ar'
 
-    }),
-    MatGoogleMapsAutocompleteModule.forRoot(),
+    })
     // AgmCoreModule.forRoot()
 
   ],

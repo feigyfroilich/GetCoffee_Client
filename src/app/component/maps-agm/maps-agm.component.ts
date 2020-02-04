@@ -55,6 +55,9 @@ export class MapsAgmComponent implements OnInit {
     this.latitude = location.latitude;
     this.longitude = location.longitude;
   }
+  onAutocompleteSelected(result: PlaceResult) {
+    console.log('onAutocompleteSelected: ', result);
+  }
   selectItems(): any {
     this.shopService.saveLatLong(this.latitude, this.longitude);
     // navigate to ItemsComponent
