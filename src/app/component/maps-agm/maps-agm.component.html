@@ -142,7 +142,8 @@ class="autocomplete-container"
 </div></div>
  --><div fxFlex>
   <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
-    <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+    <!-- <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker> -->
+    <agm-direction *ngIf="origin && destination" [origin]="origin" [destination]="destination"></agm-direction>
   </agm-map>
 </div>
 
@@ -153,6 +154,11 @@ class="autocomplete-container"
   <mat-google-maps-autocomplete [appearance]="appearance.OUTLINE"
                                   (onAutocompleteSelected)="onAutocompleteSelected($event)"
                                   (onLocationSelected)="onLocationSelected($event)">
+  </mat-google-maps-autocomplete>
+
+  <mat-google-maps-autocomplete [appearance]="appearance.OUTLINE"
+                                  (onAutocompleteSelected)="onAutocompleteSelected($event, true)"
+                                  (onLocationSelected)="onLocationSelected($event, true)">
   </mat-google-maps-autocomplete>
 </div>
 <button (click)=selectItems()>המשך להזמנה</button>

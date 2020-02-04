@@ -21,6 +21,9 @@ export class MapsAgmComponent implements OnInit {
   public latitude: number;
   public longitude: number;
   public selectedAddress: PlaceResult;
+  public origin;
+  public destination;
+
 
   constructor(public route: ActivatedRoute, private router: Router, private shopService: ShopService) {
   }
@@ -31,7 +34,7 @@ export class MapsAgmComponent implements OnInit {
     this.zoom = 10;
     this.latitude = 52.520008;
     this.longitude = 13.404954;
-
+    this.getDirection();
     this.setCurrentPosition();
 
   }
@@ -50,10 +53,15 @@ export class MapsAgmComponent implements OnInit {
     console.log('onAddressSelected: ', result);
   }
 
-  onLocationSelected(location: Location) {
+  onLocationSelected(location: Location, isTarget) {
     console.log('onLocationSelected: ', location);
     this.latitude = location.latitude;
     this.longitude = location.longitude;
+    if (isTarget && this.origin) {
+      this.destination = { lat: this.latitude, lng: this.longitude };
+    } else {
+      this.origin = { lat: this.latitude, lng: this.longitude };
+    }
   }
   onAutocompleteSelected(result: PlaceResult) {
     console.log('onAutocompleteSelected: ', result);
@@ -62,5 +70,13 @@ export class MapsAgmComponent implements OnInit {
     this.shopService.saveLatLong(this.latitude, this.longitude);
     // navigate to ItemsComponent
     this.router.navigate(['/newOrder']);
+  }
+
+  getDirection() {
+    // this.origin = { lat: 24.799448, lng: 120.979021 };
+    // this.destination = { lat: 24.799524, lng: 120.975017 };
+   
+    // this.origin = 'Taipei Main Station';
+    // this.destination = 'Taiwan Presidential Office';
   }
 }

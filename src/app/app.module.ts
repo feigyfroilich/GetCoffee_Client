@@ -37,6 +37,9 @@ import { OrderComponent } from './component/order/order.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { RegisterComponent } from './component/register/register.component';
 import { NewShopComponent } from './component/new-shop/new-shop.component';
+import { AgmDirectionModule } from 'agm-direction'; 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,7 +81,8 @@ import { NewShopComponent } from './component/new-shop/new-shop.component';
       libraries: ['places'],
       language: 'ar'
 
-    })
+    }),
+    AgmDirectionModule
     // AgmCoreModule.forRoot()
 
   ],
