@@ -1,37 +1,62 @@
-<mat-radio-group aria-label="Select an option">
-  <mat-radio-button value="new" [(ngModel)] = "new_pro" name="new" ngDefaultControl>הוסף מוצר שלא קיים במערכת</mat-radio-button>
-  <mat-radio-button value="old" [(ngModel)] = "new_pro" name="old" ngDefaultControl>בחר מוצר קיים</mat-radio-button>
+<mat-radio-group aria-label="Select an option" dir="rtl">
+  <p></p>
+  <mat-radio-button dir="rtl" value="new" [(ngModel)] = "new_pro" name="new" ngDefaultControl dir="rtl" >הוסף מוצר שלא קיים במערכת</mat-radio-button>
+  <p></p>
+  <mat-radio-button  value="old" [(ngModel)] = "new_pro" name="old" ngDefaultControl dir="rtl">בחר מוצר קיים</mat-radio-button>
 </mat-radio-group>
-
+<p></p>
+<form name="x" >
 <mat-form-field dir="rtl" style="text-align: center" *ngIf="new_pro === 'new'">
   <mat-label dir="rtl">בחר קטגורית מוצר</mat-label>
-  <mat-select dir="rtl" [(ngModel)]="child_code">
+  <mat-select dir="rtl" [(ngModel)]="childCcodeP" [ngModelOptions]="{standalone: true}">
     <mat-option *ngFor="let category of parentCategories" [value]="category.code" dir="rtl">
       {{category.name}}
     </mat-option>
   </mat-select>
 </mat-form-field>
-
-<!-- <mat-form-field dir="rtl" style="text-align: center" *ngIf="new_pro === 'new'">
+<p></p>
+<mat-form-field dir="rtl" style="text-align: center" *ngIf="new_pro === 'new'">
   <mat-label dir="rtl">בחר  קטגורית מוצר</mat-label>
-  <mat-select dir="rtl" [(ngModel)]="child_code">
+  <mat-select dir="rtl" [(ngModel)]="childCcodeC" [ngModelOptions]="{standalone: true}">
     <mat-option *ngFor="let category1 of childCategories"  [value]="category1.code" dir="rtl">
       {{category1.name}}
     </mat-option>
   </mat-select>
-</mat-form-field> -->
-
-<input matInput *ngIf="new_pro === 'new'"   placeholder="שם המוצר כפי שיופיע בתצוגה" value="try" [(ngModel)]="product_new_name">
-
+</mat-form-field>
+<p></p>
+<mat-form-field *ngIf="new_pro === 'new'" dir="rtl" style="text-align: center">
+  <mat-label>שם מוצר</mat-label>
+  <input matInput #last [(ngModel)]="productNewName" [ngModelOptions]="{standalone: true}">
+  <mat-hint *ngIf="lastNameAutofilled">Autofilled!</mat-hint>
+</mat-form-field>
+<p></p>
 <mat-form-field dir="rtl" style="text-align: center" *ngIf="new_pro === 'old'">
   <mat-label dir="rtl">בחר מוצר</mat-label>
-  <mat-select dir="rtl" [(ngModel)]="product_code">
+  <mat-select dir="rtl" [(ngModel)]="productCcode" [ngModelOptions]="{standalone: true}">
     <mat-option *ngFor="let product of productList"  [value]="product.code" dir="rtl">
       {{product.name}}
     </mat-option>
   </mat-select>
 </mat-form-field>
+<p></p>
+<mat-form-field dir="rtl">
+  <input matInput placeholder="מחיר המוצר" dir="rtl" type="number" class="example-right-align" [(ngModel)]="price" [ngModelOptions]="{standalone: true}">
+  <span matPrefix>₪&nbsp;</span>
+</mat-form-field>
+<span></span>
+
+
+<p></p>
+
+<mat-form-field  dir="rtl" style="text-align: center">
+  <mat-label>זמן הכנת המוצר (דקות)</mat-label>
+  <input matInput type="number" [(ngModel)]="prepareTime" [ngModelOptions]="{standalone: true}">
+</mat-form-field>
+<p></p>
+
+
 <button type="button" mat-button (click)="addProduct(new_pro === 'new')">
 הוסף
 </button>
+</form>
 

@@ -22,4 +22,9 @@ export class ProductService {
 //  getProducts(): any {
 //    return this.productList1;
 //  }
+addNewProductDB(product: Product) {
+  this.http.post(`http://localhost:8090/api/Products`, product).subscribe(res => {
+    console.log('inside postmehtod of sub.function', res.toString());
+  });
+}
 }

@@ -20,13 +20,13 @@ export class UserService {
       map(res => res.map(u => new User(u))));
   }
   saveCurrentUser(user: User) {
-    console.log('im here')
+    console.log('im here');
     this.user = user;
   }
   isShopOwner(): boolean {
     return this.user.shopId !== null;
   }
-  getShopId(): number {
+  getShopId(): any {
     return this.user.shopId;
   }
 
