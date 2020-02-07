@@ -29,7 +29,7 @@ export class NewShopComponent implements OnInit {
 
     let u: User;
     u = this.userService.getCurrentUser();
-    console.log('user',u);
+    console.log('user', u);
     this.userService.addNewUserDB(u).subscribe(res => {console.log('new shop user', res);
     });
     });

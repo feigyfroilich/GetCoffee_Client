@@ -43,7 +43,9 @@ export class AddShopProductComponent implements OnInit {
     let p: Product;
     let sh: ShopProduct;
     let prod = this.productList.find(x => x.code === this.productCcode);
-    const ProductLength = this.productList.length + 1;
+    const ProductLength = this.productList.length ;
+    const ShopId = this.userService.getShopId();
+    const ts = TimeSpan.fromMinutes(this.prepareTime);
     if (isnew) {
       // need to check the correct category
       p = new Product({ code: ProductLength, name: this.productNewName, CategoryCode: this.childCcodeC });
@@ -53,23 +55,19 @@ export class AddShopProductComponent implements OnInit {
       this.productS.getProductsDB().subscribe(c => {
         prod = c.find(x => x.code === this.productCcode);
         console.log('fdg', c, prod);
-        let shopId = 3;
+
         // tslint:disable-next-line: max-line-length
-        sh = new ShopProduct({ productCode: ProductLength, shopCode: shopId, status: true, name: prod.name, categoryName: prod.categoryCode, price: this.price, duration: this.prepareTime });
+        sh = new ShopProduct({ productCode: ProductLength +1, shopCode: ShopId, status: true, name: prod.name, categoryName: prod.categoryCode, price: this.price, duration: this.prepareTime });
         console.log(isnew, ProductLength, p, this.productList, sh);
       });
     } else {
       p = new Product({ code: ProductLength, name: prod.name, CategoryCode: prod.categoryCode });
+      // tslint:disable-next-line: max-line-length
+      sh = new ShopProduct({ productCode: ProductLength, shopCode: ShopId, status: true, name: prod.name, categoryName: prod.categoryCode, price: this.price, duration: ts.milliseconds.toString()});
     }
-    let shopId = 3;
-    // tslint:disable-next-line: max-line-length
-    const ts = TimeSpan.fromMinutes(this.prepareTime);
-    // tslint:disable-next-line: max-line-length
-    sh = new ShopProduct({ productCode: ProductLength, shopCode: shopId, status: true, name: prod.name, categoryName: prod.categoryCode, price: this.price, duration: ts.minutes.toString});
+
     console.log(isnew, ProductLength, p, this.productList, sh);
     this.shopProducrService.addSHopProduct(sh);
-
-
   }
 
 
