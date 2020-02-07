@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
   newUser: boolean;
   equals: boolean;
   users = [];
-  shopId: boolean;
+  shopId: string;
   shopOwner = false;
   constructor(private router: Router, private http: HttpClient, private userService: UserService) { }
 
@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
       return;
     }
     let u: User;
-    u = new User({ id: 0, name: this.username, password: this.password, shopId: this.shopId });
+    u = new User({ id: 0, name: this.username, password: this.password, shopId: this.shopId});
     this.userService.saveCurrentUser(u);
     if (!this.shopOwner) {
       this.userService.addNewUserDB(u);

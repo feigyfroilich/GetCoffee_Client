@@ -57,12 +57,17 @@ export class LoginComponent implements OnInit {
     //         Object.keys(o).some(k => o[k].toLowerCase().includes(string.toLowerCase())));
     // }
     let user: any;
-    user = this.users.find(user => user.name === this.username);
+    user = this.users.find( userw => userw.name === this.username);
     if (user) {
       if (user.password === this.password) {
-
-        this.router.navigate(['/maps']);
         this.userService.saveCurrentUser(user);
+        if (user.shopId === null) {
+          this.router.navigate(['/maps']);
+        } else {
+          this.router.navigate(['/addShop']);
+        }
+
+
       } else {
         alert('Invalid password');
       }

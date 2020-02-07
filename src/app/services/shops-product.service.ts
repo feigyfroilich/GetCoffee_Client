@@ -61,6 +61,13 @@ export class ShopsProductService {
 
   sendOrtderToShop() {
     console.log("i'm need to be implemented");
+    
+  }
+
+  addSHopProduct(shopProduct: ShopProduct): any {
+    this.http.post(`http://localhost:8090/api/Shop_sProduct`, shopProduct).subscribe(res => {
+      console.log('inside postmehtod of add shop product', res.toString());
+    });
   }
 
 }

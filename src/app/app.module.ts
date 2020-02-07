@@ -42,6 +42,7 @@ import { AgmDirectionModule } from 'agm-direction';
 import { MatRadioModule } from '@angular/material';
 
 import { AddShopProductComponent } from './component/add-shop-product/add-shop-product.component';
+import { ManageShopComponent } from './component/manage-shop/manage-shop.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +57,8 @@ import { AddShopProductComponent } from './component/add-shop-product/add-shop-p
     OrderComponent,
     RegisterComponent,
     NewShopComponent,
-    AddShopProductComponent
+    AddShopProductComponent,
+    ManageShopComponent
   ],
   imports: [
     NgbModule,

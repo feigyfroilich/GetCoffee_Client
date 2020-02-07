@@ -11,9 +11,8 @@ export class UserService {
   user: User;
   constructor(private http: HttpClient) { }
   addNewUserDB(u: User) {
-    this.http.post(`http://localhost:8090/api/users`, u).subscribe(res => {
-      console.log('inside postmehtod of sub.function', res.toString());
-    });
+    console.log('user',u);
+    return this.http.post(`http://localhost:8090/api/users`, u);
   }
   getAllUsersDB(): Observable<User[]> {
     return this.http.get<User[]>(`http://localhost:8090/api/Users`).pipe(
@@ -28,6 +27,10 @@ export class UserService {
   }
   getShopId(): any {
     return this.user.shopId;
+  }
+  getCurrentUser(): User {
+    console.log('here', this.user)
+    return this.user;
   }
 
 }
