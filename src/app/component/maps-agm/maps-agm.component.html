@@ -1,3 +1,54 @@
+<div>
+  <agm-map
+    [latitude]="latitude"
+    [longitude]="longitude"
+    [scrollwheel]="true"
+    [zoom]="zoom"
+  >
+    <agm-marker
+      *ngFor="let s of shops"
+      [label]="s.name"
+      [latitude]="s.lat"
+      [longitude]="s.lng"
+    >
+      <agm-info-window [disableAutoPan]="true">WOW</agm-info-window>
+    </agm-marker>
+    <agm-marker [latitude]="latitude" [longitude]="longitude"> </agm-marker>
+    <agm-direction
+      *ngIf="origin && destination"
+      [origin]="origin"
+      [destination]="destination"
+    ></agm-direction>
+    <agm-circle
+      [latitude]="latitude"
+      [longitude]="longitude"
+      [clickable]="false"
+      [draggable]="true"
+      [editable]="true"
+      [fillColor]="'green'"
+      [radius]="350"
+    >
+    </agm-circle>
+  </agm-map>
+</div>
+
+<mat-google-maps-autocomplete
+  [appearance]="appearance.OUTLINE"
+  (onAutocompleteSelected)="onAutocompleteSelected($event)"
+  (onLocationSelected)="onLocationSelected($event)"
+>
+</mat-google-maps-autocomplete>
+
+<mat-google-maps-autocomplete
+  [appearance]="appearance.OUTLINE"
+  (onAutocompleteSelected)="onAutocompleteSelected($event, true)"
+  (onLocationSelected)="onLocationSelected($event, true)"
+>
+</mat-google-maps-autocomplete>
+
+<div *ngFor="let shop of shopsInCircle">*{{ shop.name }}*</div>
+<button (click)="selectItems()">המשך להזמנה</button>
+
 <!-- npm install angular2-google-map-auto-complete
 <p>maps-agm works!</p>
 <agm-map [latitude]="lat" [longitude]="lng">
@@ -8,7 +59,6 @@
   <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
 </agm-map> -->
 <!-- <input #search autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control"> -->
-
 
 <!-- The content below is only a placeholder and can be replaced. -->
 <!-- <h1>Google Maps Address Finder</h1>
@@ -111,7 +161,6 @@
 
       </div> -->
 
-
 <!-- <mat-google-maps-autocomplete  country="us"
       type="address"
       (onAutocompleteSelected)="onAutocompleteSelected($event)"
@@ -140,25 +189,4 @@ class="autocomplete-container"
            (onLocationSelected)="onLocationSelected($event)">
 </mat-google-maps-autocomplete>
 </div></div>
- --><div fxFlex>
-  <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
-    <!-- <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker> -->
-    <agm-direction *ngIf="origin && destination" [origin]="origin" [destination]="destination"></agm-direction>
-  </agm-map>
-</div>
-
-<div fxFlex fxFlexAlign="center"
-     class="autocomplete-container"
-     [ngStyle.xs]="{'min-width.%': 100}"
-     [ngStyle.sm]="{'width.%': 70}">
-  <mat-google-maps-autocomplete [appearance]="appearance.OUTLINE"
-                                  (onAutocompleteSelected)="onAutocompleteSelected($event)"
-                                  (onLocationSelected)="onLocationSelected($event)">
-  </mat-google-maps-autocomplete>
-
-  <mat-google-maps-autocomplete [appearance]="appearance.OUTLINE"
-                                  (onAutocompleteSelected)="onAutocompleteSelected($event, true)"
-                                  (onLocationSelected)="onLocationSelected($event, true)">
-  </mat-google-maps-autocomplete>
-</div>
-<button (click)=selectItems()>המשך להזמנה</button>
+ -->
