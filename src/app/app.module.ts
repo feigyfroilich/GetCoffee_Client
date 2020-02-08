@@ -38,10 +38,11 @@ import { OrderComponent } from './component/order/order.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { RegisterComponent } from './component/register/register.component';
 import { NewShopComponent } from './component/new-shop/new-shop.component';
-import { AgmDirectionModule } from 'agm-direction'; 
-
+import { AgmDirectionModule } from 'agm-direction';
+import { MatRadioModule } from '@angular/material';
 
 import { AddShopProductComponent } from './component/add-shop-product/add-shop-product.component';
+import { ManageShopComponent } from './component/manage-shop/manage-shop.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,10 +57,12 @@ import { AddShopProductComponent } from './component/add-shop-product/add-shop-p
     OrderComponent,
     RegisterComponent,
     NewShopComponent,
-    AddShopProductComponent
+    AddShopProductComponent,
+    ManageShopComponent
   ],
   imports: [
     NgbModule,
+    MatRadioModule,
     MatListModule,
     MatSelectModule,
     MatCheckboxModule,
@@ -78,7 +81,7 @@ import { AddShopProductComponent } from './component/add-shop-product/add-shop-p
     MatCardModule,
     MatSidenavModule,
     CustomMaterialModule,
-    FormsModule, 
+    FormsModule,
     MatGoogleMapsAutocompleteModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBmKgf_V56xzc6UgWQWintoSLJjI7Zz27s',

@@ -25,11 +25,11 @@ export class ShopService {
       map(d => new Shop(d)));
   }
   addShopToDB(shop: Shop): any {
-    this.http.post(`http://localhost:8090/api/shops`, shop).subscribe(res => {
-      console.log('inside postmehtod of sub.function', res.toString());
-    });
-    console.log('shop', shop);
+   return   this.http.post(`http://localhost:8090/api/shops`, shop).map(res => {
     this.router.navigate(['/addShop']);
+    return res;
+    });
+
   }
   saveLatLong(lat: number, long: number) {
     this.latlong[0] = lat;

@@ -6,6 +6,7 @@ import { User } from 'src/classes/user';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  constructor(private router: Router, private http: HttpClient) { }
+  constructor(private router: Router, private http: HttpClient, private userService: UserService) { }
   username: string;
   password: string;
   password1: string;
@@ -55,11 +56,18 @@ export class LoginComponent implements OnInit {
     //     return array.filter(o =>
     //         Object.keys(o).some(k => o[k].toLowerCase().includes(string.toLowerCase())));
     // }
-    let x: any;
-    x = this.users.find(user => user.name === this.username);
-    if (x) {
-      if (x.password === this.password) {
-        this.router.navigate(['/maps']);
+    let user: any;
+    user = this.users.find( userw => userw.name === this.username);
+    if (user) {
+      if (user.password === this.password) {
+        this.userService.saveCurrentUser(user);
+        if (user.shopId === null) {
+          this.router.navigate(['/maps']);
+        } else {
+          this.router.navigate(['/addShop']);
+        }
+
+
       } else {
         alert('Invalid password');
       }

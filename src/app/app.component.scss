@@ -1,7 +1,11 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 *{
   direction: rtl;
-}
-p{
-  direction: rtl;
+  background-color: #f7941c;}
+
+
+img {
+  width: 27%;
+  height: 107%;
+  /* background-color: white; */
 }
