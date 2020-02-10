@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Product } from 'src/classes/product';
+import { Product } from 'src/app/classes/product';
 import { HttpClient } from '@angular/common/http';
-import { ShopProduct } from 'src/classes/shopProduct';
+import { ShopProduct } from 'src/app/classes/shopProduct';
 
 @Injectable({
   providedIn: 'root'
@@ -61,7 +61,7 @@ export class ShopsProductService {
 
   sendOrtderToShop() {
     console.log("i'm need to be implemented");
-    
+
   }
 
   addSHopProduct(shopProduct: ShopProduct): any {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Category } from 'src/classes/category';
+import { Category } from 'src/app/classes/category';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 

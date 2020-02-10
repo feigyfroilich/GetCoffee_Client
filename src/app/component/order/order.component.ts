@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ShopProductViewComponent } from '../shop-product-view/shop-product-view.component';
-import { ShopProduct } from 'src/classes/shopProduct';
+import { ShopProduct } from 'src/app/classes/shopProduct';
 import { ShopsProductService } from 'src/app/services/shops-product.service';
 
 @Component({

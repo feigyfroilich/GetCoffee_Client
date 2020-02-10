@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
-import { Category } from 'src/classes/category';
-import { Product } from 'src/classes/product';
+import { Category } from 'src/app/classes/category';
+import { Product } from 'src/app/classes/product';
 import { ProductService } from 'src/app/services/product.service';
-import { ShopProduct } from 'src/classes/shopProduct';
+import { ShopProduct } from 'src/app/classes/shopProduct';
 import { UserService } from 'src/app/services/user.service';
 import { ShopsProductService } from 'src/app/services/shops-product.service';
-import { TimeSpan } from 'src/classes/time-span';
+// import { TimeSpan } from 'src/app/classes/time-span';
 
 @Component({
   selector: 'app-add-shop-product',
@@ -45,7 +45,7 @@ export class AddShopProductComponent implements OnInit {
     let prod = this.productList.find(x => x.code === this.productCcode);
     const ProductLength = this.productList.length ;
     const ShopId = this.userService.getShopId();
-    const ts = TimeSpan.fromMinutes(this.prepareTime);
+    const ts = this.prepareTime;
     if (isnew) {
       // need to check the correct category
       p = new Product({ code: ProductLength, name: this.productNewName, CategoryCode: this.childCcodeC });
@@ -57,13 +57,13 @@ export class AddShopProductComponent implements OnInit {
         console.log('fdg', c, prod);
 
         // tslint:disable-next-line: max-line-length
-        sh = new ShopProduct({ productCode: ProductLength +1, shopCode: ShopId, status: true, name: prod.name, categoryName: prod.categoryCode, price: this.price, duration: this.prepareTime });
+        sh = new ShopProduct({ productCode: ProductLength + 1, shopCode: ShopId, status: true, name: prod.name, categoryName: prod.categoryCode, price: this.price, duration: this.prepareTime });
         console.log(isnew, ProductLength, p, this.productList, sh);
       });
     } else {
       p = new Product({ code: ProductLength, name: prod.name, CategoryCode: prod.categoryCode });
       // tslint:disable-next-line: max-line-length
-      sh = new ShopProduct({ productCode: ProductLength, shopCode: ShopId, status: true, name: prod.name, categoryName: prod.categoryCode, price: this.price, duration: ts.milliseconds.toString()});
+      sh = new ShopProduct({ productCode: ProductLength, shopCode: ShopId, status: true, name: prod.name, categoryName: prod.categoryCode, price: this.price, duration: ts});
     }
 
     console.log(isnew, ProductLength, p, this.productList, sh);
