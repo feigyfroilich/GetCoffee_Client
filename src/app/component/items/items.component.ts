@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Shop } from 'src/classes/shop';
+import { Shop } from 'src/app/classes/shop';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { ShopsProductService } from 'src/app/services/shops-product.service';
-import { Product } from 'src/classes/product';
-import { ShopProduct } from 'src/classes/shopProduct';
+import { Product } from 'src/app/classes/product';
+import { ShopProduct } from 'src/app/classes/shopProduct';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';

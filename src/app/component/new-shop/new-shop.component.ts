@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Shop } from 'src/classes/shop';
+import { Shop } from 'src/app/classes/shop';
 import { UserService } from 'src/app/services/user.service';
 import { ShopService } from 'src/app/services/shop.service';
-import { User } from 'src/classes/user';
+import { User } from 'src/app/classes/user';
 
 @Component({
   selector: 'app-new-shop',

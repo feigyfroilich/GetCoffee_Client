@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { Observable, of, EMPTY } from 'rxjs';
-import { User } from 'src/classes/user';
+import { User } from 'src/app/classes/user';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';

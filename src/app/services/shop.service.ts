@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Shop } from 'src/classes/shop';
+import { Shop } from 'src/app/classes/shop';
 import { map } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ShopProduct } from '../classes/shopProduct';
 
 @Injectable({
   providedIn: 'root'
@@ -39,5 +40,20 @@ export class ShopService {
 
     return this.latlong;
 
+  }
+  updateShopStatus(shop: Shop): Observable<any> {
+    // let newproducts = [];
+    // products.forEach(item => {
+    //   let prod = new ShopProduct();
+    //   prod.productCode = item.productCode;
+    //   prod.shopCode = item.shopCode;
+    //   prod.price = item.price;
+    //   prod.duration = item.duration;
+    //   prod.status = item.status;
+    //   prod.name = item.name;
+    //   prod.categoryName = item.categoryName;
+    //   newproducts.push(prod);
+    // });
+    return this.http.put(`http://localhost:8090/api/Shops/${shop.code}`, shop);
   }
 }

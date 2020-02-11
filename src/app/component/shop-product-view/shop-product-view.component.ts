@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Shop } from 'src/classes/shop';
+import { Shop } from 'src/app/classes/shop';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Product } from 'src/classes/product';
+import { Product } from 'src/app/classes/product';
 import { ShopsProductService } from 'src/app/services/shops-product.service';
-import { ShopProduct } from 'src/classes/shopProduct';
+import { ShopProduct } from 'src/app/classes/shopProduct';
 
 @Component({
   selector: 'app-shop-product-view',

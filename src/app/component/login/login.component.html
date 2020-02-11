@@ -1,20 +1,20 @@
-<mat-card class="example-card">
+<mat-card class="example-card" style="background-color: black;height: 100%;width: 100%;">
   <mat-card-header>
     <mat-card-title> הכנס פרטים</mat-card-title>
   </mat-card-header>
-  <mat-card-content>
+  <mat-card-content layout-fill>
     <form class="example-form">
       <table class="example-full-width" cellspacing="0" id="loginTable">
         <tr>
           <td>
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="שם משתמש" [(ngModel)]="username" name="username" required>
+            <mat-form-field class="example-full-width" >
+              <input matInput placeholder="שם משתמש" [(ngModel)]="username" name="username" required >
             </mat-form-field>
           </td>
         </tr>
         <tr>
           <td>
-            <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width"  layout-align="center center">
               <input matInput placeholder="סיסמא" [(ngModel)]="password" type="password" name="password" required>
             </mat-form-field>
           </td>
