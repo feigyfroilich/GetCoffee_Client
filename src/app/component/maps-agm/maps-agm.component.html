@@ -1,3 +1,37 @@
+<!-- <div >
+  <mat-form-field [appearance]="appearance.OUTLINE">
+    <mat-label>כתובת</mat-label>
+    <input
+      matInput
+      matGoogleMapsAutocomplete
+      [country]="il"
+      (onAutocompleteSelected)="onAutocompleteSelected($event)"
+      (onLocationSelected)="onLocationSelected($event)"
+    />
+  </mat-form-field>
+</div> -->
+<mat-google-maps-autocomplete
+  [appearance]="appearance.OUTLINE"
+  (onAutocompleteSelected)="onAutocompleteSelected($event)"
+  (onLocationSelected)="onLocationSelected($event)"
+  placeholderText=":כתובת מקור"
+  addressLabelText=":כתובת מקור"
+  requiredErrorText="יש לבחור כתובת"
+  invalidErrorText="כתובת לא חוקית"
+  [country]="il"
+>
+</mat-google-maps-autocomplete>
+<mat-google-maps-autocomplete
+  [appearance]="appearance.OUTLINE"
+  (onAutocompleteSelected)="onAutocompleteSelected($event, true)"
+  (onLocationSelected)="onLocationSelected($event, true)"
+  placeholderText=":כתובת יעד"
+  addressLabelText=":כתובת יעד"
+  invalidErrorText="כתובת לא חוקית"
+  [country]="il"
+  requiredErrorText="יש לבחור כתובת"
+>
+</mat-google-maps-autocomplete>
 <div>
   <agm-map
     [latitude]="latitude"
@@ -5,7 +39,8 @@
     [scrollwheel]="true"
     [zoom]="zoom"
   >
-    <agm-marker
+    <agm-marker [latitude]="latitude" [longitude]="longitude"> </agm-marker>
+    <!-- <agm-marker
       *ngFor="let s of shops"
       [label]="s.name"
       [latitude]="s.lat"
@@ -13,7 +48,6 @@
     >
       <agm-info-window [disableAutoPan]="true">WOW</agm-info-window>
     </agm-marker>
-    <agm-marker [latitude]="latitude" [longitude]="longitude"> </agm-marker>
     <agm-direction
       *ngIf="origin && destination"
       [origin]="origin"
@@ -28,23 +62,9 @@
       [fillColor]="'green'"
       [radius]="350"
     >
-    </agm-circle>
+    </agm-circle> -->
   </agm-map>
 </div>
-
-<mat-google-maps-autocomplete
-  [appearance]="appearance.OUTLINE"
-  (onAutocompleteSelected)="onAutocompleteSelected($event)"
-  (onLocationSelected)="onLocationSelected($event)"
->
-</mat-google-maps-autocomplete>
-
-<mat-google-maps-autocomplete
-  [appearance]="appearance.OUTLINE"
-  (onAutocompleteSelected)="onAutocompleteSelected($event, true)"
-  (onLocationSelected)="onLocationSelected($event, true)"
->
-</mat-google-maps-autocomplete>
 
 <div *ngFor="let shop of shopsInCircle">*{{ shop.name }}*</div>
 <button (click)="selectItems()">המשך להזמנה</button>
