@@ -8,13 +8,11 @@ export class Shop {
   public ran: number = null;
   public numOfCustomer: number = null;
   public accountNumber: number = null;
-  public lat: string;
-  public long: string;
+  public latitude: string;
+  public longitude: string;
   public categoryCode: number;
-
 
   constructor(obj?: any) {
     Object.assign(this, obj);
   }
 }
-

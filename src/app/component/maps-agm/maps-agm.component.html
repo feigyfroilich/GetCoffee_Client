@@ -13,7 +13,7 @@
 <mat-google-maps-autocomplete
   [appearance]="appearance.OUTLINE"
   (onAutocompleteSelected)="onAutocompleteSelected($event)"
-  (onLocationSelected)="onLocationSelected($event)"
+  (onLocationSelected)="onOriginLocationSelected($event)"
   placeholderText=":כתובת מקור"
   addressLabelText=":כתובת מקור"
   requiredErrorText="יש לבחור כתובת"
@@ -23,8 +23,8 @@
 </mat-google-maps-autocomplete>
 <mat-google-maps-autocomplete
   [appearance]="appearance.OUTLINE"
-  (onAutocompleteSelected)="onAutocompleteSelected($event, true)"
-  (onLocationSelected)="onLocationSelected($event, true)"
+  (onAutocompleteSelected)="onAutocompleteSelected($event)"
+  (onLocationSelected)="onDestinationLocationSelected($event, true)"
   placeholderText=":כתובת יעד"
   addressLabelText=":כתובת יעד"
   invalidErrorText="כתובת לא חוקית"
@@ -39,12 +39,21 @@
     [scrollwheel]="true"
     [zoom]="zoom"
   >
-    <agm-marker [latitude]="latitude" [longitude]="longitude"> </agm-marker>
-    <!-- <agm-marker
+    <agm-marker
+      [label]="{
+        color: 'black',
+        fontWeight: 'bold',
+        text: 'אני כאן'
+      }"
+      [latitude]="latitude"
+      [longitude]="longitude"
+    >
+    </agm-marker>
+    <agm-marker
       *ngFor="let s of shops"
       [label]="s.name"
-      [latitude]="s.lat"
-      [longitude]="s.lng"
+      [latitude]="s.latitude"
+      [longitude]="s.longitude"
     >
       <agm-info-window [disableAutoPan]="true">WOW</agm-info-window>
     </agm-marker>
@@ -54,6 +63,7 @@
       [destination]="destination"
     ></agm-direction>
     <agm-circle
+      *ngIf="origin && destination"
       [latitude]="latitude"
       [longitude]="longitude"
       [clickable]="false"
@@ -62,7 +72,7 @@
       [fillColor]="'green'"
       [radius]="350"
     >
-    </agm-circle> -->
+    </agm-circle>
   </agm-map>
 </div>
 

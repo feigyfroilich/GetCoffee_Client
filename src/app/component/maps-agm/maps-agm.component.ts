@@ -31,6 +31,33 @@ export class MapsAgmComponent implements OnInit, AfterViewInit {
   public selectedAddress: PlaceResult;
   public origin;
   public destination;
+  polyline = [
+    {
+      latitude: 39.8282,
+      longitude: -98.5795,
+      speed: 50
+    },
+    {
+      latitude: 37.772,
+      longitude: -122.214,
+      speed: 20
+    },
+    {
+      latitude: 21.291,
+      longitude: -157.821,
+      speed: 50
+    },
+    {
+      latitude: -18.142,
+      longitude: 178.431,
+      speed: 20
+    },
+    {
+      latitude: -27.467,
+      longitude: 153.027,
+      speed: 55
+    }
+  ];
   public sss = [
     {
       lat: 32.0918211,
@@ -38,13 +65,7 @@ export class MapsAgmComponent implements OnInit, AfterViewInit {
     }
   ];
   public shops = [
-    {
-      lat: 32.0918211,
-      lng: 34.84113320000006,
-      name: "לוי יצחק"
-    },
-    { lat: 32.0928208, lng: 34.839884900000015, name: "ניו יורק" },
-    { lat: 32.0926219, lng: 34.82884719999993, name: "מנחם בגין" }
+    // { lat: 32.0926219, lng: 34.82884719999993, name: "מנחם בגין" }
   ];
   shopsInCircle: { lat: number; lng: number; name: string }[] = [];
   country = "il";
@@ -60,6 +81,9 @@ export class MapsAgmComponent implements OnInit, AfterViewInit {
     // this.shops.forEach((s, i) => {
     //   this.googleShops.push(new google.maps.LatLng(s.lat, s.lng));
     // })
+    this.shopService.getAllShops().subscribe(shops => {
+      this.shops = shops;
+    });
     this.zoom = 10;
     this.latitude = 52.520008;
     this.longitude = 13.404954;
@@ -78,43 +102,29 @@ export class MapsAgmComponent implements OnInit, AfterViewInit {
     }
   }
 
-  //   setCurrentPosition() {
-  //     if (navigator.geolocation) {
-  //     navigator.geolocation.getCurrentPosition(position => {
-  //         const {latitude, longitude} = position
-  //         this.location = {
-  //             latitude,
-  //             longitude,
-  //             mapType: "satelite",
-  //             zoom: 14,
-  //             markers: [
-  //                 {
-  //                     lat: longitude,
-  //                     lng: latitude,
-  //                     label: "My current position"
-  //                 }
-  //             ]
-  //         }
-  //     });
-  //     } else {
-  //     alert("Geolocation is not supported by this browser, please use google chrome.");
-  //     }
-  // }
-
   onAddressSelected(result: PlaceResult) {
     console.log("onAddressSelected: ", result);
   }
 
-  onLocationSelected(location: Location, isTarget) {
+  onDestinationLocationSelected(location: Location) {
     console.log("onLocationSelected: ", location);
     const latitude = location.latitude;
     const longitude = location.longitude;
-    if (isTarget && this.origin) {
-      this.destination = { lat: latitude, lng: longitude };
-    } else {
-      this.origin = { lat: latitude, lng: longitude };
+    this.latitude = latitude;
+    this.longitude = longitude;
+    this.destination = { lat: latitude, lng: longitude };
+    if (this.origin) {
+      this.getShopsInCircle();
     }
-    this.getShopsInCircle();
+  }
+
+  onOriginLocationSelected(location: Location) {
+    console.log("onLocationSelected: ", location);
+    const latitude = location.latitude;
+    const longitude = location.longitude;
+    this.latitude = latitude;
+    this.longitude = longitude;
+    this.origin = { lat: latitude, lng: longitude };
   }
   onAutocompleteSelected(result: PlaceResult) {
     console.log("onAutocompleteSelected: ", result);
@@ -148,7 +158,7 @@ export class MapsAgmComponent implements OnInit, AfterViewInit {
   // calculate the distances from point1 to point2
   calculateDistance(point1, point2): any {
     const p1 = new google.maps.LatLng(point1.lat, point1.lng);
-    const p2 = new google.maps.LatLng(point2.lat, point2.lng);
+    const p2 = new google.maps.LatLng(point2.latitude, point2.longitude);
     return (
       google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 1000
     ).toFixed(2);

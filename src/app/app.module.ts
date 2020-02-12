@@ -86,8 +86,9 @@ import { ManageShopComponent } from "./component/manage-shop/manage-shop.compone
     MatGoogleMapsAutocompleteModule,
     AgmCoreModule.forRoot({
       apiKey: "AIzaSyBmKgf_V56xzc6UgWQWintoSLJjI7Zz27s",
+      language: "ru-RU",
       libraries: ["places", "geometry"],
-      language: "he"
+      region: "israel"
     }),
     AgmDirectionModule
     // AgmCoreModule.forRoot()
