@@ -1,28 +1,30 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { Product } from 'src/app/classes/product';
-import { HttpClient } from '@angular/common/http';
-import { ShopProduct } from 'src/app/classes/shopProduct';
-import { Order } from '../classes/order';
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
+import { Product } from "src/app/classes/product";
+import { HttpClient } from "@angular/common/http";
+import { ShopProduct } from "src/app/classes/shopProduct";
+import { Order } from "../classes/order";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class ShopsProductService {
-  user_products: Array<ShopProduct> = []
-  all_products: Array<ShopProduct> = []
+  user_products: Array<ShopProduct> = [];
+  all_products: Array<ShopProduct> = [];
   shop_code: number;
   user_product: ShopProduct;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getAllShopProducts(shopCode: number): Observable<ShopProduct[]> {
-    return this.http.get<ShopProduct[]>(`http://localhost:8090/api/Shop_sProduct/${shopCode}`).pipe(
-      map(res => res.map(d => new ShopProduct(d))));
+    return this.http
+      .get<ShopProduct[]>(`http://localhost:8090/api/Shop_sProduct/${shopCode}`)
+      .pipe(map(res => res.map(d => new ShopProduct(d))));
   }
   getAllProducts(): Observable<ShopProduct[]> {
-    return this.http.get<ShopProduct[]>(`http://localhost:8090/api/Shop_sProduct`).pipe(
-      map(res => res.map(d => new ShopProduct(d))));
+    return this.http
+      .get<ShopProduct[]>(`http://localhost:8090/api/Shop_sProduct`)
+      .pipe(map(res => res.map(d => new ShopProduct(d))));
   }
   updateShopProducts(products: ShopProduct[]): Observable<any> {
     let newproducts = [];
@@ -38,22 +40,23 @@ export class ShopsProductService {
       prod.categoryName = item.categoryName;
       newproducts.push(prod);
     });
-    return this.http.put(`http://localhost:8090/api/Shop_sProduct`, newproducts);
+    return this.http.put(
+      `http://localhost:8090/api/Shop_sProduct`,
+      newproducts
+    );
   }
 
   addRemoveProductToUser(userProduct: ShopProduct): any {
-
-
     const index: number = this.user_products.indexOf(userProduct);
 
     if (index !== -1) {
-      this.user_products.splice(index,1);
-      console.log('order items delete', this.user_products);
+      this.user_products.splice(index, 1);
+      console.log("order items delete", this.user_products);
     } else {
       this.user_products.push(userProduct);
-      console.log('order items add' , this.user_products);
+      console.log("order items add", this.user_products);
     }
-    console.log('item', userProduct);
+    console.log("item", userProduct);
   }
 
   setShopCode(code: number) {
@@ -65,7 +68,7 @@ export class ShopsProductService {
   }
 
   sendOrtderToShop(products: any) {
-    console.log('i\'m need to be implemented', products);
+    console.log("i'm need to be implemented", products);
     // public code: number;
     // public date: Date;
     // public deadline: Time;
@@ -80,9 +83,9 @@ export class ShopsProductService {
   }
 
   addSHopProduct(shopProduct: ShopProduct): any {
-    this.http.post(`http://localhost:8090/api/Shop_sProduct`, shopProduct).subscribe(res => {
-      console.log('inside postmehtod of add shop product', res.toString());
-    });
+    return this.http.post(
+      `http://localhost:8090/api/Shop_sProduct`,
+      shopProduct
+    );
   }
-
 }

@@ -63,7 +63,7 @@ export class AddShopProductComponent implements OnInit {
       this.productS.addNewProductDB(p).subscribe((proRes: any) => {
         // tslint:disable-next-line: max-line-length
         sh = new ShopProduct({
-          productCode: ProductLength + 1,
+          productCode: proRes.code,
           shopCode: ShopId,
           status: true,
           name: proRes.name,
@@ -71,7 +71,7 @@ export class AddShopProductComponent implements OnInit {
           price: this.price,
           duration: this.prepareTime
         });
-        this.shopProducrService.addSHopProduct(sh);
+        this.shopProducrService.addSHopProduct(sh).subscribe(() => {});
       });
     } else {
       let prod = this.productList.find(x => x.code === this.productCcode);
@@ -90,7 +90,7 @@ export class AddShopProductComponent implements OnInit {
         price: this.price,
         duration: ts
       });
-      this.shopProducrService.addSHopProduct(sh);
+      this.shopProducrService.addSHopProduct(sh).subscribe(() => {});
     }
 
     console.log(isnew, ProductLength, p, this.productList, sh);
