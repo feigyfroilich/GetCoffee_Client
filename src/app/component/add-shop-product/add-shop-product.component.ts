@@ -33,7 +33,7 @@ export class AddShopProductComponent implements OnInit {
   childCcodeP: number;
   productNewName: string;
   childCcodeC: number;
-
+    save : any
   productCcode: number;
   price: number;
   ngOnInit() {
@@ -41,28 +41,31 @@ export class AddShopProductComponent implements OnInit {
     this.parentCategories = this.categoryService.getAllParentCategory();
     this.childCategories = this.categoryService.getAllChildeCategory();
     this.productS.getProductsDB().subscribe(product => {
+      console.log('dddddddddddddddddddd', product);
       this.productList = product;
     });
   }
   public addProduct(isnew: boolean): any {
     let p: Product;
     let sh: ShopProduct;
-    let prod = this.productList.find(x => x.code === this.productCcode);
+    let prod: any;
     const ProductLength = this.productList.length;
     const ShopId = this.userService.getShopId();
     const ts = this.prepareTime;
     if (isnew) {
       // need to check the correct category
       p = new Product({
-        // code: ProductLength,
+        code: 0,
         name: this.productNewName,
         CategoryCode: this.childCcodeC
       });
       console.log(isnew, ProductLength, p);
       this.productS.addNewProductDB(p).subscribe(res => {
+        this.save = res;
         this.productS.getProductsDB().subscribe(c => {
-          prod = c.find(x => x.code === this.productCcode);
-          console.log("fdg", c, prod);
+          console.log('pppppppppppp', this.save);
+          prod = c.find(x => x.name === this.save.name);
+          console.log('fdg', c, prod);
           // tslint:disable-next-line: max-line-length
           sh = new ShopProduct({
             productCode: ProductLength + 1,
@@ -77,6 +80,7 @@ export class AddShopProductComponent implements OnInit {
         });
       });
     } else {
+      let prod = this.productList.find(x => x.code === this.productCcode);
       p = new Product({
         // code: ProductLength,
         name: prod.name,
@@ -92,6 +96,7 @@ export class AddShopProductComponent implements OnInit {
         price: this.price,
         duration: ts
       });
+      this.shopProducrService.addSHopProduct(sh);
     }
 
     console.log(isnew, ProductLength, p, this.productList, sh);

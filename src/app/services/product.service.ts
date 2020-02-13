@@ -14,7 +14,7 @@ export class ProductService {
     private http: HttpClient,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) { }
 
   getProductsDB(): Observable<Product[]> {
     return this.http.get<[Product]>(`http://localhost:8090/api/products`);
@@ -27,11 +27,16 @@ export class ProductService {
   //  getProducts(): any {
   //    return this.productList1;
   //  }
-  addNewProductDB(product: Product) {
-    return this.http.post(`http://localhost:8090/api/Products`, product).pipe(
-      map(res => {
-        console.log("inside postmehtod of sub.function", res.toString());
-      })
+  addNewProductDB(product: Product): Observable<any> {
+    return this.http.post(`http://localhost:8090/api/Products`, product).map(res => {
+      return res;
+    }
+
     );
+    // .pipe(
+    //   map(res => {
+    //     console.log("inside postmehtod of function", res.toString());
+    //   })
+    // );
   }
 }

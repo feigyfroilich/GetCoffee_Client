@@ -1,5 +1,5 @@
 export class ShopProduct {
-
+  public Code:any;
   public productCode: any;
   public shopCode: any;
   public price: any;

@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { Product } from 'src/app/classes/product';
 import { HttpClient } from '@angular/common/http';
 import { ShopProduct } from 'src/app/classes/shopProduct';
+import { Order } from '../classes/order';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,7 @@ export class ShopsProductService {
     let newproducts = [];
     products.forEach(item => {
       let prod = new ShopProduct();
+      prod.Code = item.Code;
       prod.productCode = item.productCode;
       prod.shopCode = item.shopCode;
       prod.price = item.price;
@@ -45,12 +47,15 @@ export class ShopsProductService {
     const index: number = this.user_products.indexOf(userProduct);
 
     if (index !== -1) {
-      this.user_products.splice(index, 1);
+      this.user_products.splice(index,1);
+      console.log('order items delete', this.user_products);
     } else {
       this.user_products.push(userProduct);
+      console.log('order items add' , this.user_products);
     }
     console.log('item', userProduct);
   }
+
   setShopCode(code: number) {
     this.shop_code = code;
   }
@@ -59,9 +64,19 @@ export class ShopsProductService {
     this.user_products = [];
   }
 
-  sendOrtderToShop() {
-    console.log("i'm need to be implemented");
-
+  sendOrtderToShop(products: any) {
+    console.log('i\'m need to be implemented', products);
+    // public code: number;
+    // public date: Date;
+    // public deadline: Time;
+    // public takeTime: Time;
+    // public ready: boolean;
+    // public status: boolean;
+    let order1: Order;
+    order1 = new Order({
+      shopCode: products[0].shopCode,
+      date: Date.now
+    });
   }
 
   addSHopProduct(shopProduct: ShopProduct): any {

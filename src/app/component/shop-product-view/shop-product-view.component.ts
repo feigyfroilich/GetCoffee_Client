@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { Product } from 'src/app/classes/product';
 import { ShopsProductService } from 'src/app/services/shops-product.service';
 import { ShopProduct } from 'src/app/classes/shopProduct';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-shop-product-view',
@@ -14,10 +15,11 @@ import { ShopProduct } from 'src/app/classes/shopProduct';
 })
 export class ShopProductViewComponent implements OnInit {
   products: Array<ShopProduct> = [];
-  constructor(private shopsProductService: ShopsProductService) { }
+  constructor(private shopsProductService: ShopsProductService, private userService: UserService) { }
 
   ngOnInit() {
-    this.shopsProductService.getAllShopProducts(2).subscribe(res => {
+    const shopCode = this.userService.getShopId();
+    this.shopsProductService.getAllShopProducts(shopCode).subscribe(res => {
       console.log('products ', res);
       this.products = res;
       this.shopsProductService.resetShopProductList();
