@@ -33,7 +33,7 @@ export class AddShopProductComponent implements OnInit {
   childCcodeP: number;
   productNewName: string;
   childCcodeC: number;
-    save : any
+  save: any;
   productCcode: number;
   price: number;
   ngOnInit() {
@@ -41,7 +41,7 @@ export class AddShopProductComponent implements OnInit {
     this.parentCategories = this.categoryService.getAllParentCategory();
     this.childCategories = this.categoryService.getAllChildeCategory();
     this.productS.getProductsDB().subscribe(product => {
-      console.log('dddddddddddddddddddd', product);
+      console.log("dddddddddddddddddddd", product);
       this.productList = product;
     });
   }
@@ -60,24 +60,18 @@ export class AddShopProductComponent implements OnInit {
         CategoryCode: this.childCcodeC
       });
       console.log(isnew, ProductLength, p);
-      this.productS.addNewProductDB(p).subscribe(res => {
-        this.save = res;
-        this.productS.getProductsDB().subscribe(c => {
-          console.log('pppppppppppp', this.save);
-          prod = c.find(x => x.name === this.save.name);
-          console.log('fdg', c, prod);
-          // tslint:disable-next-line: max-line-length
-          sh = new ShopProduct({
-            productCode: ProductLength + 1,
-            shopCode: ShopId,
-            status: true,
-            name: prod.name,
-            categoryName: prod.categoryCode,
-            price: this.price,
-            duration: this.prepareTime
-          });
-          this.shopProducrService.addSHopProduct(sh);
+      this.productS.addNewProductDB(p).subscribe((proRes: any) => {
+        // tslint:disable-next-line: max-line-length
+        sh = new ShopProduct({
+          productCode: ProductLength + 1,
+          shopCode: ShopId,
+          status: true,
+          name: proRes.name,
+          categoryName: proRes.categoryCode,
+          price: this.price,
+          duration: this.prepareTime
         });
+        this.shopProducrService.addSHopProduct(sh);
       });
     } else {
       let prod = this.productList.find(x => x.code === this.productCcode);
