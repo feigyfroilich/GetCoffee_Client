@@ -13,13 +13,14 @@ import { OrderService } from 'src/app/services/order.service';
 export class OrderComponent implements OnInit {
   now: Date;
   userProduct: Array<ShopProduct>;
+  shopCode: number;
   constructor(private route: ActivatedRoute, private shopsProductService: ShopsProductService) { }
   ngOnInit() {
     // tslint:disable-next-line: only-arrow-functions
     // o: number;
     // duration: number;
     this.now = new Date();
-    this.userProduct = this.shopsProductService.user_products;
+    this.userProduct = this.shopsProductService.userProducts;
     console.log('products in order', this.userProduct);
     this.now = new Date();
     const max = this.userProduct.reduce((prev, current) => (prev.duration > current.duration) ? prev : current);
@@ -31,8 +32,7 @@ export class OrderComponent implements OnInit {
     this.shopsProductService.addRemoveProductToUser(product);
   }
   sendToShop(): any {
-
-    this.shopsProductService.sendOrtderToShop(this.shopsProductService.user_products);
+    this.shopCode = this.shopsProductService.sendOrtderToShop(this.shopsProductService.userProducts);
   }
 }
 

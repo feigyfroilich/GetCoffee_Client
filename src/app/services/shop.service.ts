@@ -42,18 +42,6 @@ export class ShopService {
 
   }
   updateShopStatus(shop: Shop): Observable<any> {
-    // let newproducts = [];
-    // products.forEach(item => {
-    //   let prod = new ShopProduct();
-    //   prod.productCode = item.productCode;
-    //   prod.shopCode = item.shopCode;
-    //   prod.price = item.price;
-    //   prod.duration = item.duration;
-    //   prod.status = item.status;
-    //   prod.name = item.name;
-    //   prod.categoryName = item.categoryName;
-    //   newproducts.push(prod);
-    // });
     return this.http.put(`http://localhost:8090/api/Shops/${shop.code}`, shop);
   }
 }
