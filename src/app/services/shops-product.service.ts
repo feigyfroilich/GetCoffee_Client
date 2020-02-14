@@ -5,6 +5,7 @@ import { Product } from "src/app/classes/product";
 import { HttpClient } from "@angular/common/http";
 import { ShopProduct } from "src/app/classes/shopProduct";
 import { Order } from "../classes/order";
+import { OrderService } from './order.service';
 
 @Injectable({
   providedIn: "root"
@@ -14,7 +15,7 @@ export class ShopsProductService {
   all_products: Array<ShopProduct> = [];
   shop_code: number;
   user_product: ShopProduct;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private orderService: OrderService) {}
 
   getAllShopProducts(shopCode: number): Observable<ShopProduct[]> {
     return this.http
@@ -75,11 +76,22 @@ export class ShopsProductService {
     // public takeTime: Time;
     // public ready: boolean;
     // public status: boolean;
+    const now = Date.now();
+    const dateFormat = require('dateformat');
+    const time = dateFormat(now, 'h:MM:ss');
+    const today = dateFormat(now, 'dd/mm/yyyy');
     let order1: Order;
     order1 = new Order({
       shopCode: products[0].shopCode,
-      date: Date.now
+      date: today,
+      deadline: time,
+      ready: false,
+      taken: false
     });
+    console.log('order', order1);
+    this.orderService.postOrderToDB(order1).subscribe(res => {
+        console.log('result after order' , res);
+      });
   }
 
   addSHopProduct(shopProduct: ShopProduct): any {

@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ShopProductViewComponent } from '../shop-product-view/shop-product-view.component';
 import { ShopProduct } from 'src/app/classes/shopProduct';
 import { ShopsProductService } from 'src/app/services/shops-product.service';
+import { OrderService } from 'src/app/services/order.service';
 
 @Component({
   selector: 'app-order',
@@ -30,7 +31,7 @@ export class OrderComponent implements OnInit {
     this.shopsProductService.addRemoveProductToUser(product);
   }
   sendToShop(): any {
-    
+
     this.shopsProductService.sendOrtderToShop(this.shopsProductService.user_products);
   }
 }

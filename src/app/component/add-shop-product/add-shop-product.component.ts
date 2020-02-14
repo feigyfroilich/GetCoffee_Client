@@ -76,13 +76,13 @@ export class AddShopProductComponent implements OnInit {
     } else {
       let prod = this.productList.find(x => x.code === this.productCcode);
       p = new Product({
-        // code: ProductLength,
+        // code: prod.code,
         name: prod.name,
         CategoryCode: prod.categoryCode
       });
       // tslint:disable-next-line: max-line-length
       sh = new ShopProduct({
-        productCode: ProductLength,
+        productCode: prod.code,
         shopCode: ShopId,
         status: true,
         name: prod.name,

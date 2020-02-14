@@ -4,9 +4,8 @@ export class Order {
   public code: number;
   public date: Date;
   public deadline: Time;
-  public takeTime: Time;
   public ready: boolean;
-  public status: boolean;
+  public taken: boolean;
 
   constructor(obj?: any) {
     Object.assign(this, obj);

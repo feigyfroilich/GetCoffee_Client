@@ -29,6 +29,7 @@
     "agm-direction": "^0.7.9",
     "angular-material-time-picker": "^1.0.8",
     "currency-formatter": "^1.5.5",
+    "dateformat": "^3.0.3",
     "google-maps-ng2": "^1.0.10",
     "hammerjs": "^2.0.8",
     "ngx-paypal": "^5.0.0",
