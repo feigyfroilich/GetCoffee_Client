@@ -1,23 +1,64 @@
-<mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side">
-    <button (click)="[navi('addShop/products'), drawer.toggle()]" mat-raised-button>
+<mat-drawer-container color="primary" autosize>
+  <mat-drawer #drawer mode="side">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="[navi('addShop/products'), drawer.toggle()]"
+      mat-raised-button
+    >
       השהה/הפעל הזמנת מוצרים
     </button>
-    <button (click)="[navi('addShop/addProducts'),drawer.toggle()]" mat-raised-button>
-      הוסף מוצר לחנות </button>
-    <button (click)="[print(),drawer.toggle()]" mat-raised-button>
-      עדכן מוצר </button>
-    <button (click)="[navi('addShop/manageShop'),drawer.toggle()]" mat-raised-button>
-      השהה/הפעל חנות </button>
-    <button (click)="[print(),drawer.toggle()]" mat-raised-button>
-      מחק מוצר מחנות </button>
-  <button (click)="[print(),drawer.toggle()]" mat-raised-button>
-    צפה בסטטיסטיקת הזמנות </button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="[navi('addShop/addProducts'), drawer.toggle()]"
+      mat-raised-button
+    >
+      הוסף מוצר לחנות
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="[print(), drawer.toggle()]"
+      mat-raised-button
+    >
+      עדכן מוצר
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="[navi('addShop/manageShop'), drawer.toggle()]"
+      mat-raised-button
+    >
+      השהה/הפעל חנות
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="[print(), drawer.toggle()]"
+      mat-raised-button
+    >
+      מחק מוצר מחנות
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="[print(), drawer.toggle()]"
+      mat-raised-button
+    >
+      צפה בסטטיסטיקת הזמנות
+    </button>
   </mat-drawer>
   <div class="example-sidenav-content">
-    <button type="button" mat-button (click)="drawer.toggle()">
+    <button
+      mat-raised-button
+      color="primary"
+      type="button"
+      mat-button
+      (click)="drawer.toggle()"
+    >
       Manipulate your shop
     </button>
+    <router-outlet></router-outlet>
   </div>
 </mat-drawer-container>
-<router-outlet></router-outlet>

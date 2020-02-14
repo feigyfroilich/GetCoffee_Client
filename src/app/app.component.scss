@@ -1,11 +1,19 @@
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-*{
-  direction: rtl;
-  background-color: #f7941c;}
+// @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+.images {
+  width: 100%;
+  height: 224px;
+  background: url(../assets/Logo.JPG);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: -83px;
+}
 
-img {
-  width: 27%;
-  height: 107%;
-  /* background-color: white; */
+.content-body {
+  background: "black";
+}
+
+.wrapper-all {
+  max-width: 500px;
+  margin: auto;
 }

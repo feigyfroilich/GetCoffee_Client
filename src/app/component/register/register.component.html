@@ -1,43 +1,49 @@
-<mat-card class="example-card" dir="rtl">
-  <mat-card-header>
-    <mat-card-title> הכנס פרטים</mat-card-title>
-  </mat-card-header>
-  <mat-card-content dir="rtl">
-      <table class="example-full-width" cellspacing="0" id="loginTable">
-        <tr>
-          <td>
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="שם משתמש" [(ngModel)]="username" name="username" required>
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="סיסמא" [(ngModel)]="password" type="password" name="password" required>
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="הקש שוב סיסמא" [(ngModel)]="password1"  type="password" name="password" required>
-            </mat-form-field>
-          </td>
-        </tr>
-        <mat-checkbox class="example-section" [(ngModel)]="shopOwner">יש לי חנות</mat-checkbox>
-      </table>
+<mat-card-header>
+  <mat-card-title> הכנס פרטים</mat-card-title>
+</mat-card-header>
+<mat-card-content dir="rtl">
+  <mat-form-field appearance="outline">
+    <input
+      matInput
+      placeholder="שם משתמש"
+      [(ngModel)]="username"
+      name="username"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <input
+      matInput
+      placeholder="סיסמא"
+      [(ngModel)]="password"
+      type="password"
+      name="password"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <input
+      placeholder="הקש שוב סיסמא"
+      matInput
+      [(ngModel)]="password1"
+      type="password"
+      name="password"
+      required
+    />
+  </mat-form-field>
+  <mat-checkbox class="example-section" [(ngModel)]="shopOwner"
+    >יש לי חנות</mat-checkbox
+  >
+  <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+</mat-card-content>
 
-    <tr *ngIf="shopOwner===true">
-      <td>
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="קוד חנות" [(ngModel)]="shopId" name="shopId" required>
-        </mat-form-field>
-      </td>
-    </tr>
-    <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
-  </mat-card-content>
-  <mat-card-actions dir="rtl">
-    <button mat-raised-button (click)="login()" color="primary" [disabled]="check_equals()">הכנס</button>
-  </mat-card-actions>
-</mat-card>
+<mat-card-actions dir="rtl">
+  <button
+    mat-raised-button
+    (click)="login()"
+    color="primary"
+    [disabled]="check_equals()"
+  >
+    כניסה
+  </button>
+</mat-card-actions>

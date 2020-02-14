@@ -62,11 +62,13 @@ export class NewShopComponent implements OnInit {
     console.log("onLocationSelected: ", location);
     this.latitude = location.latitude;
     this.longitude = location.longitude;
+    this.zoom = 17;
   }
 
   onAutocompleteSelected(result: PlaceResult) {
     console.log("onAutocompleteSelected: ", result);
     this.location = result.name;
+    this.zoom = 17;
   }
   // public code: number;
   // public name: string;

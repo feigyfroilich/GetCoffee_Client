@@ -1,37 +1,56 @@
-<mat-card class="example-card" style="background-color: black;height: 100%;width: 100%;">
-  <mat-card-header>
-    <mat-card-title> הכנס פרטים</mat-card-title>
-  </mat-card-header>
-  <mat-card-content layout-fill>
-    <form class="example-form">
-      <table class="example-full-width" cellspacing="0" id="loginTable">
-        <tr>
-          <td>
-            <mat-form-field class="example-full-width" >
-              <input matInput placeholder="שם משתמש" [(ngModel)]="username" name="username" required >
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <mat-form-field class="example-full-width"  layout-align="center center">
-              <input matInput placeholder="סיסמא" [(ngModel)]="password" type="password" name="password" required>
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr *ngIf="newUser===true" >
-          <td>
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="הקש שוב סיסמא" [(ngModel)]="password1" type="password" name="password" required>
-            </mat-form-field>
-          </td>
-        </tr>
-        <mat-checkbox class="example-section" *ngIf="newUser===true">יש לי חנות</mat-checkbox>
-      </table>
-    </form>
+<mat-card-header>
+  <mat-card-title> הכנס פרטים</mat-card-title>
+</mat-card-header>
+<form>
+  <mat-card-content>
+    <div class="profileImg"></div>
+    <div class="space"></div>
+    <div dir="rtl">
+      <mat-form-field dir="rtl" appearance="outline">
+        <input
+          autocomplete="off"
+          matInput
+          placeholder="שם משתמש"
+          [(ngModel)]="username"
+          name="username"
+          required
+        />
+        <mat-icon matSuffix> account_circle</mat-icon>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <input
+        matInput
+        [(ngModel)]="password"
+        type="password"
+        name="password"
+        placeholder="סיסמא"
+        required
+      />
+      <mat-icon matSuffix>lock</mat-icon>
+    </mat-form-field>
+    <mat-form-field *ngIf="newUser === true" appearance="outline">
+      <input
+        matInput
+        [(ngModel)]="password1"
+        type="password"
+        name="password"
+        placeholder="הקש שוב סיסמא"
+        required
+      />
+    </mat-form-field>
+    <mat-checkbox *ngIf="newUser === true">יש לי חנות</mat-checkbox>
     <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
   </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button (click)="login()" color="primary" [disabled]="check_equals()">הכנס</button>
-  </mat-card-actions>
-</mat-card>
+</form>
+<mat-card-actions>
+  <button
+    mat-raised-button
+    (click)="login()"
+    color="primary"
+    [disabled]="check_equals()"
+  >
+    כניסה
+  </button>
+</mat-card-actions>

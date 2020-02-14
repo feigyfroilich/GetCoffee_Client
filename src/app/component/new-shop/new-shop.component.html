@@ -12,6 +12,7 @@
 
 <p dir="rtl">
   <mat-form-field
+    appearance="outline"
     appearance="fill"
     style="text-align: right; align-items: center;"
   >
@@ -30,6 +31,7 @@
 </p>
 <p dir="rtl">
   <mat-form-field
+    appearance="outline"
     appearance="fill"
     style="text-align: right; align-items: center;"
   >
@@ -48,6 +50,7 @@
 </p>
 <p dir="rtl">
   <mat-form-field
+    appearance="outline"
     appearance="fill"
     style="text-align: right; align-items: center;"
   >
@@ -68,16 +71,17 @@
   >
 </p>
 
-<mat-google-maps-autocomplete
-  [appearance]="appearance.OUTLINE"
-  (onLocationSelected)="onOriginLocationSelected($event)"
-  placeholderText=":כתובת מקור"
-  addressLabelText=":כתובת מקור"
-  requiredErrorText="יש לבחור כתובת"
-  invalidErrorText="כתובת לא חוקית"
-  [country]="il"
->
-</mat-google-maps-autocomplete>
+<mat-form-field [appearance]="appearance.OUTLINE">
+  <input
+    matInput
+    placeholder="כתובת"
+    matGoogleMapsAutocomplete
+    [country]="il"
+    invalidErrorText="כתובת לא חוקית"
+    (onAutocompleteSelected)="onAutocompleteSelected($event)"
+    (onLocationSelected)="onOriginLocationSelected($event)"
+  />
+</mat-form-field>
 
 <agm-map
   [latitude]="latitude"

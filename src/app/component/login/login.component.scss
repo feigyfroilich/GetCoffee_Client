@@ -1,20 +1,16 @@
-.login-main{
-  margin-top: 10%;
+.profileImg {
+  width: 498px;
+  height: 223px;
+  background: url(../../../assets/פרופיל.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  background-position: center;
+  top: 25px;
+  margin: auto;
+  right: 0;
+  left: 0;
 }
-mat-card{
-  min-width: 40%;
+.space {
+  height: 52px;
 }
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
-// div
-// {
-//   background-image: url("..\..\..\..\assets\Logo.JPG");
-// }
->>> .example-full-width {
-  // display: center;
-  background-image: url('../../../assets/username.jpg');
-  // background-image:
-  background-color: red($color: #000000);
-  width: 100%;
-  height: 100%;
-}
-

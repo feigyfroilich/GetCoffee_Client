@@ -1,13 +1,152 @@
-/* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-
-html,
-body {
-  height: 100%;
-}
 body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-// mat-form-field {
-//   text-align: right !important;
-// }
+
+@import "~@angular/material/theming";
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$candy-app-primary: mat-palette($mat-deep-orange, A400);
+$candy-app-accent: mat-palette($mat-deep-orange, A400);
+
+// The warn palette is optional (defaults to red).
+$candy-app-warn: mat-palette($mat-red, A700);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$candy-app-theme: mat-light-theme(
+  $candy-app-primary,
+  $candy-app-accent,
+  $candy-app-warn
+);
+
+@function my-mat-light-theme-foreground($color) {
+  @return (
+    base: #ff3d00,
+    divider: $white-12-opacity,
+    dividers: $white-12-opacity,
+    disabled: rgba($color, 0.38),
+    disabled-button: rgba($color, 0.38),
+    disabled-text: rgba($color, 0.38),
+    hint-text: rgba($color, 0.38),
+    secondary-text: rgba($color, 0.54),
+    icon: rgba($color, 0.54),
+    icons: rgba(grey, 0.54),
+    text: rgba(grey, 0.87),
+    slider-off: rgba($color, 0.26),
+    slider-off-active: rgba($color, 0.38),
+    slider-min: rgba($color, 0.38)
+  );
+}
+
+$white-foreground: my-mat-light-theme-foreground(white);
+$my-app-theme-custom: map-merge(
+  $candy-app-theme,
+  (
+    foreground: $white-foreground
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($my-app-theme-custom);
+
+mat-card {
+  margin: auto;
+  background: black !important;
+  padding: 7% 11% !important;
+  min-height: 50vh;
+}
+
+mat-form-field {
+  width: 100% !important;
+  text-align: right;
+  font-size: 16px !important;
+  font-family: Roboto, "Helvetica Neue", sans-serif !important;
+}
+
+mat-card-actions {
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.mat-raised-button {
+  width: 100% !important;
+  box-sizing: 0 !important;
+  font-family: Roboto, "Helvetica Neue", sans-serif !important;
+  font-size: 22px !important;
+  padding-top: 7px !important;
+  padding-bottom: 7px !important;
+}
+
+::placeholder {
+  font-family: Roboto, "Helvetica Neue", sans-serif !important;
+}
+
+.mat-form-field-outline {
+  // background: white !important;
+  border-radius: 5px !important;
+  top: 0 !important;
+}
+
+.mat-form-field-infix {
+  // border-top: 1.3em solid transparent !important;
+  border: 0px solid transparent !important;
+}
+
+.mat-menu-trigger {
+  position: absolute !important;
+  top: 14px !important;
+  right: 7px !important;
+  z-index: 1;
+}
+
+mat-drawer-container {
+  height: 400px !important;
+  overflow-x: hidden !important;
+  background: black !important;
+}
+
+.mat-form-field-outline-gap {
+  width: 0 !important;
+}
+
+.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float.mat-form-field-outline-gap {
+  display: none !important;
+}
+
+.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float
+  .mat-form-field-label {
+  transform: translateY(-1.9em) scale(0.75) !important;
+}
+
+.mat-placeholder-required {
+  color: black !important;
+}
+
+.mat-drawer-inner-container,
+.mat-drawer-content,
+mat-drower {
+  background: black !important;
+}
+.mat-drawer-inner-container {
+  display: grid;
+  grid-gap: 20px;
+  width: 360px !important;
+}
+
+.mat-drawer-side {
+  border-left: solid 0px black !important;
+}
+
+.agm-map-container-inner {
+  border: 1px solid #ff3d00;
+  border-radius: 5px;
+}

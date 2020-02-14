@@ -1,37 +1,50 @@
-<!-- <div >
+<div>
   <mat-form-field [appearance]="appearance.OUTLINE">
-    <mat-label>כתובת</mat-label>
     <input
       matInput
+      placeholder="כתובת מקור"
       matGoogleMapsAutocomplete
       [country]="il"
+      invalidErrorText="כתובת לא חוקית"
       (onAutocompleteSelected)="onAutocompleteSelected($event)"
-      (onLocationSelected)="onLocationSelected($event)"
+      (onLocationSelected)="onOriginLocationSelected($event)"
     />
   </mat-form-field>
-</div> -->
-<mat-google-maps-autocomplete
-  [appearance]="appearance.OUTLINE"
-  (onAutocompleteSelected)="onAutocompleteSelected($event)"
-  (onLocationSelected)="onOriginLocationSelected($event)"
-  placeholderText=":כתובת מקור"
-  addressLabelText=":כתובת מקור"
-  requiredErrorText="יש לבחור כתובת"
-  invalidErrorText="כתובת לא חוקית"
-  [country]="il"
->
-</mat-google-maps-autocomplete>
-<mat-google-maps-autocomplete
-  [appearance]="appearance.OUTLINE"
-  (onAutocompleteSelected)="onAutocompleteSelected($event)"
-  (onLocationSelected)="onDestinationLocationSelected($event, true)"
-  placeholderText=":כתובת יעד"
-  addressLabelText=":כתובת יעד"
-  invalidErrorText="כתובת לא חוקית"
-  [country]="il"
-  requiredErrorText="יש לבחור כתובת"
->
-</mat-google-maps-autocomplete>
+</div>
+<!-- <mat-google-maps-autocomplete
+    [appearance]="appearance.OUTLINE"
+    (onAutocompleteSelected)="onAutocompleteSelected($event)"
+    (onLocationSelected)="onOriginLocationSelected($event)"
+    placeholderText=":כתובת מקור"
+    requiredErrorText="יש לבחור כתובת"
+    invalidErrorText="כתובת לא חוקית"
+    [country]="il"
+  >  
+  </mat-google-maps-autocomplete>-->
+<div>
+  <mat-form-field [appearance]="appearance.OUTLINE">
+    <input
+      matInput
+      placeholder="כתובת יעד"
+      matGoogleMapsAutocomplete
+      [country]="il"
+      invalidErrorText="כתובת לא חוקית"
+      (onAutocompleteSelected)="onAutocompleteSelected($event)"
+      (onLocationSelected)="onDestinationLocationSelected($event)"
+    />
+  </mat-form-field>
+</div>
+<!-- <mat-google-maps-autocomplete
+    [appearance]="appearance.OUTLINE"
+    (onAutocompleteSelected)="onAutocompleteSelected($event)"
+    (onLocationSelected)="onDestinationLocationSelected($event, true)"
+    placeholderText=":כתובת יעד"
+    addressLabelText=":כתובת יעד"
+    invalidErrorText="כתובת לא חוקית"
+    [country]="il"
+    requiredErrorText="יש לבחור כתובת"
+  >
+  </mat-google-maps-autocomplete> -->
 <div>
   <agm-map
     [latitude]="latitude"
@@ -76,8 +89,14 @@
   </agm-map>
 </div>
 
-<div *ngFor="let shop of shopsInCircle">*{{ shop.name }}*</div>
-<button (click)="selectItems()">המשך להזמנה</button>
+<button mat-button color="primary" *ngFor="let shop of shopsInCircle">
+  *{{ shop.name }}*
+</button>
+
+<br /><br />
+<button mat-raised-button color="primary" (click)="selectItems()">
+  המשך להזמנה
+</button>
 
 <!-- npm install angular2-google-map-auto-complete
 <p>maps-agm works!</p>
@@ -159,7 +178,7 @@
 
   </div>
 </div>
-<mat-form-field>
+<mat-form-field  appearance="outline">
   <mat-label>Address << using the directive >></mat-label>
   <input matInput
        matGoogleMapsAutocomplete
