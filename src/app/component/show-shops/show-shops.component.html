@@ -1,9 +1,9 @@
 <mat-accordion>
-  <mat-expansion-panel *ngFor="let shop of shopsList" (opened)="panelOpenState = true"
+  <mat-expansion-panel *ngFor="let order of ordersList" (opened)="panelOpenState = true"
   (closed)="panelOpenState = false">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        {{shop.name}}
+        {{order}}
       </mat-panel-title>
       <mat-panel-description>
           <mat-chip-list aria-label="Fish selection">
@@ -11,7 +11,7 @@
           </mat-chip-list>
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <p>location: {{shop.location}} , num of customers: {{shop.numOfCustomer}} , account number: {{shop.accountNumber}}</p>
+    <!-- <p>location: {{shop.location}} , num of customers: {{shop.numOfCustomer}} , account number: {{shop.accountNumber}}</p> -->
   </mat-expansion-panel>
 </mat-accordion>
 

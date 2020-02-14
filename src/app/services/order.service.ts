@@ -8,16 +8,29 @@ import { OrderItem } from '../classes/order-item';
   providedIn: 'root'
 })
 export class OrderService {
-
+  public orderProductList: Array<any> = [];
   constructor(private http: HttpClient) { }
 
   postOrderToDB(order: Order): Observable<any> {
     return this.http.post(`http://localhost:8090/api/Orders`, order).
-    map(res => { console.log('add order to DB result', res); return res; });
+      map(res => { console.log('add order to DB result', res); return res; });
   }
   postOrderProductToDB(item: OrderItem): Observable<any> {
     console.log('item', item);
     return this.http.post(`http://localhost:8090/api/OrderProducts`, item).
-    map(res => { console.log('add order item to DB result', res); return res; });
+      map(res => { console.log('add order item to DB result', res); return res; });
+  }
+  getOrdersOfShop(shopCode: number): Observable<any> {
+    return this.http.get(`http://localhost:8090/api/Orders/${shopCode}`).
+      map(res => { console.log('get orders from DB by id result', res); return res; });
+  }
+  getOrderProductOfOrders(orders: Array<Order>): any {
+
+  }
+  getOrderProductOfOrderId(orderCode: number): Observable<any> {
+    return this.http.get(`http://localhost:8090/api/OrderProducts/${orderCode}`).
+      map(res => { console.log('get order item from DB result', res);
+                   this.orderProductList.push(res);
+                   return res; });
   }
 }

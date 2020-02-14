@@ -13,7 +13,7 @@ import { OrderService } from 'src/app/services/order.service';
 export class OrderComponent implements OnInit {
   now: Date;
   userProduct: Array<ShopProduct>;
-  shopCode: number;
+  orderCode = 0;
   constructor(private route: ActivatedRoute, private shopsProductService: ShopsProductService) { }
   ngOnInit() {
     // tslint:disable-next-line: only-arrow-functions
@@ -32,7 +32,7 @@ export class OrderComponent implements OnInit {
     this.shopsProductService.addRemoveProductToUser(product);
   }
   sendToShop(): any {
-    this.shopCode = this.shopsProductService.sendOrtderToShop(this.shopsProductService.userProducts);
+    this.orderCode = this.shopsProductService.sendOrtderToShop(this.shopsProductService.userProducts);
   }
 }
 

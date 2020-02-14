@@ -50,9 +50,9 @@ export class RegisterComponent implements OnInit {
     u = new User({ id: 0, name: this.username, password: this.password, shopId: this.shopId});
     this.userService.saveCurrentUser(u);
     if (!this.shopOwner) {
-      this.userService.addNewUserDB(u);
+      this.userService.addNewUserDB(u).subscribe();
       this.equals = false;
-      this.router.navigate(['/newOrder']);
+      this.router.navigate(['/maps']);
     } else {
       this.router.navigate(['/NewShop']);
     }

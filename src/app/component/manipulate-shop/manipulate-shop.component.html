@@ -46,7 +46,7 @@
       (click)="[print(), drawer.toggle()]"
       mat-raised-button
     >
-      צפה בסטטיסטיקת הזמנות
+      צפה בהזמנות
     </button>
   </mat-drawer>
   <div class="example-sidenav-content">
@@ -55,9 +55,9 @@
       color="primary"
       type="button"
       mat-button
-      (click)="drawer.toggle()"
+      (click)="[navi('addShop/orders'), drawer.toggle()]"
     >
-      Manipulate your shop
+      ניהול חנות
     </button>
     <router-outlet></router-outlet>
   </div>

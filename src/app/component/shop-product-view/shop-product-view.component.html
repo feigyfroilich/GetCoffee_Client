@@ -1,2 +1,2 @@
 <mat-checkbox class="example-section" *ngFor="let product of products" [(ngModel)]="product.status" >{{product.name}}</mat-checkbox>
-<button (click)="saveProducts()">שמור שינוי סטטוס</button>
+<button mat-raised-button (click)="saveProducts()">שמור שינוי סטטוס</button>

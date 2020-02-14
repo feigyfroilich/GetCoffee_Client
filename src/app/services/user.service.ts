@@ -11,8 +11,8 @@ export class UserService {
   user: User;
   constructor(private http: HttpClient) { }
   addNewUserDB(u: User) {
-    console.log('user',u);
-    return this.http.post(`http://localhost:8090/api/users`, u);
+    console.log('user', u);
+    return this.http.post(`http://localhost:8090/api/users`, u).map(res => res);
   }
   getAllUsersDB(): Observable<User[]> {
     return this.http.get<User[]>(`http://localhost:8090/api/Users`).pipe(
