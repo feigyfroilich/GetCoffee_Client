@@ -3,7 +3,7 @@ import { Time } from '@angular/common';
 export class Order {
   public code: number;
   public date: Date;
-  public deadline: Time;
+  public deadline: Date;
   public ready: boolean;
   public taken: boolean;
 

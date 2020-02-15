@@ -91,7 +91,7 @@ export class ShopsProductService {
         this.orderItem = new OrderItem({
           Code: 0,
           orderCode: res.code,
-          productCode: x.Code,
+          productCode: x.productCode,
           amount: 1
         });
         this.orderService.postOrderProductToDB(this.orderItem).subscribe(res1 => {

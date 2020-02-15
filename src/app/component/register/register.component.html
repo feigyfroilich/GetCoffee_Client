@@ -34,6 +34,16 @@
   <mat-checkbox class="example-section" [(ngModel)]="shopOwner"
     >יש לי חנות</mat-checkbox
   >
+  <mat-form-field appearance="outline" *ngIf="shopOwner === true">
+    <input
+      placeholder="קוד חנות"
+      matInput
+      [(ngModel)]="shopId"
+      type="string"
+      name="shopId"
+      required
+    />
+  </mat-form-field>
   <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
 </mat-card-content>
 

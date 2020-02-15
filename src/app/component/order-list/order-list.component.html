@@ -1,18 +1,27 @@
-<mat-card id="mat">יש {{numberOfOrders}} הזמנות  ממתינות</mat-card>
+<mat-card id="mat">יש {{numberOfOrders}} הזמנות ממתינות</mat-card>
 
-<mat-accordion >
-  <mat-expansion-panel *ngFor="let order of ordersList"  (opened)="panelOpenState = true"
-  (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
+<mat-accordion>
+  <ng-container *ngFor="let order of ordersList" >
+  <mat-expansion-panel *ngIf="order.ready === false"  (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false" >
+    <mat-expansion-panel-header >
       <mat-panel-title>
         {{order.code}}
       </mat-panel-title>
       <mat-panel-description>
-          <mat-chip-list aria-label="Fish selection">
-              <mat-chip (click)="remove(product)"  [color]="buttonColor" (click)="buttonColor = 'warn'">ההזמנה מוכנה</mat-chip>
-              <p>שעת סיום {{order.deadline}} </p>
-          </mat-chip-list>
+        <mat-chip-list aria-label="Fish selection">
+          <mat-chip (click)="remove(order)" [color]="buttonColor" (click)="buttonColor = 'warn'">ההזמנה מוכנה
+          </mat-chip>
+          <p>שעת סיום {{order.deadline}} </p>
+
+        </mat-chip-list>
+
       </mat-panel-description>
+
     </mat-expansion-panel-header>
+    <mat-list role="list">
+          <mat-list-item  *ngFor="let item of orderItemNameDict[order.code]" role="listitem">{{item}}</mat-list-item>
+        </mat-list>
   </mat-expansion-panel>
+</ng-container>
 </mat-accordion>

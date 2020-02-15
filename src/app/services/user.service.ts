@@ -29,7 +29,7 @@ export class UserService {
     return this.user.shopId;
   }
   getCurrentUser(): User {
-    console.log('here', this.user)
+    console.log('here', this.user);
     return this.user;
   }
 

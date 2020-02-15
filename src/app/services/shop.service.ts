@@ -26,6 +26,7 @@ export class ShopService {
       map(d => new Shop(d)));
   }
   addShopToDB(shop: Shop): any {
+   console.log('shop', shop);
    return   this.http.post(`http://localhost:8090/api/shops`, shop).map(res => {
     this.router.navigate(['/addShop']);
     return res;
