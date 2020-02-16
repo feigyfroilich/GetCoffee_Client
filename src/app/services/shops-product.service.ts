@@ -5,8 +5,8 @@ import { Product } from "src/app/classes/product";
 import { HttpClient } from "@angular/common/http";
 import { ShopProduct } from "src/app/classes/shopProduct";
 import { Order } from "../classes/order";
-import { OrderService } from './order.service';
-import { OrderItem } from '../classes/order-item';
+import { OrderService } from "./order.service";
+import { OrderItem } from "../classes/order-item";
 
 @Injectable({
   providedIn: "root"
@@ -17,7 +17,7 @@ export class ShopsProductService {
   shopCode: number;
   userProduct: ShopProduct;
   orderItem: OrderItem;
-  constructor(private http: HttpClient, private orderService: OrderService) { }
+  constructor(private http: HttpClient, private orderService: OrderService) {}
 
   getAllShopProducts(shopCode: number): Observable<ShopProduct[]> {
     return this.http
@@ -72,8 +72,8 @@ export class ShopsProductService {
 
   sendOrtderToShop(products: any): number {
     const now = Date.now();
-    const dateFormat = require('dateformat');
-    const time = dateFormat(now, 'h:MM:ss');
+    const dateFormat = 0; //require('dateformat');
+    const time = 0; //dateFormat(now, 'h:MM:ss');
     const today = now;
     let order1: Order;
     order1 = new Order({
@@ -84,7 +84,7 @@ export class ShopsProductService {
       taken: false
     });
     let orderCode: number;
-    console.log('order-products', products);
+    console.log("order-products", products);
     this.orderService.postOrderToDB(order1).subscribe(res => {
       orderCode = res;
       products.forEach(x => {
@@ -94,9 +94,11 @@ export class ShopsProductService {
           productCode: x.productCode,
           amount: 1
         });
-        this.orderService.postOrderProductToDB(this.orderItem).subscribe(res1 => {
-          console.log('result after adding item to order', res1);
-        });
+        this.orderService
+          .postOrderProductToDB(this.orderItem)
+          .subscribe(res1 => {
+            console.log("result after adding item to order", res1);
+          });
       });
     });
     return orderCode;

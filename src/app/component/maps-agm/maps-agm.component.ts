@@ -145,7 +145,7 @@ export class MapsAgmComponent implements OnInit, AfterViewInit {
   getShopsInCircle() {
     let resShops = [];
     this.shopsInCircle = this.shops.filter(shop => {
-      let distance = this.calculateDistance(this.origin, shop);
+      let distance = this.calculateDistance(this.destination, shop);
       console.log("distance", distance);
 
       if (distance <= 0.3) {

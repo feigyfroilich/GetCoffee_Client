@@ -77,6 +77,11 @@ mat-card-actions {
   margin: 0 !important;
 }
 
+.time-picker-selected-time,
+.time-picker-selected-ampm {
+  direction: ltr !important;
+}
+
 .mat-raised-button {
   width: 100% !important;
   box-sizing: 0 !important;

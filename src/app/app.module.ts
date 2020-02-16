@@ -44,9 +44,9 @@ import { MatRadioModule } from "@angular/material";
 
 import { AddShopProductComponent } from "./component/add-shop-product/add-shop-product.component";
 import { ManageShopComponent } from "./component/manage-shop/manage-shop.component";
-import { OrderListComponent } from './component/order-list/order-list.component';
-import { AddCategoryComponent } from './component/add-category/add-category.component';
-
+import { OrderListComponent } from "./component/order-list/order-list.component";
+import { AddCategoryComponent } from "./component/add-category/add-category.component";
+import { AmazingTimePickerModule } from "amazing-time-picker";
 @NgModule({
   declarations: [
     AppComponent,
@@ -95,7 +95,8 @@ import { AddCategoryComponent } from './component/add-category/add-category.comp
       libraries: ["places", "geometry"],
       region: "israel"
     }),
-    AgmDirectionModule
+    AgmDirectionModule,
+    AmazingTimePickerModule
     // AgmCoreModule.forRoot()
   ],
   exports: [
