@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
 import { Category } from 'src/app/classes/category';
-import { CANCELLED } from 'dns';
 
 @Component({
   selector: 'app-add-category',
