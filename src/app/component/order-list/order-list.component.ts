@@ -83,6 +83,7 @@ export class OrderListComponent implements OnInit {
     console.log(index, this.ordersList);
     this.numberOfOrders--;
     this.orderService.updateOrderAsReady(order).subscribe();
+    this.orderService.sendEmail();
   }
    dateCompare(time1,time2) {
     let t1 = new Date();
