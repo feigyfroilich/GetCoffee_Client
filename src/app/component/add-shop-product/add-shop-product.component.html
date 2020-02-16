@@ -20,7 +20,7 @@
 </mat-radio-group>
 <p></p>
 <form name="x">
-  <mat-form-field appearance="outline" *ngIf="new_pro === 'new'">
+  <!-- <mat-form-field appearance="outline" *ngIf="new_pro === 'new'">
     <mat-select
       placeholder="בחר קטגורית מוצר"
       [(ngModel)]="childCcodeP"
@@ -33,7 +33,7 @@
         {{ category.name }}
       </mat-option>
     </mat-select>
-  </mat-form-field>
+  </mat-form-field> -->
   <p></p>
   <mat-form-field appearance="outline" *ngIf="new_pro === 'new'">
     <mat-select
@@ -42,10 +42,10 @@
       [ngModelOptions]="{ standalone: true }"
     >
       <mat-option
-        *ngFor="let category1 of childCategories"
-        [value]="category1.code"
+        *ngFor="let category of parentCategories"
+        [value]="category.code"
       >
-        {{ category1.name }}
+        {{ category.name }}
       </mat-option>
     </mat-select>
   </mat-form-field>

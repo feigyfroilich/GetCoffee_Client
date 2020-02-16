@@ -38,11 +38,11 @@ export class OrderListComponent implements OnInit {
           this.numberOfOrders--;
         }
         // tslint:disable-next-line: max-line-length
-        let order_dead = orderch.deadline.getHours() + ':' + orderch.deadline.getMinutes() + ':' +  orderch.deadline.getSeconds();
-        console.log('fdghjk',order_dead, this.now);
-        if (this.dateCompare(order_dead, this.now ) < 1) {
-          console.log(orderch.deadline, 'deadline');
-        }
+        // let order_dead = orderch.deadline.getHours() + ':' + orderch.deadline.getMinutes() + ':' +  orderch.deadline.getSeconds();
+        // console.log('fdghjk',order_dead, this.now);
+        // if (this.dateCompare(order_dead, this.now ) < 1) {
+        //   console.log(orderch.deadline, 'deadline');
+        // }
       });
       this.ordersList.forEach(order => {
         this.orderService.getOrderProductOfOrderId(order.code).subscribe(result => {

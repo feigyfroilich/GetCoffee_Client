@@ -14,6 +14,7 @@ import { NewShopComponent } from './component/new-shop/new-shop.component';
 import { AddShopProductComponent } from './component/add-shop-product/add-shop-product.component';
 import { ManageShopComponent } from './component/manage-shop/manage-shop.component';
 import { OrderListComponent } from './component/order-list/order-list.component';
+import { AddCategoryComponent } from './component/add-category/add-category.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -35,7 +36,8 @@ const routes: Routes = [
       { path: 'products', component: ShopProductViewComponent },
       { path: 'addProducts', component: AddShopProductComponent },
       { path: 'manageShop', component: ManageShopComponent },
-      { path: 'orders', component: OrderListComponent }
+      { path: 'orders', component: OrderListComponent },
+      { path: 'addCategory', component: AddCategoryComponent }
     ]
   }
 ];

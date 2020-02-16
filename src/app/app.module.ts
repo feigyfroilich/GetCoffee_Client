@@ -45,6 +45,8 @@ import { MatRadioModule } from "@angular/material";
 import { AddShopProductComponent } from "./component/add-shop-product/add-shop-product.component";
 import { ManageShopComponent } from "./component/manage-shop/manage-shop.component";
 import { OrderListComponent } from './component/order-list/order-list.component';
+import { AddCategoryComponent } from './component/add-category/add-category.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,7 +63,8 @@ import { OrderListComponent } from './component/order-list/order-list.component'
     NewShopComponent,
     AddShopProductComponent,
     ManageShopComponent,
-    OrderListComponent
+    OrderListComponent,
+    AddCategoryComponent
   ],
   imports: [
     NgbModule,

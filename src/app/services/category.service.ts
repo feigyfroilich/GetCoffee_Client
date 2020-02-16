@@ -25,7 +25,8 @@ export class CategoryService {
     this.getCategoriesDB().subscribe(category => {
       console.log('category', category);
       this.categoryList = category;
-      this.categoryList.forEach(cat => cat.parentCode === null ? this.categoryPartentList.push(cat) : this.categoryChildrenList.push(cat));
+      // tslint:disable-next-line: max-line-length
+      // this.categoryList.forEach(cat => cat.parentCode === null ? this.categoryPartentList.push(cat) : this.categoryChildrenList.push(cat));
       console.log('all', this.categoryList);
       console.log('parent', this.categoryPartentList);
       console.log('child', this.getAllChildeCategory);
@@ -37,5 +38,9 @@ export class CategoryService {
   }
   getAllChildeCategory(): any {
     return this.categoryChildrenList;
+  }
+  addCategoryToDB(category: Category): Observable<any> {
+    return this.http.post(`http://localhost:8090/api/Categories`, category);
+
   }
 }

@@ -1,0 +1,18 @@
+<mat-form-field appearance="outline">
+  <input
+    matInput
+    placeholder="שם קטגוריה"
+    type="text"
+    class="example-right-align"
+    [(ngModel)]="categoryName"
+    [ngModelOptions]="{ standalone: true }"
+  />
+</mat-form-field>
+<button
+    type="button"
+    mat-raised-button
+    color="primary"
+    (click)="addCategory()"
+  >
+    הוספה
+  </button>

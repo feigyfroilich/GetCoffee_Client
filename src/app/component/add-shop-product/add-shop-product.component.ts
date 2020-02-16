@@ -38,8 +38,7 @@ export class AddShopProductComponent implements OnInit {
   price: number;
   ngOnInit() {
     this.categoryService.getAllCategories();
-    this.parentCategories = this.categoryService.getAllParentCategory();
-    this.childCategories = this.categoryService.getAllChildeCategory();
+    this.parentCategories = this.categoryService.categoryList;
     this.productS.getProductsDB().subscribe(product => {
       console.log("dddddddddddddddddddd", product);
       this.productList = product;
