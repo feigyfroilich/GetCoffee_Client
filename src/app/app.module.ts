@@ -21,7 +21,9 @@ import {
   MatToolbarModule,
   MatIconModule,
   MatCardModule,
-  MatSelectModule
+  MatSelectModule,
+  ErrorStateMatcher,
+  ShowOnDirtyErrorStateMatcher
 } from "@angular/material";
 
 import { CustomMaterialModule } from "./core/material.module";
@@ -41,7 +43,7 @@ import { RegisterComponent } from "./component/register/register.component";
 import { NewShopComponent } from "./component/new-shop/new-shop.component";
 import { AgmDirectionModule } from "agm-direction";
 import { MatRadioModule } from "@angular/material";
-
+import {  ReactiveFormsModule} from '@angular/forms';
 import { AddShopProductComponent } from "./component/add-shop-product/add-shop-product.component";
 import { ManageShopComponent } from "./component/manage-shop/manage-shop.component";
 import { OrderListComponent } from "./component/order-list/order-list.component";
@@ -67,6 +69,7 @@ import { AmazingTimePickerModule } from "amazing-time-picker";
     AddCategoryComponent
   ],
   imports: [
+    ReactiveFormsModule,
     NgbModule,
     MatRadioModule,
     MatListModule,
@@ -106,7 +109,7 @@ import { AmazingTimePickerModule } from "amazing-time-picker";
     MatRippleModule,
     MatChipsModule
   ],
-  providers: [],
+  providers: [{provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

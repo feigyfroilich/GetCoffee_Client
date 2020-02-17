@@ -70,7 +70,7 @@ export class ShopsProductService {
     this.userProducts = [];
   }
 
-  sendOrtderToShop(products: any): number {
+  sendOrtderToShop(products: any, email1: string): number {
     const now = Date.now();
     const dateFormat = 0; //require('dateformat');
     const time = 0; //dateFormat(now, 'h:MM:ss');
@@ -79,9 +79,10 @@ export class ShopsProductService {
     order1 = new Order({
       shopCode: products[0].shopCode,
       date: today,
-      deadline: time,
+      deadline: time.toString(),
       ready: false,
-      taken: false
+      taken: false,
+      email: email1
     });
     let orderCode: number;
     console.log("order-products", products);

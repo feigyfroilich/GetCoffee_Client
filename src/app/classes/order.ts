@@ -6,6 +6,7 @@ export class Order {
   public deadline: Date;
   public ready: boolean;
   public taken: boolean;
+  public email: string;
 
   constructor(obj?: any) {
     Object.assign(this, obj);

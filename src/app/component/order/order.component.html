@@ -31,6 +31,18 @@
   </mat-expansion-panel>
 </mat-accordion>
 <button mat-raised-button (click)="sendToShop()" color="primary">הזמן</button>
+
+<mat-form-field appearance="outline" id="hy">
+  <input
+    matInput
+    placeholder="מייל לעדכון סטטוס ההזמנה"
+    type="email"
+    class="example-right-align"
+    [(ngModel)]="email"
+    [ngModelOptions]="{ standalone: true }"
+  />
+</mat-form-field>
+
 <mat-card id="mat" *ngIf="orderCode !== 0"
   >ההזמנה נשלחה בהצלחה. מס' הזמנה {{ orderCode }}
 </mat-card>
