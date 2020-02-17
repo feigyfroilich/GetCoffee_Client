@@ -15,7 +15,8 @@ export class ShopService {
   lat: number;
   long: number;
   latlong: Array<number> = [];
-
+  shopsinCircle: Array<any> = [];
+  shopsinCircleReady: Array<any> = [];
   getAllShops(): Observable<Shop[]> {
     return this.http.get<Shop[]>(`http://localhost:8090/api/shops`).pipe(
       map(res => res.map(d => new Shop(d))));
@@ -26,10 +27,10 @@ export class ShopService {
       map(d => new Shop(d)));
   }
   addShopToDB(shop: Shop): any {
-   console.log('shop', shop);
-   return   this.http.post(`http://localhost:8090/api/shops`, shop).map(res => {
-    this.router.navigate(['/addShop']);
-    return res;
+    console.log('shop', shop);
+    return this.http.post(`http://localhost:8090/api/shops`, shop).map(res => {
+      this.router.navigate(['/addShop']);
+      return res;
     });
 
   }
@@ -37,6 +38,7 @@ export class ShopService {
     this.latlong[0] = lat;
     this.latlong[1] = long;
   }
+
   getLatLong(): Array<number> {
 
     return this.latlong;
@@ -44,5 +46,14 @@ export class ShopService {
   }
   updateShopStatus(shop: Shop): Observable<any> {
     return this.http.put(`http://localhost:8090/api/Shops/${shop.code}`, shop);
+  }
+  getReadyShopFromCircle(): any {
+    this.shopsinCircle.forEach(shop => {
+      if (shop.status === true) {
+        this.shopsinCircleReady.push(shop);
+      }
+
+    });
+    return this.shopsinCircleReady;
   }
 }

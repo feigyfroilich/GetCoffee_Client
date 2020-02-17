@@ -29,7 +29,7 @@ export class NewShopComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.shopName = "";
+    this.shopName = " ";
   }
   addShop(): any {
     let shop: Shop;

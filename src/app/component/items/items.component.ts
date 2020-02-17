@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ShopService } from 'src/app/services/shop.service';
+import { FlatTreeControl } from '@angular/cdk/tree';
 
 @Component({
   selector: 'app-items',
@@ -21,14 +22,20 @@ export class ItemsComponent implements OnInit {
   products: ShopProduct[];
   time: any;
   latlong: Array<number> = [];
-  shops: Array<Shop> =[];
+  shops: Array<Shop> = [];
+  typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
   // tslint:disable-next-line: variable-name
   user_product: Array<ShopProduct> = [];
   product: ShopProduct;
+  chosen: any;
+  shopsInCircle: Array<any> = [];
+  shopItemsNameDict: { [id: number]: Array<object> } = {};
   // tslint:disable-next-line: max-line-length
   constructor(private route: ActivatedRoute, private router: Router, private Shops_ProductService: ShopsProductService, private shopService: ShopService) {
   }
   ngOnInit() {
+    this.shopsInCircle = this.shopService.getReadyShopFromCircle();
+    console.log('shopsInCircle', this.shopsInCircle);
     this.shopCode = +this.route.snapshot.paramMap.get('chosenShop');
     if (this.shopCode != null) {
       console.log('shops_number: ', this.shopCode);
@@ -43,6 +50,15 @@ export class ItemsComponent implements OnInit {
     // meantime:
     this.Shops_ProductService.getAllProducts().subscribe(res => {
       this.products = res;
+      this.products.forEach(product => {
+        if (! this.shopItemsNameDict[product.shopCode]) {
+          this.shopItemsNameDict[product.shopCode] = [];
+        }
+        // console.log('this.shopsInCircle[0]', this.shopsInCircle[0]);
+        this.chosen = this.shopsInCircle[0].code;
+        this.shopItemsNameDict[product.shopCode].push(product);
+        console.log('array of shop product');
+      });
     });
     this.shopService.getAllShops().subscribe(res => {
       this.shops  = res;
@@ -60,5 +76,8 @@ export class ItemsComponent implements OnInit {
   }
   order(): any {
     this.router.navigate(['/order']);
+  }
+  click(): any {
+    console.log(this.chosen);
   }
 }

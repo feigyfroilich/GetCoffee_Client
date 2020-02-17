@@ -17,6 +17,7 @@ export class ShopsProductService {
   shopCode: number;
   userProduct: ShopProduct;
   orderItem: OrderItem;
+  shopInCircle: Array<any> = [];
   constructor(private http: HttpClient, private orderService: OrderService) {}
 
   getAllShopProducts(shopCode: number): Observable<ShopProduct[]> {

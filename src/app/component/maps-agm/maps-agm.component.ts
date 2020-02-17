@@ -131,6 +131,7 @@ export class MapsAgmComponent implements OnInit, AfterViewInit {
   }
   selectItems(): any {
     this.shopService.saveLatLong(this.latitude, this.longitude);
+    this.shopService.shopsinCircle = this.shopsInCircle;
     // navigate to ItemsComponent
     this.router.navigate(["/newOrder"]);
   }

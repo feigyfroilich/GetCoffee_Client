@@ -51,6 +51,7 @@ export class OrderComponent implements OnInit {
     this.shopsProductService.addRemoveProductToUser(product);
   }
   sendToShop(): any {
+
     this.orderCode = this.shopsProductService.sendOrtderToShop(this.shopsProductService.userProducts, this.email);
   }
 }

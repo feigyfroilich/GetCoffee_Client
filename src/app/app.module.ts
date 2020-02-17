@@ -12,6 +12,7 @@ import { MatGoogleMapsAutocompleteModule } from "@angular-material-extensions/go
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatListModule } from "@angular/material/list";
 import { MatCheckboxModule } from "@angular/material/checkbox";
+import {MatTreeModule} from '@angular/material/tree';
 import {
   MatButtonModule,
   MatFormFieldModule,
@@ -69,6 +70,7 @@ import { AmazingTimePickerModule } from "amazing-time-picker";
     AddCategoryComponent
   ],
   imports: [
+    MatTreeModule,
     ReactiveFormsModule,
     NgbModule,
     MatRadioModule,
@@ -103,13 +105,14 @@ import { AmazingTimePickerModule } from "amazing-time-picker";
     // AgmCoreModule.forRoot()
   ],
   exports: [
+    MatTreeModule,
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
     MatRippleModule,
     MatChipsModule
   ],
-  providers: [{provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
