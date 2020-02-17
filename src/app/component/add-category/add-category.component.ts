@@ -14,10 +14,9 @@ export class AddCategoryComponent implements OnInit {
   ngOnInit() {
   }
   addCategory() {
-    console.log('add categery');
     const category = new Category({name: this.categoryName});
     this.categoryService.addCategoryToDB(category).subscribe(res => {
-      console.log(res);
+      
     });
   }
 

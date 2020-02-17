@@ -20,7 +20,6 @@ export class GetCoffeeInfoComponent implements OnInit {
 
   setActiveImage(promotions) {
     for (let i = 0; i <= promotions.length - 1; i++) {
-      console.log('one promotion is: ', promotions[i]);
       setTimeout(() => {
         // SET SRC TO FILE FROM PROMOTIONS
         this.activeImage = promotions[i];

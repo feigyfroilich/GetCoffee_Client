@@ -19,7 +19,7 @@
     requiredErrorText="יש לבחור כתובת"
     invalidErrorText="כתובת לא חוקית"
     [country]="il"
-  >  
+  >
   </mat-google-maps-autocomplete>-->
 <div>
   <mat-form-field [appearance]="appearance.OUTLINE">
@@ -34,17 +34,7 @@
     />
   </mat-form-field>
 </div>
-<!-- <mat-google-maps-autocomplete
-    [appearance]="appearance.OUTLINE"
-    (onAutocompleteSelected)="onAutocompleteSelected($event)"
-    (onLocationSelected)="onDestinationLocationSelected($event, true)"
-    placeholderText=":כתובת יעד"
-    addressLabelText=":כתובת יעד"
-    invalidErrorText="כתובת לא חוקית"
-    [country]="il"
-    requiredErrorText="יש לבחור כתובת"
-  >
-  </mat-google-maps-autocomplete> -->
+
 <div>
   <agm-map
     [latitude]="latitude"
@@ -89,153 +79,10 @@
   </agm-map>
 </div>
 
-<button mat-button color="primary" *ngFor="let shop of shopsInCircle">
-  *{{ shop.name }}*
-</button>
+
 
 <br /><br />
 <button mat-raised-button color="primary" (click)="selectItems()">
   המשך להזמנה
 </button>
 
-<!-- npm install angular2-google-map-auto-complete
-<p>maps-agm works!</p>
-<agm-map [latitude]="lat" [longitude]="lng">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-</agm-map>
- <input #search autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control">
-<agm-map [latitude]="lat" [longitude]="lng">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-</agm-map> -->
-<!-- <input #search autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control"> -->
-
-<!-- The content below is only a placeholder and can be replaced. -->
-<!-- <h1>Google Maps Address Finder</h1>
-
-<agm-map [latitude]="latitude" [longitude]="longitude"  [scrollwheel]="true" [zoom]="zoom" [fullscreenControl]="true">
-  <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
-</agm-map>
-
-<div class="row">
-  <div class="col-sm-4">
-    <div class="form-group">
-      <label>Enter Location</label>
-      <input class="form-control mr-sm-4" type="text" id="autocomplete" placeholder="Search for the Location"
-        autocorrect="off" id="myText" autocapitalize="off" spellcheck="off" class="form-control" width="784px"
-        #search /></div>
-
-    <div class="form-group">
-      <label>Address of the location:</label>
-      <input class="form-control mr-sm-4" placeholder="{{f_addr}}" class="form-control" width="784px" disabled="true">
-    </div>
-  </div>
-  <div class="col-sm-4">
-
-
-    <div class="form-group">
-      <label for="text">Lat:</label>
-      <input type="password" class="form-control" placeholder=" {{latitude}}" disabled="true">
-    </div>
-    <div class="form-group">
-      <label for="text">Lng:</label>
-      <input type="text" class="form-control" placeholder=" {{longitude}}" disabled="true">
-    </div>
-  </div>
-  <div class="col-sm-4">
-
-    <div class="form-group">
-      <label>City:</label>
-      <input class="form-control" placeholder="{{city}}" disabled="true">
-    </div>
-    <div class="form-group">
-      <label>State:</label>
-      <input class="form-control" placeholder="{{state}}" disabled="true">
-    </div>
-  </div>
-  <div class="col-sm-4">
-
-
-    <div class="form-group">
-      <label>Country:</label>
-      <input class="form-control" placeholder="{{country}}" disabled="true">
-    </div>
-    <div class="form-group">
-      <label>Country initials:</label>
-      <input class="form-control" placeholder="{{scountry}}" disabled="true">
-    </div>
-  </div>
-  <div class="col-sm-4">
-
-
-    <div class="form-group">
-      <label for="text">Zipcode</label>
-      <input type="password" class="form-control" placeholder=" {{ postCode}}" disabled="true">
-    </div>
-    <div class="form-group">
-      <label for="text">State initials</label>
-      <input type="text" class="form-control" placeholder=" {{ estab}}" disabled="true">
-    </div>
-
-  </div>
-</div>
-<mat-form-field  appearance="outline">
-  <mat-label>Address << using the directive >></mat-label>
-  <input matInput
-       matGoogleMapsAutocomplete
-       [country]="de"
-       (onAutocompleteSelected)="onAutocompleteSelected($event)"
-       (onLocationSelected)="onLocationSelected($event)">
-</mat-form-field>
-<mat-google-maps-autocomplete [appearance]="appearance.OUTLINE"
-                              (onAutocompleteSelected)="onAutocompleteSelected($event)"
-                              (onLocationSelected)="onLocationSelected($event)">
-      </mat-google-maps-autocomplete>
-
-      <div class="container" fxLayout="column" fxLayoutAlign="center">
-
-        <div fxFlex>
-          <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
-            <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
-          </agm-map>
-        </div>
-
-        <div fxFlex fxFlexAlign="center"
-             class="autocomplete-container"
-             [ngStyle.xs]="{'min-width.%': 100}"
-             [ngStyle.sm]="{'width.%': 70}">
-          <mat-google-maps-autocomplete (onAutocompleteSelected)="onAutocompleteSelected($event)"
-                                        (onLocationSelected)="onLocationSelected($event)">
-          </mat-google-maps-autocomplete>
-        </div>
-
-      </div> -->
-
-<!-- <mat-google-maps-autocomplete  country="us"
-      type="address"
-      (onAutocompleteSelected)="onAutocompleteSelected($event)"
-      (onLocationSelected)="onLocationSelected($event)">
-</mat-google-maps-autocomplete>
-<mat-google-maps-autocomplete [appearance]="appearance.OUTLINE"
-                              (onAutocompleteSelected)="onAutocompleteSelected($event)"
-                              (onLocationSelected)="onLocationSelected($event)">
-      </mat-google-maps-autocomplete> -->
-<!-- combine the result of the mat-google-maps-autocomplete with a google map instance via @agm -->
-<!--
-<div class="container" fxLayout="column" fxLayoutAlign="center">
-
-<div fxFlex>
-<agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
-<agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
-</agm-map>
-</div>
-
-<div fxFlex fxFlexAlign="center"
-class="autocomplete-container"
-[ngStyle.xs]="{'min-width.%': 100}"
-[ngStyle.sm]="{'width.%': 70}">
-
-<mat-google-maps-autocomplete [appearance]="appearance.OUTLINE" (onAutocompleteSelected)="onAutocompleteSelected($event)"
-           (onLocationSelected)="onLocationSelected($event)">
-</mat-google-maps-autocomplete>
-</div></div>
- -->

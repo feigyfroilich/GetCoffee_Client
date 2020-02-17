@@ -40,7 +40,6 @@ export class AddShopProductComponent implements OnInit {
     this.categoryService.getAllCategories();
     this.parentCategories = this.categoryService.categoryList;
     this.productS.getProductsDB().subscribe(product => {
-      console.log("dddddddddddddddddddd", product);
       this.productList = product;
     });
   }
@@ -58,7 +57,7 @@ export class AddShopProductComponent implements OnInit {
         name: this.productNewName,
         CategoryCode: this.childCcodeC
       });
-      console.log(isnew, ProductLength, p);
+
       this.productS.addNewProductDB(p).subscribe((proRes: any) => {
         // tslint:disable-next-line: max-line-length
         sh = new ShopProduct({
@@ -92,6 +91,5 @@ export class AddShopProductComponent implements OnInit {
       this.shopProducrService.addSHopProduct(sh).subscribe(() => {});
     }
 
-    console.log(isnew, ProductLength, p, this.productList, sh);
   }
 }
