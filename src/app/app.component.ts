@@ -20,7 +20,10 @@ export class AppComponent implements OnInit {
   constructor(private _snackBar: MatSnackBar) {}
 
   ngOnInit() {
-    this.openSnackBar("יש לך הזמנה ממתינה", "הבנתי");
+    this.openSnackBar(
+      "יש לך הזמנה ממתינה, בעוד רבע שעה הלקוח מגיע תיזהר לא לפספס לקוחות זה הכסף שלך",
+      "הבנתי"
+    );
   }
 
   openSnackBar(message: string, action: string) {
