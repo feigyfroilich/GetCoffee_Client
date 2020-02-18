@@ -105,11 +105,9 @@ export class OrderListComponent implements OnInit {
   }
   isDiffOk(orderDate: Date): boolean {
     const diff = moment.utc(orderDate, 'HH:mm:ss').diff(moment.utc(this.selectedTime, 'HH:mm:ss'), 'minutes');
-    console.log('diff', diff);
-    if (diff < 15 && diff > 0) {
-      console.log('true');
+    console.log(orderDate, diff)
+    if (Math.abs(diff) < 15 && Math.abs(diff) > 0) {
       return true;
-
     } else {
       return false;
     }

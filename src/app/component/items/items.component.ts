@@ -44,6 +44,7 @@ export class ItemsComponent implements OnInit {
     private shopService: ShopService
   ) {}
   ngOnInit() {
+    this.Shops_ProductService.userProducts = [];
     this.shopsInCircle = this.shopService.getReadyShopFromCircle();
     console.log("shopsInCircle", this.shopsInCircle);
     this.shopCode = +this.route.snapshot.paramMap.get("chosenShop");
