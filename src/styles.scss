@@ -77,6 +77,24 @@ mat-card-actions {
   margin: 0 !important;
 }
 
+.mat-menu-panel {
+  background-color: black;
+}
+
+.mat-menu-content {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  border-right: 3px solid gray !important;
+  border-left: 3px solid gray !important;
+}
+.mat-menu-item,
+.mat-menu-content {
+  border-top: 1px solid gray !important;
+  border-bottom: 1px solid gray !important;
+  font-weight: bold !important;
+  color: #ff3d00 !important;
+}
+
 .time-picker-selected-time,
 .time-picker-selected-ampm {
   direction: ltr !important;
