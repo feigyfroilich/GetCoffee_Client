@@ -88,6 +88,7 @@ export class MapsAgmComponent implements OnInit, AfterViewInit {
     this.latitude = 52.520008;
     this.longitude = 13.404954;
     this.getDirection();
+    this.shopsInCircle = [];
   }
 
   private setCurrentPosition() {

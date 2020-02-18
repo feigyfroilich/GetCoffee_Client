@@ -1,6 +1,6 @@
 <!-- <app-show-shops></app-show-shops> -->
 <div class="wrapper-all">
-  <div *ngIf="showReminder" class="reminder">יש לך הזמנה ממתינה</div>
+  <!-- <div *ngIf="showReminder" class="reminder">יש לך הזמנה ממתינה</div> -->
   <div class="images" [routerLink]="['/']"></div>
   <div class="content-body">
     <mat-card>
@@ -17,13 +17,7 @@
         >
           אודות
         </button>
-        <button
-          mat-menu-item
-          [routerLink]="['/about']"
-          style="color: rgb(0, 0, 0);"
-        >
-          סטטיסטיקות
-        </button>
+
         <button
           mat-menu-item
           [routerLink]="['/register']"
@@ -31,13 +25,7 @@
         >
           הרשם
         </button>
-        <button
-          mat-menu-item
-          [routerLink]="['/addShop']"
-          style="color: rgb(0, 0, 0);"
-        >
-          בעל חנות
-        </button>
+
         <!-- <button mat-menu-item>
         <mat-icon>dialpad</mat-icon>
         <span>Redial</span>

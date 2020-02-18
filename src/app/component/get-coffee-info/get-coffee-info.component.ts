@@ -9,23 +9,23 @@ import { of } from 'rxjs';
 })
 export class GetCoffeeInfoComponent implements OnInit {
   src$: any;
-  activeImage = 'assets/every.jpg';
-  impageList = ['assets/every.jpg', 'assets/balck back.jpg'];
+  activeImage = 'assets/info.jpg';
+  // impageList = ['assets/every.jpg', 'assets/balck back.jpg'];
   constructor() { }
 
 
   ngOnInit() {
-    this.setActiveImage(this.impageList);
+    // this.setActiveImage(this.impageList);
   }
 
-  setActiveImage(promotions) {
-    for (let i = 0; i <= promotions.length - 1; i++) {
-      setTimeout(() => {
-        // SET SRC TO FILE FROM PROMOTIONS
-        this.activeImage = promotions[i];
-    }, 3000);
+  // setActiveImage(promotions) {
+  //   for (let i = 0; i <= promotions.length - 1; i++) {
+  //     setTimeout(() => {
+  //       // SET SRC TO FILE FROM PROMOTIONS
+  //       this.activeImage = promotions[i];
+  //   }, 3000);
 
-    }
-  }
+  //   }
+  // }
 
 }

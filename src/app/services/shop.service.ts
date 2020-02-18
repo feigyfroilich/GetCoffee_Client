@@ -48,6 +48,7 @@ export class ShopService {
     return this.http.put(`http://localhost:8090/api/Shops/${shop.code}`, shop);
   }
   getReadyShopFromCircle(): any {
+    this.shopsinCircleReady = [];
     this.shopsinCircle.forEach(shop => {
       if (shop.status === true) {
         this.shopsinCircleReady.push(shop);

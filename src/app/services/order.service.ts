@@ -41,7 +41,7 @@ export class OrderService {
     order.ready = true;
     return this.http.put(`http://localhost:8090/api/Orders/${order.code}`, order);
   }
-  sendEmail(): any {
-    this.http.get(`http://localhost:8090/api/email`);
-  }
+  // sendEmail(): any {
+  //   this.http.get(`http://localhost:8090/api/email`);
+  // }
 }

@@ -6,7 +6,8 @@ import { ShopProduct } from 'src/app/classes/shopProduct';
 import { OrderItem } from 'src/app/classes/order-item';
 import { ShopsProductService } from 'src/app/services/shops-product.service';
 import { DatePipe, Time } from '@angular/common';
-
+import * as moment from "moment";
+// && difftime(order.deadline) <= 15
 @Component({
   selector: 'app-order-list',
   templateUrl: './order-list.component.html',
@@ -21,21 +22,25 @@ export class OrderListComponent implements OnInit {
   orderItemDict: { [id: number]: Array<OrderItem> } = {};
   orderItemNameDict: { [id: number]: Array<string> } = {};
   now: string;
+  selectedTime = moment(new Date()).format('HH:mm:ss');
   // _datePipe: DatePipe = new DatePipe('es-ES');
 
   constructor(private userService: UserService, private orderService: OrderService, private shopProductService: ShopsProductService) { }
 
   ngOnInit() {
-    this.now = new Date().getHours() + ':' + new Date().getMinutes() + ':' +  new Date().getSeconds();
-    console.log(this.now);
+    this.ordersList = [];
+    console.log(this.selectedTime);
     this.shopCode = this.userService.getShopId();
     this.orderService.getOrdersOfShop(this.shopCode).subscribe(res => {
       this.ordersList = res;
       console.log('order list', this.ordersList);
       this.numberOfOrders = this.ordersList.length;
+      let index = 0;
       this.ordersList.forEach(orderch => {
+        index++;
         if (orderch.ready === true) {
           this.numberOfOrders--;
+          this.ordersList.splice(index, 1);
         }
         // tslint:disable-next-line: max-line-length
         // let order_dead = orderch.deadline.getHours() + ':' + orderch.deadline.getMinutes() + ':' +  orderch.deadline.getSeconds();
@@ -83,19 +88,31 @@ export class OrderListComponent implements OnInit {
     console.log(index, this.ordersList);
     this.numberOfOrders--;
     this.orderService.updateOrderAsReady(order).subscribe();
-    this.orderService.sendEmail();
+    // this.orderService.sendEmail();
   }
-   dateCompare(time1,time2) {
+  dateCompare(time1, time2) {
     let t1 = new Date();
     let parts = time1.split(':');
-    t1.setHours(parts[0],parts[1],parts[2],0);
+    t1.setHours(parts[0], parts[1], parts[2], 0);
     let t2 = new Date();
     parts = time2.split(":");
-    t2.setHours(parts[0],parts[1],parts[2],0);
+    t2.setHours(parts[0], parts[1], parts[2], 0);
 
     // returns 1 if greater, -1 if less and 0 if the same
     if (t1.getTime() > t2.getTime()) { return 1; }
     if (t1.getTime() < t2.getTime()) { return -1; }
     return 0;
+  }
+  isDiffOk(orderDate: Date): boolean {
+    const diff = moment.utc(orderDate, 'HH:mm:ss').diff(moment.utc(this.selectedTime, 'HH:mm:ss'), 'minutes');
+    console.log('diff', diff);
+    if (diff < 15 && diff > 0) {
+      console.log('true');
+      return true;
+
+    } else {
+      return false;
+    }
+
   }
 }

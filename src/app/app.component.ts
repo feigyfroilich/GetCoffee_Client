@@ -1,13 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 import { MapsAPILoader } from "@agm/core";
-import { MatSnackBar } from "@angular/material";
-
-// import { } from 'googlemaps';
-// import { } from '@types/googlemaps';
-// import { google } from '@agm/core/services/google-maps-types';
-// import { ViewChild, ElementRef, NgZone, } from '@angular/core';
-// import { FormControl } from '@angular/forms';
-// import {} from 'googlemaps';
+import { MatSnackBar } from '@angular/material';
+import { interval } from 'rxjs';
+import { UserService } from './services/user.service';
+import { ShopsProductService } from './services/shops-product.service';
+import { OrderService } from './services/order.service';
 
 @Component({
   selector: "app-root",
@@ -17,13 +14,14 @@ import { MatSnackBar } from "@angular/material";
 export class AppComponent implements OnInit {
   title = "getCoffeeClient";
   showReminder = false;
-  constructor(private _snackBar: MatSnackBar) {}
+  Orderamount: number;
+  constructor(private _snackBar: MatSnackBar, private userService: UserService, private orderService: OrderService) {}
 
   ngOnInit() {
-    this.openSnackBar(
-      "יש לך הזמנה ממתינה, בעוד רבע שעה הלקוח מגיע תיזהר לא לפספס לקוחות זה הכסף שלך",
-      "הבנתי"
-    );
+    // this.openSnackBar(
+    //   "יש לך הזמנה ממתינה, בעוד רבע שעה הלקוח מגיע תיזהר לא לפספס לקוחות זה הכסף שלך",
+    //   "הבנתי"
+    // );
   }
 
   openSnackBar(message: string, action: string) {
@@ -33,4 +31,5 @@ export class AppComponent implements OnInit {
       verticalPosition: "top"
     });
   }
+
 }

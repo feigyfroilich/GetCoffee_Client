@@ -1,8 +1,8 @@
-<mat-card id="mat">יש {{numberOfOrders}} הזמנות ממתינות</mat-card>
+<!-- <mat-card id="mat">יש {{numberOfOrders}} הזמנות ממתינות</mat-card> -->
 
 <mat-accordion>
   <ng-container *ngFor="let order of ordersList" >
-  <mat-expansion-panel *ngIf="order.ready === false"  (opened)="panelOpenState = true"
+  <mat-expansion-panel *ngIf="order.ready === false && isDiffOk(order.deadline)"  (opened)="panelOpenState = true"
     (closed)="panelOpenState = false" >
     <mat-expansion-panel-header >
       <mat-panel-title>
