@@ -86,9 +86,18 @@ mat-card-actions {
   width: 100% !important;
   box-sizing: 0 !important;
   font-family: Roboto, "Helvetica Neue", sans-serif !important;
-  font-size: 22px !important;
+  font-size: 20px !important;
   padding-top: 7px !important;
   padding-bottom: 7px !important;
+}
+
+.mat-stroked-button {
+  width: 100% !important;
+  font-family: Roboto, "Helvetica Neue", sans-serif !important;
+  padding-top: 7px !important;
+  padding-bottom: 7px !important;
+  box-sizing: 0 !important;
+  font-size: 20px !important;
 }
 
 ::placeholder {
@@ -141,10 +150,19 @@ mat-drawer-container {
 mat-drower {
   background: black !important;
 }
-.mat-drawer-inner-container {
+.grid {
   display: grid;
   grid-gap: 20px;
-  width: 39vw !important;
+  justify-content: center;
+}
+
+.diff-btn {
+  background: gray !important;
+  color: black !important;
+}
+
+.profileImg {
+  font-size: 100px !important;
 }
 
 .mat-drawer-side {

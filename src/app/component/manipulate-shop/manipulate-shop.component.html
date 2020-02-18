@@ -1,64 +1,67 @@
-<mat-drawer-container color="primary" autosize>
-  <mat-drawer #drawer mode="side">
-    <button
-      mat-raised-button
+<div class="grid" *ngIf="!showMainButton">
+  <button
+    class="diff-btn"
+    mat-button
+    color="primary"
+    (click)="[navi('addShop/products'), (showMainButton = true)]"
+    mat-button
+  >
+    השהה/הפעל הזמנת מוצרים
+  </button>
+  <button
+    class="diff-btn"
+    mat-button
+    color="primary"
+    (click)="[navi('addShop/addProducts'), (showMainButton = true)]"
+    mat-button
+  >
+    הוסף מוצר לחנות
+  </button>
+  <button
+    class="diff-btn"
+    mat-button
+    color="primary"
+    (click)="[navi('addShop/addCategory'), (showMainButton = true)]"
+    mat-button
+  >
+    הוסף קטגוריה
+  </button>
+  <button
+    class="diff-btn"
+    mat-button
+    color="primary"
+    (click)="[navi('addShop/manageShop'), (showMainButton = true)]"
+    mat-button
+  >
+    השהה/הפעל חנות
+  </button>
+  <!-- <button class="diff-btn"
+      mat-button
       color="primary"
-      (click)="[navi('addShop/products'), drawer.toggle()]"
-      mat-raised-button
-    >
-      השהה/הפעל הזמנת מוצרים
-    </button>
-    <button
-      mat-raised-button
-      color="primary"
-      (click)="[navi('addShop/addProducts'), drawer.toggle()]"
-      mat-raised-button
-    >
-      הוסף מוצר לחנות
-    </button>
-    <button
-      mat-raised-button
-      color="primary"
-      (click)="[navi('addShop/addCategory'), drawer.toggle()]"
-      mat-raised-button
-    >
-      הוסף קטגוריה
-    </button>
-    <button
-      mat-raised-button
-      color="primary"
-      (click)="[navi('addShop/manageShop'), drawer.toggle()]"
-      mat-raised-button
-    >
-      השהה/הפעל חנות
-    </button>
-    <!-- <button
-      mat-raised-button
-      color="primary"
-      (click)="[print(), drawer.toggle()]"
-      mat-raised-button
+      (click)="[print(), showMainButton = true]"
+      mat-button
     >
       מחק מוצר מחנות
     </button> -->
-    <button
-      mat-raised-button
-      color="primary"
-      (click)="[print(), drawer.toggle()]"
-      mat-raised-button
-    >
-      צפה בהזמנות
-    </button>
-  </mat-drawer>
-  <div class="example-sidenav-content">
-    <button
-      mat-raised-button
-      color="primary"
-      type="button"
-      mat-button
-      (click)="[navi('addShop/orders'), drawer.toggle()]"
-    >
-      ניהול חנות
-    </button>
-    <router-outlet></router-outlet>
-  </div>
-</mat-drawer-container>
+  <button
+    class="diff-btn"
+    mat-button
+    color="primary"
+    (click)="[print(), (showMainButton = true)]"
+  >
+    צפה בהזמנות
+  </button>
+</div>
+<div class="example-sidenav-content" *ngIf="showMainButton">
+  <button
+    mat-stroked-button
+    color="primary"
+    type="button"
+    (click)="[navi('addShop/orders'), (showMainButton = false)]"
+  >
+    ניהול חנות
+    <mat-icon matSuffix> shop</mat-icon>
+  </button>
+  <br />
+  <router-outlet></router-outlet>
+</div>

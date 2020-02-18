@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { ShopProductViewComponent } from "../shop-product-view/shop-product-view.component";
 import { ShopProduct } from "src/app/classes/shopProduct";
@@ -35,16 +35,18 @@ import * as moment from "moment";
 
 //   matcher = new MyErrorStateMatcher();
 // }
-export class OrderComponent implements OnInit {
+export class OrderComponent implements OnInit, OnDestroy {
+  ngOnDestroy(): void {
+    this.shopsProductService.orderCode = null;
+  }
   now: Date;
   userProduct: Array<ShopProduct>;
-  orderCode = 0;
   email: string;
   selectedTime = moment(new Date()).format("HH:mm");
   constructor(
     private route: ActivatedRoute,
     private atp: AmazingTimePickerService,
-    private shopsProductService: ShopsProductService
+    public shopsProductService: ShopsProductService
   ) {}
   ngOnInit() {
     // tslint:disable-next-line: only-arrow-functions
@@ -65,7 +67,7 @@ export class OrderComponent implements OnInit {
     this.shopsProductService.addRemoveProductToUser(product);
   }
   sendToShop(): any {
-    this.orderCode = this.shopsProductService.sendOrtderToShop(
+    this.shopsProductService.sendOrtderToShop(
       this.shopsProductService.userProducts,
       this.email,
       this.selectedTime

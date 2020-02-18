@@ -1,16 +1,25 @@
 .profileImg {
-  width: 498px;
-  height: 223px;
-  background: url(../../../assets/פרופיל.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: absolute;
-  background-position: center;
-  top: 25px;
-  margin: auto;
-  right: 0;
-  left: 0;
+  // width: 100px;
+  // height: 100px;
+  // font-size: 30px;
+  // background: url(../../../assets/פרופיל.svg);
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // position: absolute;
+  // background-position: center;
+  // top: 25px;
+  // margin: auto;
+  // right: 0;
+  // left: 0;
 }
 .space {
-  height: 52px;
+  height: 80px;
+}
+
+.displ {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  width: 100%;
+  padding-right: 24px;
 }

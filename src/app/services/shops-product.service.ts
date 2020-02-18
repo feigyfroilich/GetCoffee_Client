@@ -18,6 +18,7 @@ export class ShopsProductService {
   userProduct: ShopProduct;
   orderItem: OrderItem;
   shopInCircle: Array<any> = [];
+  orderCode: number = null;
   constructor(private http: HttpClient, private orderService: OrderService) {}
 
   getAllShopProducts(shopCode: number): Observable<ShopProduct[]> {
@@ -88,7 +89,8 @@ export class ShopsProductService {
     let orderCode: number;
     console.log("order-products", products);
     this.orderService.postOrderToDB(order1).subscribe(res => {
-      orderCode = res;
+      orderCode = res.code;
+      this.orderCode = orderCode;
       products.forEach(x => {
         this.orderItem = new OrderItem({
           Code: 0,
