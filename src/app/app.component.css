@@ -1,5 +1,3 @@
-// @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-
 .images {
   width: 100%;
   height: 224px;
@@ -8,17 +6,14 @@
   background-size: cover;
   margin-top: -83px;
 }
-
 .content-body {
   background: "black";
 }
-
 .wrapper-all {
   max-width: 500px;
   width: 100%;
   margin: auto;
 }
-
 .reminder {
   max-width: 500px;
   margin: auto;

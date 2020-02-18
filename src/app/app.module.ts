@@ -12,7 +12,8 @@ import { MatGoogleMapsAutocompleteModule } from "@angular-material-extensions/go
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatListModule } from "@angular/material/list";
 import { MatCheckboxModule } from "@angular/material/checkbox";
-import {MatTreeModule} from '@angular/material/tree';
+import { MatTreeModule } from "@angular/material/tree";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 import {
   MatButtonModule,
   MatFormFieldModule,
@@ -44,7 +45,7 @@ import { RegisterComponent } from "./component/register/register.component";
 import { NewShopComponent } from "./component/new-shop/new-shop.component";
 import { AgmDirectionModule } from "agm-direction";
 import { MatRadioModule } from "@angular/material";
-import {  ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from "@angular/forms";
 import { AddShopProductComponent } from "./component/add-shop-product/add-shop-product.component";
 import { ManageShopComponent } from "./component/manage-shop/manage-shop.component";
 import { OrderListComponent } from "./component/order-list/order-list.component";
@@ -92,6 +93,7 @@ import { AmazingTimePickerModule } from "amazing-time-picker";
     MatCardModule,
     MatSidenavModule,
     CustomMaterialModule,
+    MatSnackBarModule,
     FormsModule,
     MatGoogleMapsAutocompleteModule,
     AgmCoreModule.forRoot({
