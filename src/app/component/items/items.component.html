@@ -3,29 +3,39 @@
     {{product.name}}
   </mat-checkbox>
 </p> -->
-  <!-- *ngFor="let shop of shopsInCircle" > -->
-  <!-- <mat-checkbox class="example-section" *ngFor="let shop of shopsInCircle"  >{{shop.name}}</mat-checkbox> -->
-  <mat-card *ngIf="shopsInCircle.length == 0">אין חנויות לאזור זה</mat-card>
-  <mat-radio-group aria-label="Select an option" [(ngModel)]="chosen">
-    <p></p>
-    <div *ngFor="let shop of shopsInCircle">
-    <mat-radio-button  (click)="click()" *ngIf="shop.status == true"
+<!-- *ngFor="let shop of shopsInCircle" > -->
+<!-- <mat-checkbox class="example-section" *ngFor="let shop of shopsInCircle"  >{{shop.name}}</mat-checkbox> -->
+<mat-card *ngIf="shopsInCircle.length == 0">אין חנויות לאזור זה</mat-card>
+<mat-radio-group aria-label="Select an option" [(ngModel)]="chosen">
+  <p></p>
+  <div *ngFor="let shop of shopsInCircle">
+    <mat-radio-button
+      (click)="click()"
+      *ngIf="shop.status == true"
       color="primary"
-      value="{{shop.code}}"
-      name="{{shop.name}}"
+      value="{{ shop.code }}"
+      name="{{ shop.name }}"
       ngDefaultControl
-      >{{shop.name}}</mat-radio-button></div>
-  </mat-radio-group>
+      >{{ shop.name }}</mat-radio-button
+    >
+  </div>
+</mat-radio-group>
 <p></p>
-  <mat-selection-list >
-    <div *ngFor="let product of shopItemsNameDict[chosen]" (click)="add_to_item(product.productCode)">
-    <mat-list-option *ngIf="product.status == true" >
-      {{product.name}}
-    </mat-list-option></div>
-  </mat-selection-list>
+<mat-selection-list>
+  <div
+    *ngFor="let product of shopItemsNameDict[chosen]"
+    (click)="add_to_item(product.productCode)"
+  >
+    <mat-list-option *ngIf="product.status == true">
+      {{ product.name }}
+    </mat-list-option>
+  </div>
+</mat-selection-list>
 
-  <!-- <p *ngIf="shopsInCircle.length > 0">
+<!-- <p *ngIf="shopsInCircle.length > 0">
     Options selected: {{shoes.selectedOptions.selected.length}}
   </p> -->
 
-<button mat-raised-button (click)="order()" dir="rtl" style="color: black;">הזמן</button>
+<button mat-raised-button (click)="order()" dir="rtl" style="color: black;">
+  הזמן
+</button>

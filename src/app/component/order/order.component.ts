@@ -1,16 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ShopProductViewComponent } from '../shop-product-view/shop-product-view.component';
-import { ShopProduct } from 'src/app/classes/shopProduct';
-import { ShopsProductService } from 'src/app/services/shops-product.service';
-import { OrderService } from 'src/app/services/order.service';
-import { FormControl, Validators, FormGroupDirective, NgForm} from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { ShopProductViewComponent } from "../shop-product-view/shop-product-view.component";
+import { ShopProduct } from "src/app/classes/shopProduct";
+import { ShopsProductService } from "src/app/services/shops-product.service";
+import { OrderService } from "src/app/services/order.service";
+import {
+  FormControl,
+  Validators,
+  FormGroupDirective,
+  NgForm
+} from "@angular/forms";
+import { ErrorStateMatcher } from "@angular/material";
+import { AmazingTimePickerService } from "amazing-time-picker";
+import * as moment from "moment";
 
 @Component({
-  selector: 'app-order',
-  templateUrl: './order.component.html',
-  styleUrls: ['./order.component.scss']
+  selector: "app-order",
+  templateUrl: "./order.component.html",
+  styleUrls: ["./order.component.scss"]
 })
 
 // export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -33,31 +40,57 @@ export class OrderComponent implements OnInit {
   userProduct: Array<ShopProduct>;
   orderCode = 0;
   email: string;
-  constructor(private route: ActivatedRoute, private shopsProductService: ShopsProductService) { }
+  selectedTime = moment(new Date()).format("HH:mm");
+  constructor(
+    private route: ActivatedRoute,
+    private atp: AmazingTimePickerService,
+    private shopsProductService: ShopsProductService
+  ) {}
   ngOnInit() {
     // tslint:disable-next-line: only-arrow-functions
     // o: number;
     // duration: number;
-    this.now = new Date();
     this.userProduct = this.shopsProductService.userProducts;
-    console.log('products in order', this.userProduct);
-    this.now = new Date();
-    const max = this.userProduct.reduce((prev, current) => (prev.duration > current.duration) ? prev : current);
-    const maxMin = +max.duration.toLocaleString().split(':')[0];
-    this.now.setMinutes(this.now.getMinutes() + maxMin);
-    console.log('c', maxMin);
+    console.log("products in order", this.userProduct);
+    const max = this.userProduct.reduce((prev, current) =>
+      prev.duration > current.duration ? prev : current
+    );
+    console.log("max", max);
+
+    const maxMin = +max.duration.toLocaleString().split(":")[0];
+    // this.now.setMinutes(this.now.getMinutes() + maxMin);
+    // console.log("c", maxMin);
   }
   remove(product: any): any {
     this.shopsProductService.addRemoveProductToUser(product);
   }
   sendToShop(): any {
+    this.orderCode = this.shopsProductService.sendOrtderToShop(
+      this.shopsProductService.userProducts,
+      this.email,
+      this.selectedTime
+    );
+  }
 
-    this.orderCode = this.shopsProductService.sendOrtderToShop(this.shopsProductService.userProducts, this.email);
+  open() {
+    const amazingTimePicker = this.atp.open({
+      time: this.selectedTime,
+      theme: "dark",
+      arrowStyle: {
+        background: "orange",
+        color: "white"
+      },
+      locale: "he",
+      preference: {
+        labels: {
+          ok: "בחר",
+          cancel: "חזור"
+        }
+      }
+    });
+    amazingTimePicker.afterClose().subscribe(time => {
+      this.selectedTime = time;
+      console.log(time);
+    });
   }
 }
-
-
-
-
-
-

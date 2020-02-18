@@ -11,16 +11,6 @@
     />
   </mat-form-field>
 </div>
-<!-- <mat-google-maps-autocomplete
-    [appearance]="appearance.OUTLINE"
-    (onAutocompleteSelected)="onAutocompleteSelected($event)"
-    (onLocationSelected)="onOriginLocationSelected($event)"
-    placeholderText=":כתובת מקור"
-    requiredErrorText="יש לבחור כתובת"
-    invalidErrorText="כתובת לא חוקית"
-    [country]="il"
-  >
-  </mat-google-maps-autocomplete>-->
 <div>
   <mat-form-field [appearance]="appearance.OUTLINE">
     <input
@@ -34,7 +24,6 @@
     />
   </mat-form-field>
 </div>
-
 <div>
   <agm-map
     [latitude]="latitude"
@@ -44,21 +33,30 @@
   >
     <agm-marker
       [label]="{
-        color: 'black',
+        text: s.name,
+        fontSize: '10px',
         fontWeight: 'bold',
-        text: 'אני כאן'
+        padding: '30 20 0 0'
       }"
-      [latitude]="latitude"
-      [longitude]="longitude"
-    >
-    </agm-marker>
-    <agm-marker
       *ngFor="let s of shops"
-      [label]="s.name"
       [latitude]="s.latitude"
       [longitude]="s.longitude"
+      [iconUrl]="{
+        url: '../../../assets/סמל_1.jpg',
+        scaledSize: { height: 35, width: 40 }
+      }"
     >
-      <agm-info-window [disableAutoPan]="true">WOW</agm-info-window>
+      <!-- [label]="{ text: s.name, color: 'white' }" -->
+      <!-- labelOrigin: { x: 22.5, y: 20 }, -->
+      <!-- [disableAutoPan]="true"  -->
+      <agm-info-window>
+        <div>
+          {{ s.name }}
+        </div>
+        <div>
+          {{ s.location }}
+        </div>
+      </agm-info-window>
     </agm-marker>
     <agm-direction
       *ngIf="origin && destination"
@@ -79,10 +77,7 @@
   </agm-map>
 </div>
 
-
-
 <br /><br />
 <button mat-raised-button color="primary" (click)="selectItems()">
   המשך להזמנה
 </button>
-
